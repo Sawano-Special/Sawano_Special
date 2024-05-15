@@ -1,12 +1,17 @@
 package MainServlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DTO.DTO;
+import utils.DBUtils;
 
 /**
  * Servlet implementation class Main
@@ -27,8 +32,12 @@ public class Main extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+        EntityManager em = DBUtils.createEntityManager();
+
+        List<DTO> hero = em.createNamedQuery("getAllMessages", DTO.class).getResultList();
+        response.getWriter().append(Integer.valueOf(hero.size()).toString());
+
+        em.close();
     }
 
     /**
