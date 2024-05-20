@@ -11,6 +11,7 @@
             <h2>次の挑戦</h2>
 
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
+            <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
             <form action="${pageContext.request.contextPath}/StageSelect" method="get">
                 <button type="submit">ステージ選択画面に戻る（CV澤野）</button>
             </form>
