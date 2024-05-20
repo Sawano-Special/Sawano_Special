@@ -6,18 +6,13 @@
         <title>RPG</title>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="header">
-                <h1>ここから始まる</h1>
-                <h2>新しい挑戦</h2>
+        <div id="header">
+            <h1>ここから始まる</h1>
+            <h2>新しい挑戦</h2>
 
-                <form action="battle1.jsp" method="get">
+            <form action="views/battle1.jsp" method="get">
                 <button type="submit">バトル1へ挑戦だ！（CV澤野）</button>
-                </form>
-
-            </div>
-
-            </div>
+            </form>
         </div>
     </body>
 </html>
