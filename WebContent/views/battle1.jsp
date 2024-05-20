@@ -10,8 +10,8 @@
             <h1>今から始まる</h1>
             <h2>次の挑戦</h2>
 
-            <!-- action属性をStageSelectサーブレットのパスに修正 -->
-            <form action="StageSelect" method="get">
+            <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
+            <form action="${pageContext.request.contextPath}/StageSelect" method="get">
                 <button type="submit">ステージ選択画面に戻る（CV澤野）</button>
             </form>
 
