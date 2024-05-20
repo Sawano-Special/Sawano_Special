@@ -3,19 +3,43 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>RPG</title>
+        <title>対戦画面</title>
+        <link rel="stylesheet" href="battle1style.css">
     </head>
     <body>
-        <div id="header">
-            <h1>今から始まる</h1>
-            <h2>次の挑戦</h2>
+           <div class="layer">
+
+           <div class="textbox">ここにテキストを表示</div>
+
+
+           <div class="enemy">
+            <!-- 相手のポケモンの画像をここに配置 -->
+            <img src="Sample.jpg" alt="相手のポケモン"class="enemy-img" >
+            <p>HP: 70/100</p>
+           </div>
+
+           <div class="player">
+            <!-- 自分のポケモンの画像をここに配置 -->
+            <img src="Sample1.jpg" alt="自分のポケモン"class="player-img">
+            <p>HP: 50/100</p>
+            </div>
+            <div class="attack">
+            <button>攻撃する</button>
+            </div>
+            <div class="recover">
+            <button>回復する</button>
+            </div>
+            <div class="escape">
+            <button>逃げる</button>
+            </div>
 
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
             <form action="${pageContext.request.contextPath}/StageSelect" method="get">
-                <button type="submit">ステージ選択画面に戻る（CV澤野）</button>
+                <button type="submit">ステージ選択画面に戻る</button>
             </form>
 
-        </div>
+            </div>
+
     </body>
 </html>
