@@ -11,7 +11,7 @@
             <h2>新しい挑戦</h2>
 
             <form action="views/battle1.jsp" method="get">
-                <button type="submit">バトル1へ挑戦だ！（CV澤野）</button>
+                <button type="submit">バトル1へ挑戦だ！</button>
             </form>
         </div>
     </body>
