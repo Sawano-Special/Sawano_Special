@@ -15,6 +15,7 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getAllMessages",
         query = "SELECT d FROM DTO AS d ORDER BY d.id DESC"
+
     )
 })
 @Table(name = "hero")
@@ -32,6 +33,17 @@ public class DTO {
 
     @Column(name = "attack_value")
     private int attack_value;
+
+
+
+    public DTO(String name, int level, int attack_value) {
+        super();
+        this.name = name;
+        this.level = level;
+        this.attack_value = attack_value;
+    }
+    public DTO() {
+    }
 
     public Integer getId() {
         return id;

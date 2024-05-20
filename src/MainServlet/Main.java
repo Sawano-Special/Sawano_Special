@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DTO.DTO;
+import sql_setting.Sql_create;
 import utils.DBUtils;
 
 /**
@@ -26,6 +27,8 @@ public class Main extends HttpServlet {
     public Main() {
         super();
         // TODO Auto-generated constructor stub
+                Sql_create.sql_create();
+
     }
 
     /**
