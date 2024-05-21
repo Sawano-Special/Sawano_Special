@@ -13,15 +13,12 @@ public Hero(int id,String name,int level,int attack_value) {
 
     }
 
-    public int attack(int attack_value) {
+    public int attack() {
 
         int damege = a.getAttack_value();
         System.out.println( a.getName() +"は" + damege +"のダメージを与えた");
-        int num = attack_value * 10;
 
-        //return damege;
-        return attack_value;
-
+        return damege;
     }
 
 }
