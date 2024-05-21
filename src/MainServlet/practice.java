@@ -40,7 +40,7 @@ public class practice extends HttpServlet {
 
         int result = hero.attack(100);
 
-        request.setAttribute("result", result);
+        request.setAttribute("result",result);
         RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
         System.out.println(result);
         rd.forward(request, response);
