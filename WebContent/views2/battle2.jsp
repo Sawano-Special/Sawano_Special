@@ -35,6 +35,7 @@
 
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
+            <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
             <form action="${pageContext.request.contextPath}/StageSelect" method="get">
                 <button type="submit">ステージ選択画面に戻る</button>
             </form>
