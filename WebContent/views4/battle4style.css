@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.layer{
+  /* 背景画像設定 */
+  background: url(./battle-background.png) no-repeat 0 0;
+  background-size: 100%;
+  /* ボックス配置指定 */
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  /* ボックスサイズ指定 */
+  width: 1000px;
+  height: 600px;
+}
+
+/* 重ねるボックスの設定 */
+.enemy{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 10px;
+  left:600px;
+}
+
+/* 重ねるボックスの設定 */
+.player{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 330px;
+  left:100px;
+}
+
+/* 敵キャラの基本設定 */
+.enemy-img{
+  width: 300px;
+  height: auto;
+}
+
+/* 自分キャラの基本設定 */
+.player-img{
+  width: 300px;
+  height: auto;
+}
+
+.attack button {
+    position: absolute;
+    right: 820px; /* 右からの距離を調整 */
+    bottom: 10px; /* 下からの距離を調整 */
+    display: block; /* ブロックレベル要素として扱う */
+    margin-bottom: 10px; /* ボタン間のマージンを設定 */
+}
+
+.recover button{
+    position: absolute;
+    right: 710px; /* 右からの距離を調整 */
+    bottom: 10px; /* 下からの距離を調整 */
+    display: block; /* ブロックレベル要素として扱う */
+    margin-bottom: 10px; /* ボタン間のマージンを設定 */
+}
+
+.escape button{
+    position: absolute;
+    right: 610px; /* 右からの距離を調整 */
+    bottom: 10px; /* 下からの距離を調整 */
+    display: block; /* ブロックレベル要素として扱う */
+    margin-bottom: 10px; /* ボタン間のマージンを設定 */
+}
+
+.textbox {
+    position: absolute;
+    width: 30%; /* テキストボックスの幅 */
+    height: 100px; /* テキストボックスの高さ */
+    top: 60%;
+    left: 50%;
+    transform: translate(0%, 0%); /* 中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* テキストボックスの境界線 */
+}
+
+button {
+    position: absolute;
+    right: 0px; /* 右からの距離を調整 */
+    bottom: 0px; /* 下からの距離を調整 */
+}
+
+p{
+    color:red;
+}
