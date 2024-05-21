@@ -1,7 +1,7 @@
 package test;
 import DTO.DTO;
 
-public class Hero  {
+public class Hero extends DTO  {
 
     DTO a = new DTO();
 public Hero(int id,String name,int level,int attack_value) {
@@ -13,12 +13,14 @@ public Hero(int id,String name,int level,int attack_value) {
 
     }
 
-    public int attack(int id) {
+    public int attack(int attack_value) {
 
         int damege = a.getAttack_value();
         System.out.println( a.getName() +"は" + damege +"のダメージを与えた");
+        int num = attack_value * 10;
 
-        return damege;
+        //return damege;
+        return attack_value;
 
     }
 

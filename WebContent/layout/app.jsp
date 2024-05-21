@@ -11,7 +11,7 @@
             <h1>ここから始まる</h1>
             <h2>新しい挑戦</h2>
 
-            <form action="views1/battle1.jsp" method="get">
+            <form action="${pageContext.request.contextPath}/practice" method="get">
                 <button type="submit">バトル1へ挑戦だ！</button>
             </form>
             <a href="views2/battle2.jsp">

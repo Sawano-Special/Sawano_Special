@@ -9,7 +9,7 @@
     <body>
            <div class="layer">
 
-           <div class="textbox">ここにテキストを表示</div>
+           <div class="textbox">主人公は <c:out value="${result }" />ダメージを与えた</div>
 
 
            <div class="enemy">
