@@ -2,6 +2,7 @@ package MainServlet;
 
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DTO.DTO;
 import test.Hero;
+import utils.DBUtils;
 
 /**
  * Servlet implementation class practice
@@ -31,14 +34,17 @@ public class practice extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //EntityManagerのオブジェクトを生成
+        EntityManager em = DBUtils.createEntityManager();
 
-        Hero hero = new Hero(1,"立浪",150,100);
+        DTO dto = em.find(DTO.class, 1);
+
+        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getAttack_value());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
-        //EntityManager a = DBUtils.createEntityManager();
 
 
-        int result = hero.attack(100);
+        int result = hero.attack();
 
         request.setAttribute("result",result);
         RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
