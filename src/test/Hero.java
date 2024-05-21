@@ -1,7 +1,7 @@
 package test;
 import DTO.DTO;
 
-public class Hero extends Character  {
+public class Hero  {
 
     DTO a = new DTO();
 public Hero(int id,String name,int level,int attack_value) {
