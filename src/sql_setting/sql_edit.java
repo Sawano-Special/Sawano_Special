@@ -8,7 +8,7 @@ import DTO.DTO;
 
 public class sql_edit {
 
-    public static  void sql_create() {
+    public static  void sql_edit() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Sawano_special");
         EntityManager em = emf.createEntityManager();
 
