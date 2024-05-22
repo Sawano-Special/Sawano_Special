@@ -3,7 +3,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="appstyle.css">
+        <link rel="stylesheet" href="layout/appstyle.css">
         <title>RPG</title>
     </head>
     <body>
