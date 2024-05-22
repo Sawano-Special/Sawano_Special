@@ -19,7 +19,7 @@
 
             <div class="stage2">
             <a href="views2/battle2.jsp">
-            <img src="battele-background.jpg" alt="battele-background.jpg"class="stage2-img" >
+            <img src="layout/battle-background1.jpg" alt="ステージ２"class="stage2-img" >
             </a>
             </div>
 
