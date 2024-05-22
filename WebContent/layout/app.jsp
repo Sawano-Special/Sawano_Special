@@ -7,19 +7,25 @@
         <title>RPG</title>
     </head>
     <body>
-        <div id="header">
+    <div class="layer">
+
             <h1>ここから始まる</h1>
             <h2>新しい挑戦</h2>
+
 
             <form action="${pageContext.request.contextPath}/practice" method="get">
                 <button type="submit">バトル1へ挑戦だ！</button>
             </form>
+
+            <div class="stage2">
             <a href="views2/battle2.jsp">
-            <img src="battle-background.png" alt="バトル2へ挑戦だ！">
+            <img src="battele-background.jpg" alt="battele-background.jpg"class="stage2-img" >
             </a>
-            <form action="views3/battle3.jsp" method="get">
-                <button type="submit">バトル3へ挑戦だ！</button>
-            </form>
+            </div>
+
+            <a href="views3/battle3.jsp">
+            <img src="<c:url value='/layout/battle-background1.jpg' />" alt="バトル3へ挑戦だ！">
+            </a>
             <form action="views3/battle3.jsp" method="get">
                 <button type="submit">バトル4へ挑戦だ！</button>
             </form>

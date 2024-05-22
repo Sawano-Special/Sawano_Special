@@ -31,7 +31,9 @@
             <button>回復する</button>
             </div>
             <div class="escape">
-            <button>逃げる</button>
+            <form action="${pageContext.request.contextPath}/StageSelect" method="get">
+                <button type="submit">逃げる</button>
+            </form>
             </div>
 
             <!-- action属性をサーブレットのコンテキストパスとURLパターンに修正 -->
