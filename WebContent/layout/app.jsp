@@ -14,7 +14,9 @@
 
 
             <form action="${pageContext.request.contextPath}/practice" method="get">
-                <button type="submit">バトル1へ挑戦だ！</button>
+            <a href="views1/battle1.jsp">
+            <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
+            </a>
             </form>
 
             <div class="stage2">
