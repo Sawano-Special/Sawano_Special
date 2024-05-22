@@ -17,7 +17,7 @@ public class sql_edit {
             // 該当のIDのメッセージ1件のみをデータベースから取得
             int id=1;   //ここに変更するidを入力
             DTO d = em.find(DTO.class, id);
-            DTO d2 = em.find(DTO.class, 2);
+            //DTO d2 = em.find(DTO.class, 2);
 
             if (d != null) {
                 // 新しいの設定
@@ -25,10 +25,10 @@ public class sql_edit {
                 d.setDefence(1);
                 d.setFinish_ward("最強のたつのりさまだ");
                 d.setHp(1);
-                d2.setSpeed(2000);
-                d2.setDefence(1500);
-                d2.setFinish_ward("どうも、ミスタードラゴンズの立浪です。");
-                d2.setHp(10000);
+                //d2.setSpeed(2000);
+                //d2.setDefence(1500);
+                //d2.setFinish_ward("どうも、ミスタードラゴンズの立浪です。");
+                //d2.setHp(10000);
                 // 変更をコミット
                 em.getTransaction().commit();
                 System.out.println("データの更新が完了しました。");
