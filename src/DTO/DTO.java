@@ -20,6 +20,53 @@ import javax.persistence.Table;
 })
 @Table(name = "hero")
 public class DTO {
+    public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp) {
+        super();
+        this.name = name;
+        this.level = level;
+        this.defence = defence;
+        this.speed = speed;
+        this.finish_ward = finish_ward;
+        this.attack_value = attack_value;
+        this.hp = hp;
+    }
+    public int getDefence() {
+        return defence;
+    }
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+    public String getFinish_ward() {
+        return finish_ward;
+    }
+    public void setFinish_ward(String finish_ward) {
+        this.finish_ward = finish_ward;
+    }
+    public int getHp() {
+        return hp;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    public DTO(Integer id, String name, int level, int defence, int speed, String finish_ward, int attack_value,
+            int hp) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.level = level;
+        this.defence = defence;
+        this.speed = speed;
+        this.finish_ward = finish_ward;
+        this.attack_value = attack_value;
+        this.hp = hp;
+    }
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +78,20 @@ public class DTO {
     @Column(name = "Level")
     private int level;
 
+    @Column(name = "defence")
+    private int defence;
+
+    @Column(name = "speed")
+    private int speed;
+
+    @Column(name = "finish_ward")
+    private String finish_ward;
+
     @Column(name = "attack_value")
     private int attack_value;
+
+    @Column(name = "hp")
+    private int hp;
 
 
 
