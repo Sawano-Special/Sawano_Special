@@ -44,12 +44,18 @@ public class practice extends HttpServlet {
 
 
 
-        int result = hero.attack();
+        int attack = hero.attack();
 
-        request.setAttribute("result",result);
+        String name = dto.getName();
+
+        request.setAttribute("name",name);
+        request.setAttribute("attack",attack);
         RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-        System.out.println(result);
+        System.out.println(name);
         rd.forward(request, response);
+
+        request.setAttribute("attack",attack);
+        System.out.println(attack);
     }
 
 }
