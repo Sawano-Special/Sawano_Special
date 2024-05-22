@@ -61,4 +61,42 @@ public class practice extends HttpServlet {
 //        System.out.println(attack);
     }
 
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+        //EntityManagerのオブジェクトを生成
+        EntityManager em = DBUtils.createEntityManager();
+
+        DTO dto = em.find(DTO.class, 1);
+
+        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getAttack_value());
+       // response.getWriter().append("Served at: ").append(request.getContextPath());
+
+
+
+        String name = dto.getName();
+        int attack = hero.attack();
+
+        System.out.println(name);
+        System.out.println(attack);
+
+
+        request.setAttribute("name",name);
+        request.setAttribute("attack",attack);
+
+
+        RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+        rd.forward(request, response);
+//        System.out.println(name);
+//        System.out.println(attack);
+
+
+
+
+    }
+
 }
