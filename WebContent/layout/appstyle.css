@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.layer{
+  /* 背景画像設定 */
+  background: url(./battle-background.png) no-repeat 0 0;
+  background-size: 100%;
+  /* ボックス配置指定 */
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  /* ボックスサイズ指定 */
+  width: 1000px;
+  height: 600px;
+}
+
+/* 重ねるボックスの設定 */
+.enemy{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 10px;
+  left:600px;
+}
+
+/* 重ねるボックスの設定 */
+.player{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 330px;
+  left:100px;
+}
+
+/* 敵キャラの基本設定 */
+.stage2-img{
+  width: 300px;
+  height: auto;
+}
+
+/* 自分キャラの基本設定 */
+.player-img{
+  width: 300px;
+  height: auto;
+}

@@ -18,6 +18,8 @@ public class Sql_create {
             //以下に新しいHEROを作成
             //例 >> DTO d = new DTO("名前", レベル（int), 攻撃力(int));
             DTO tatsu = new DTO("tatsunori",1,3);
+            DTO koki= new DTO("sawanokoki",100,110000);
+            //ここで入れれば入る
 
             em.persist(tatsu);
             em.getTransaction().commit();
