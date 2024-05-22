@@ -10,7 +10,7 @@
     <body>
            <div class="layer">
 
-           <div class="textbox">${name }は${attack }ダメージを与えた！！</div>
+           <div class="textbox"><c:out value="${name}" />は<c:out value="${attack}" />ダメージを与えた！！</div>
 
 
            <div class="enemy">

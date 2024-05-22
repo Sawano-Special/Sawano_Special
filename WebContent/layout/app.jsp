@@ -13,8 +13,12 @@
             <h2>新しい挑戦</h2>
 
 
-            <form action="${pageContext.request.contextPath}/practice" method="get">
-            <a href="views1/battle1.jsp">
+            <form action="${pageContext.request.contextPath}/practice" method="POST">
+
+
+                <button type="submit">バトル1へ挑戦だ！</button>
+            </form>
+
             <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
             </a>
             </form>
