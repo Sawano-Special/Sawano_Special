@@ -14,9 +14,9 @@
 
 
             <form method="POST" action= "${pageContext.request.contextPath}/practice">
-            <a href="practice">
+              <button type="submit" style="border: none; background: none;">
             <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
-            </a>
+             </button>
             </form>
 
             <div class="stage2">
