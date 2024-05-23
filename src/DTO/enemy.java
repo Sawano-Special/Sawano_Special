@@ -1,6 +1,5 @@
 package DTO;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,28 +12,22 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
     @NamedQuery(
-        name = "getAllhero",
-        query = "SELECT d FROM DTO AS d ORDER BY d.id DESC"
+        name = "getAllenemy",
+        query = "SELECT e FROM enemy AS e ORDER BY e.id DESC"
 
     )
 })
-@Table(name = "hero")
-public class DTO {
-    public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp) {
+@Table(name = "enemy")
+public class enemy {
+    public enemy(String name, int level, int speed, String finish_ward, int attack_value, int hp) {
         super();
         this.name = name;
         this.level = level;
-        this.defence = defence;
         this.speed = speed;
         this.finish_ward = finish_ward;
         this.attack_value = attack_value;
         this.hp = hp;
-    }
-    public int getDefence() {
-        return defence;
-    }
-    public void setDefence(int defence) {
-        this.defence = defence;
+        System.out.print("登録");
     }
     public int getSpeed() {
         return speed;
@@ -54,13 +47,12 @@ public class DTO {
     public void setHp(int hp) {
         this.hp = hp;
     }
-    public DTO(Integer id, String name, int level, int defence, int speed, String finish_ward, int attack_value,
+    public enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value,
             int hp) {
         super();
         this.id = id;
         this.name = name;
         this.level = level;
-        this.defence = defence;
         this.speed = speed;
         this.finish_ward = finish_ward;
         this.attack_value = attack_value;
@@ -78,9 +70,6 @@ public class DTO {
     @Column(name = "Level")
     private int level;
 
-    @Column(name = "defence")
-    private int defence;
-
     @Column(name = "speed")
     private int speed;
 
@@ -95,13 +84,13 @@ public class DTO {
 
 
 
-    public DTO(String name, int level, int attack_value) {
+    public enemy(String name, int level, int attack_value) {
         super();
         this.name = name;
         this.level = level;
         this.attack_value = attack_value;
     }
-    public DTO() {
+    public enemy() {
     }
 
     public Integer getId() {
