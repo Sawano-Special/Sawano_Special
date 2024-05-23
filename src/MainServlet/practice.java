@@ -31,7 +31,14 @@ public class practice extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // GETリクエストの処理
+        response.getWriter().append("GETリクエストが処理されました");
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
       //EntityManagerのオブジェクトを生成
         EntityManager em = DBUtils.createEntityManager();
