@@ -13,7 +13,7 @@
             <h2>ステージセレクト</h2>
 
 
-            <form action="${pageContext.request.contextPath}/practice" method="POST">
+            <form method="POST" action= "${pageContext.request.contextPath}/practice">
             <a href="practice">
             <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
             </a>
