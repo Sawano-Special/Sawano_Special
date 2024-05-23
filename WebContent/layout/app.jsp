@@ -9,12 +9,12 @@
     <body>
     <div class="layer">
 
-            <h1>ここから始まる</h1>
-            <h2>新しい挑戦</h2>
+            <h1>ゲームスタート</h1>
+            <h2>ステージセレクト</h2>
 
 
-            <form action="${pageContext.request.contextPath}/practice" method="get">
-            <a href="views1/battle1.jsp">
+            <form action="${pageContext.request.contextPath}/practice" method="POST">
+            <a href="practice">
             <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
             </a>
             </form>
