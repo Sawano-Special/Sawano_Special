@@ -24,9 +24,13 @@
             <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン" class="player-img">
             <p>HP: 50/100</p>
             </div>
+
+            <form method="POST" action="/Sawano_special/practice">
             <div class="attack">
-            <button>攻撃する</button>
+            <button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
             </div>
+            </form>
+
             <div class="recover">
             <button>回復する</button>
             </div>
