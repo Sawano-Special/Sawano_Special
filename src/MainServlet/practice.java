@@ -67,8 +67,7 @@ public class practice extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        //EntityManagerのオブジェクトを生成
+      //EntityManagerのオブジェクトを生成
         EntityManager em = DBUtils.createEntityManager();
 
         DTO dto = em.find(DTO.class, 1);
@@ -77,20 +76,27 @@ public class practice extends HttpServlet {
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
+        //リクエストパラメータを受け取る
+        String attack_action = request.getParameter("attack");
 
-        String name = dto.getName();
-        int attack = hero.attack();
+        if(attack_action.equals("攻撃")) {
+            String name = dto.getName();
+            int attack = hero.attack();
 
-        System.out.println(name);
-        System.out.println(attack);
-
-
-        request.setAttribute("name",name);
-        request.setAttribute("attack",attack);
+            System.out.println(name);
+            System.out.println(attack);
 
 
-        RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-        rd.forward(request, response);
+            request.setAttribute("name",name);
+            request.setAttribute("attack",attack);
+
+
+            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            rd.forward(request, response);
+        }
+        System.out.println(attack_action);
+
+
 //        System.out.println(name);
 //        System.out.println(attack);
 
