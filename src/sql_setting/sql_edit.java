@@ -29,7 +29,7 @@ public class sql_edit {
             // 変更をコミット
             em.getTransaction().begin();
             em.getTransaction().commit();
-            System.out.println("データの更新が完了しました");
+            System.out.println("データの更新が完了しました.");
 
         } catch (Exception e) {
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
