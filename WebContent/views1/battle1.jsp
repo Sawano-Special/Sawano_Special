@@ -16,13 +16,13 @@
            <div class="enemy">
             <!-- 相手のポケモンの画像をここに配置 -->
             <img src="<c:url value='/views1/Sample.jpg' />" alt="相手のポケモン" class="enemy-img">
-            <p>HP: 70/100</p>
+            <p>HP: <c:out value="${enemy_hp}" />/<c:out value="${enemy_hp}" /></p>
            </div>
 
            <div class="player">
             <!-- 自分のポケモンの画像をここに配置 -->
             <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン" class="player-img">
-            <p>HP: 50/100</p>
+            <p>HP: <c:out value="${hero_hp}" />/<c:out value="${hero_hp}" /></p>
             </div>
 
             <form method="POST" action="/Sawano_special/practice">
