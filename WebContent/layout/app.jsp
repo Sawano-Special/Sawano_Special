@@ -3,34 +3,45 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="appstyle.css">
+        <link rel="stylesheet" href="layout/appstyle.css">
         <title>RPG</title>
     </head>
     <body>
     <div class="layer">
 
-            <h1>ここから始まる</h1>
-            <h2>新しい挑戦</h2>
 
 
-            <form action="${pageContext.request.contextPath}/practice" method="get">
-            <a href="views1/battle1.jsp">
+            <form method="POST" action= "${pageContext.request.contextPath}/practice">
+              <button type="submit" style="border: none; background: none;">
             <img src="layout/battle-background1.jpg" alt="ステージ1"class="stage1-img" >
-            </a>
+             </button>
             </form>
 
             <div class="stage2">
             <a href="views2/battle2.jsp">
-            <img src="layout/battle-background1.jpg" alt="ステージ２"class="stage2-img" >
+            <img src="layout/background2.jpg" alt="ステージ２"class="stage2-img" >
             </a>
             </div>
 
+            <div class="stage3">
             <a href="views3/battle3.jsp">
-            <img src="<c:url value='/layout/battle-background1.jpg' />" alt="バトル3へ挑戦だ！">
+            <img src="layout/background3.jpg" alt="ステージ3"class="stage3-img" >
             </a>
-            <form action="views3/battle3.jsp" method="get">
-                <button type="submit">バトル4へ挑戦だ！</button>
-            </form>
+            </div>
+
+            <div class="stage4">
+            <a href="views4/battle4.jsp">
+            <img src="layout/background4.jpg" alt="ステージ4"class="stage4-img" >
+            </a>
+            </div>
+
+            <div class="stage5">
+            <a href="views5/battle5.jsp">
+            <img src="layout/background.jpeg" alt="ステージ5"class="stage5-img" >
+            </a>
+            </div>
+
+
         </div>
     </body>
 </html>

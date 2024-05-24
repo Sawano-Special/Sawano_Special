@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import DTO.DTO;
 import test.Hero;
 import utils.DBUtils;
+import DTO.enemy;
 
 /**
  * Servlet implementation class practice
@@ -28,37 +29,81 @@ public class practice extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
     /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //EntityManagerのオブジェクトを生成
+      //EntityManagerのオブジェクトを生成
         EntityManager em = DBUtils.createEntityManager();
 
-        DTO dto = em.find(DTO.class, 1);
+        DTO hero_dto = em.find(DTO.class, 1);
+        enemy enemy_dto = em.find(enemy.class, 1);
 
-        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getAttack_value());
+        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
 
-        String name = dto.getName();
-        int attack = hero.attack();
+        int hero_hp = hero_dto.getHp();
+        System.out.println(hero_hp);
+        request.setAttribute("hero_hp",hero_hp);
 
-        System.out.println(name);
-        System.out.println(attack);
-
-
-        request.setAttribute("name",name);
-        request.setAttribute("attack",attack);
+        int enemy_hp = enemy_dto.getHp();
+        System.out.println(enemy_hp);
+        request.setAttribute("enemy_hp",enemy_hp);
 
 
-        RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-        rd.forward(request, response);
+
+        //リクエストパラメータを受け取る
+
+        String attack_action = request.getParameter("attack");
+
+
+        if(attack_action == null) {
+        attack_action = "aaa";
+        }
+
+        if(attack_action.equals("攻撃")) {
+            String name = hero_dto.getName();
+            int attack = hero.attack();
+
+            System.out.println(name);
+            System.out.println(attack);
+
+
+            request.setAttribute("name",name);
+            request.setAttribute("attack",attack);
+
+
+            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            rd.forward(request, response);
+        }
+        else  {
+            String name = "葉山";
+            int attack = 1000;
+
+            System.out.println(name);
+            System.out.println(attack);
+
+
+            request.setAttribute("name",name);
+            request.setAttribute("attack",attack);
+
+
+            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            rd.forward(request, response);
+        }
+        System.out.println(attack_action);
+
+
 //        System.out.println(name);
 //        System.out.println(attack);
+
+
+
+
     }
 
 }
