@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import DTO.DTO;
 import test.Hero;
 import utils.DBUtils;
+import DTO.enemy;
 
 /**
  * Servlet implementation class practice
@@ -37,10 +38,22 @@ public class practice extends HttpServlet {
       //EntityManagerのオブジェクトを生成
         EntityManager em = DBUtils.createEntityManager();
 
-        DTO dto = em.find(DTO.class, 1);
+        DTO hero_dto = em.find(DTO.class, 1);
+        enemy enemy_dto = em.find(enemy.class, 1);
 
-        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getDefence(),dto.getSpeed(),dto.getFinish_ward(),dto.getAttack_value(),dto.getHp());
+        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
+
+
+
+        int hero_hp = hero_dto.getHp();
+        System.out.println(hero_hp);
+        request.setAttribute("hero_hp",hero_hp);
+
+        int enemy_hp = enemy_dto.getHp();
+        System.out.println(enemy_hp);
+        request.setAttribute("enemy_hp",enemy_hp);
+
 
 
         //リクエストパラメータを受け取る
@@ -53,7 +66,7 @@ public class practice extends HttpServlet {
         }
 
         if(attack_action.equals("攻撃")) {
-            String name = dto.getName();
+            String name = hero_dto.getName();
             int attack = hero.attack();
 
             System.out.println(name);
