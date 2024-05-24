@@ -41,6 +41,7 @@ public class enemy {
     public void setFinish_ward(String finish_ward) {
         this.finish_ward = finish_ward;
     }
+
     public int getHp() {
         return hp;
     }
