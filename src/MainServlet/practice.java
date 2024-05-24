@@ -31,6 +31,7 @@ public class practice extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
       //EntityManagerのオブジェクトを生成
@@ -38,7 +39,7 @@ public class practice extends HttpServlet {
 
         DTO dto = em.find(DTO.class, 1);
 
-        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getAttack_value());
+        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getDefence(),dto.getSpeed(),dto.getFinish_ward(),dto.getAttack_value(),dto.getHp());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
