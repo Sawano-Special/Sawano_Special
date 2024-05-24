@@ -31,21 +31,15 @@ public class practice extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // GETリクエストの処理
-        response.getWriter().append("GETリクエストが処理されました");
-    }
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
       //EntityManagerのオブジェクトを生成
         EntityManager em = DBUtils.createEntityManager();
 
         DTO dto = em.find(DTO.class, 1);
 
-        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getAttack_value());
+        Hero hero = new Hero(dto.getId(),dto.getName(),dto.getLevel(),dto.getDefence(),dto.getSpeed(),dto.getFinish_ward(),dto.getAttack_value(),dto.getHp());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
