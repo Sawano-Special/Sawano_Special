@@ -2,8 +2,8 @@
 
 .layer{
   /* 背景画像設定 */
-  background: url(./battle-background.png) no-repeat 0 0;
-  background-size: 100%;
+  background: url(./background10.jpg) no-repeat 0 0;
+  background-size: 180%;
   /* ボックス配置指定 */
   position: relative;
   margin: 0 auto;
@@ -13,8 +13,8 @@
   height: 600px;
 }
 
-/* 重ねるボックスの設定 */
-.enemy{
+/* 重ねるボックスの設定1 */
+.stage1{
   /* ボックス配置指定 */
   position: absolute;
   top: 10px;
@@ -22,21 +22,64 @@
 }
 
 /* 重ねるボックスの設定 */
-.player{
+.stage2{
   /* ボックス配置指定 */
   position: absolute;
-  top: 330px;
+  top: 200px;
   left:100px;
 }
 
-/* 敵キャラの基本設定 */
-.stage2-img{
-  width: 300px;
-  height: auto;
+/* 重ねるボックスの設定 */
+.stage3{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 200px;
+  left:700px;
 }
 
-/* 自分キャラの基本設定 */
-.player-img{
-  width: 300px;
-  height: auto;
+/* 重ねるボックスの設定 */
+.stage4{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 400px;
+  left:400px;
 }
+
+/* 重ねるボックスの設定 */
+.stage5{
+  /* ボックス配置指定 */
+  position: absolute;
+  top: 180px;
+  left:350px;
+}
+
+/*ステージ1の基本設定 */
+.stage1-img{
+  width: 200px;
+  height: 150px;
+}
+
+/*ステージ２の基本設定 */
+.stage2-img{
+  width: 200px;
+  height: 150px;
+}
+
+/*ステージ3の基本設定 */
+.stage3-img{
+  width: 200px;
+  height: 150px;
+}
+
+/*ステージ4の基本設定 */
+.stage4-img{
+  width: 202px;
+  height: 150px;
+}
+
+/*ステージ5の基本設定 */
+.stage5-img{
+  width: 300px;
+  height: 200px;
+}
+
