@@ -47,6 +47,11 @@ public class practice extends HttpServlet {
 
         String attack_action = request.getParameter("attack");
 
+
+        if(attack_action == null) {
+        attack_action = "aaa";
+        }
+
         if(attack_action.equals("攻撃")) {
             String name = dto.getName();
             int attack = hero.attack();
@@ -61,7 +66,8 @@ public class practice extends HttpServlet {
 
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
-        }else {
+        }
+        else  {
             String name = "葉山";
             int attack = 1000;
 
