@@ -29,8 +29,8 @@ public class Main extends HttpServlet {
     public Main() {
         super();
         // TODO Auto-generated constructor stub
-                Sql_create.sql_create();
-                //sql_edit.sql_edit();
+                //Sql_create.sql_create();
+                sql_edit.sql_edit();
 
     }
 
