@@ -4,8 +4,8 @@ package test;
 
 public class enemy extends DTO.enemy  {
 
-    public enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value, int hp) {
-        super(id, name, level, speed, finish_ward, attack_value, hp);
+    public enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
+        super(id, name, level, speed, finish_ward, attack_value, hp,max_hp);
         // TODO 自動生成されたコンストラクター・スタブ
     }
 

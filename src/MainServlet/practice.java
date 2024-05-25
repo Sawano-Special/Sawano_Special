@@ -41,7 +41,7 @@ public class practice extends HttpServlet {
         DTO hero_dto = em.find(DTO.class, 1);
         enemy enemy_dto = em.find(enemy.class, 1);
 
-        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp());
+        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp(),hero_dto.getMax_hp());
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 

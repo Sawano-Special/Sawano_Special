@@ -4,7 +4,7 @@ import DTO.DTO;
 public class Hero extends DTO  {
 
     DTO a = new DTO();
-public Hero(int id ,String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp) {
+public Hero(int id ,String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
         //super(id,name,level,offence); //Characterクラスのコンストラクタを呼び出し
         a.setId(id);
         a.setName(name);
@@ -14,6 +14,7 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
         a.setFinish_ward(finish_ward);
         a.setAttack_value(attack_value);
         a.setHp(hp);
+        a.setMax_hp(max_hp);
 
     }
 
