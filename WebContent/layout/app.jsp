@@ -11,7 +11,7 @@
 <body>
     <div class="layer">
         <form method="POST" action="${pageContext.request.contextPath}/practice">
-            <button type="submit" style="border: none; background: none;">
+            <button type="submit" style="border: none; background: none;"name="battle1_start" id="battle1_start" value="battle1">
                 <img src="layout/battle-background1.jpg" alt="ステージ1" class="stage1-img">
             </button>
         </form>
