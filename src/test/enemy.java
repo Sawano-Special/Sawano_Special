@@ -1,24 +1,28 @@
 package test;
 
 //import test.Character;
-import DTO.DTO;
 
-public class enemy extends Character {
+public class enemy extends DTO.enemy  {
 
-    DTO a = new DTO();
+    public enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
+        super(id, name, level, speed, finish_ward, attack_value, hp,max_hp);
+        // TODO 自動生成されたコンストラクター・スタブ
+    }
+
+    public enemy(String name, int level, int attack_value) {
+        super(name, level, attack_value);
+        // TODO 自動生成されたコンストラクター・スタブ
+    }
+
+    enemy b = new enemy();
 
     public enemy() {
 
     }
 
-    public enemy(int id,String name,int level,int attack_value) {
-
-        //super(id,name,level,offence);
-
-        a.setId(id);
-        a.setName(name);
-        a.setLevel(level);
-        a.setAttack_value(attack_value);
+    public enemy(enemy b) {
+        super();
+        this.b = b;
     }
 
 }

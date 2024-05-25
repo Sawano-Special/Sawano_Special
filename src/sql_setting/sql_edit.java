@@ -1,6 +1,7 @@
 package sql_setting;
 
 import javax.persistence.EntityManager;
+import DTO.enemy;
 
 import DTO.DTO;
 import utils.DBUtils;
@@ -14,18 +15,18 @@ public class sql_edit {
 
             // 該当のIDのメッセージ1件のみをデータベースから取得
             int id = 1; //ここに変更するidを入力
-            DTO d = em.find(DTO.class, id);
-            DTO d2 = em.find(DTO.class, 2);
+            //DTO d = em.find(DTO.class, id);
+            enemy e = em.find(enemy.class, id);
 
             // 新しいの設定
-            d2.setSpeed(200);
-            d2.setDefence(100);
-            d2.setFinish_ward("sawanoです。");
-            d2.setHp(33);
-            d.setSpeed(2000);
-            d.setDefence(1500);
-            d.setFinish_ward("どうも、ミスタードラゴンズの立浪です。");
-            d.setHp(10000);
+            e.setSpeed(200);
+            //e.setDefence(100);
+            e.setFinish_ward("sawanoです。");
+            e.setHp(5000);
+//            d.setSpeed(2000);
+//            d.setDefence(1500);
+//            d.setFinish_ward("どうも、ミスタードラゴンズの立浪です。");
+//            d.setHp(10000);
             // 変更をコミット
             em.getTransaction().begin();
             em.getTransaction().commit();

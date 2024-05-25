@@ -19,8 +19,46 @@ import javax.persistence.Table;
     )
 })
 @Table(name = "hero")
+
+
 public class DTO {
-    public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp) {
+
+
+	@Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "name", length = 255, nullable = false)
+    private String name;
+
+    @Column(name = "Level")
+    private int level;
+
+    @Column(name = "defence")
+    private int defence;
+
+    @Column(name = "speed")
+    private int speed;
+
+    @Column(name = "finish_ward")
+    private String finish_ward;
+
+    @Column(name = "attack_value")
+    private int attack_value;
+
+    @Column(name = "hp")
+    private int hp;
+
+    @Column(name = "max_hp")
+    private int max_hp;
+    public int getMax_hp() {
+		return max_hp;
+	}
+	public void setMax_hp(int max_hp) {
+		this.max_hp = max_hp;
+	}
+	public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
         super();
         this.name = name;
         this.level = level;
@@ -29,6 +67,7 @@ public class DTO {
         this.finish_ward = finish_ward;
         this.attack_value = attack_value;
         this.hp = hp;
+        this.max_hp = max_hp;
     }
     public int getDefence() {
         return defence;
@@ -55,7 +94,7 @@ public class DTO {
         this.hp = hp;
     }
     public DTO(Integer id, String name, int level, int defence, int speed, String finish_ward, int attack_value,
-            int hp) {
+            int hp, int max_hp) {
         super();
         this.id = id;
         this.name = name;
@@ -65,42 +104,12 @@ public class DTO {
         this.finish_ward = finish_ward;
         this.attack_value = attack_value;
         this.hp = hp;
+        this.max_hp = max_hp;
     }
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "name", length = 255, nullable = false)
-    private String name;
-
-    @Column(name = "Level")
-    private int level;
-
-    @Column(name = "defence")
-    private int defence;
-
-    @Column(name = "speed")
-    private int speed;
-
-    @Column(name = "finish_ward")
-    private String finish_ward;
-
-    @Column(name = "attack_value")
-    private int attack_value;
-
-    @Column(name = "hp")
-    private int hp;
 
 
 
-    public DTO(String name, int level, int attack_value) {
-        super();
-        this.name = name;
-        this.level = level;
-        this.attack_value = attack_value;
-    }
     public DTO() {
     }
 
