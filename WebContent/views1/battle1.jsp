@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% Integer sum_damage = (Integer) request.getSession().getAttribute("sum_damage"); %>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -16,7 +17,7 @@
            <div class="enemy">
             <!-- 相手のポケモンの画像をここに配置 -->
             <img src="<c:url value='/views1/Sample.jpg' />" alt="相手のポケモン" class="enemy-img">
-            <p>HP: <c:out value="${enemy_hp}" />/<c:out value="${enemy_hp}" /></p>
+            <p>HP: <c:out value="${sum_damage}" />/<c:out value="${enemy_hp}" /></p>
            </div>
 
            <div class="player">
@@ -50,3 +51,5 @@
 
     </body>
 </html>
+
+<% request.getSession().setAttribute("sum_damage",sum_damage); %>
