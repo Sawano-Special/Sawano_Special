@@ -11,6 +11,8 @@
   /* ボックスサイズ指定 */
   width: 1000px;
   height: 600px;
+  border: 2px solid #000;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /* 重ねるボックスの設定1 */
@@ -19,6 +21,7 @@
   position: absolute;
   top: 10px;
   left:600px;
+  /*transition: box-shadow 0.3s ease-in-out;*/
 }
 
 /* 重ねるボックスの設定 */
@@ -27,6 +30,7 @@
   position: absolute;
   top: 200px;
   left:100px;
+  /* transition: box-shadow 0.3s ease-in-out; */
 }
 
 /* 重ねるボックスの設定 */
@@ -35,6 +39,7 @@
   position: absolute;
   top: 200px;
   left:700px;
+  /*transition: box-shadow 0.3s ease-in-out;*/
 }
 
 /* 重ねるボックスの設定 */
@@ -43,6 +48,7 @@
   position: absolute;
   top: 400px;
   left:400px;
+  /*transition: box-shadow 0.3s ease-in-out;*/
 }
 
 /* 重ねるボックスの設定 */
@@ -51,35 +57,45 @@
   position: absolute;
   top: 180px;
   left:350px;
+  /*transition: box-shadow 0.3s ease-in-out;*/
 }
 
 /*ステージ1の基本設定 */
 .stage1-img{
   width: 200px;
   height: 150px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /*ステージ２の基本設定 */
 .stage2-img{
   width: 200px;
   height: 150px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /*ステージ3の基本設定 */
 .stage3-img{
   width: 200px;
   height: 150px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /*ステージ4の基本設定 */
 .stage4-img{
   width: 202px;
   height: 150px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /*ステージ5の基本設定 */
 .stage5-img{
   width: 300px;
   height: 200px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.stage1-img:hover, .stage2-img:hover, .stage3-img:hover, .stage4-img:hover, .stage5-img:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.7);
 }
 
