@@ -62,8 +62,11 @@ public class practice extends HttpServlet {
 
         String attack_action = request.getParameter("attack");
 
+        String battle1_start = request.getParameter("battle1_start");
+
         Integer sum_damage = (Integer) request.getSession().getAttribute("sum_damage");
         System.out.println(sum_damage);
+
 
 
         if(attack_action == null) {
@@ -73,6 +76,7 @@ public class practice extends HttpServlet {
         }
         if((Integer)sum_damage == null) {
             sum_damage = enemy_dto.getHp();
+            System.out.println("表示されています" + sum_damage);
         }
 
         if(attack_action.equals("攻撃")) {
@@ -100,6 +104,11 @@ public class practice extends HttpServlet {
             rd.forward(request, response);
         }
         else  {
+            if(battle1_start.equals("battle1")) {
+                sum_damage = enemy_dto.getHp();
+                request.getSession().setAttribute("sum_damage",sum_damage);
+                System.out.println("バトル1が開始されました" + sum_damage);
+            }
             String name = "葉山";
             int attack = 1000;
 
@@ -114,6 +123,9 @@ public class practice extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
         }
+
+
+
         System.out.println(attack_action);
 
 
