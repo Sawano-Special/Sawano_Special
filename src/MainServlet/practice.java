@@ -51,10 +51,10 @@ public class practice extends HttpServlet {
         request.setAttribute("hero_hp",hero_hp);
 
         int enemy_hp = enemy_dto.getHp();
-        int enmey_damage_max = enemy_dto.getHp();
-       // System.out.println(enemy_hp);
+        int enemy_damage = enemy_dto.getHp();
+        System.out.println(enemy_hp);
 
-        Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
+        //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
 
 
@@ -62,11 +62,21 @@ public class practice extends HttpServlet {
 
         String attack_action = request.getParameter("attack");
 
+        String battle1_start = request.getParameter("battle1_start");
+
+        Integer sum_damage = (Integer) request.getSession().getAttribute("sum_damage");
+        System.out.println(sum_damage);
+
+
 
         if(attack_action == null) {
             attack_action = "aaa";
             request.setAttribute("enemy_hp",enemy_hp);
             System.out.println(enemy_hp);
+        }
+        if((Integer)sum_damage == null) {
+            sum_damage = enemy_dto.getHp();
+            System.out.println("表示されています" + sum_damage);
         }
 
         if(attack_action.equals("攻撃")) {
@@ -74,7 +84,10 @@ public class practice extends HttpServlet {
             int attack = hero.attack();
 
             //HP減少
-            //enemy_damage.setDamage(enmey_damage_max) = enemy_damage.setDamage(enmey_damage_max) - attack;
+            sum_damage = sum_damage  - attack;
+
+            request.getSession().setAttribute("sum_damage",sum_damage);
+
             request.setAttribute("enemy_hp",enemy_hp);
 
 
@@ -91,6 +104,11 @@ public class practice extends HttpServlet {
             rd.forward(request, response);
         }
         else  {
+            if(battle1_start.equals("battle1")) {
+                sum_damage = enemy_dto.getHp();
+                request.getSession().setAttribute("sum_damage",sum_damage);
+                System.out.println("バトル1が開始されました" + sum_damage);
+            }
             String name = "葉山";
             int attack = 1000;
 
@@ -105,6 +123,9 @@ public class practice extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
         }
+
+
+
         System.out.println(attack_action);
 
 
