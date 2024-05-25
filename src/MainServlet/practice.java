@@ -14,6 +14,7 @@ import DTO.DTO;
 import test.Hero;
 import utils.DBUtils;
 import DTO.enemy;
+import test.Enemy_damage;
 
 /**
  * Servlet implementation class practice
@@ -45,14 +46,15 @@ public class practice extends HttpServlet {
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
-
         int hero_hp = hero_dto.getHp();
         System.out.println(hero_hp);
         request.setAttribute("hero_hp",hero_hp);
 
         int enemy_hp = enemy_dto.getHp();
-        System.out.println(enemy_hp);
-        request.setAttribute("enemy_hp",enemy_hp);
+        int enmey_damage_max = enemy_dto.getHp();
+       // System.out.println(enemy_hp);
+
+        Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
 
 
@@ -62,15 +64,23 @@ public class practice extends HttpServlet {
 
 
         if(attack_action == null) {
-        attack_action = "aaa";
+            attack_action = "aaa";
+            request.setAttribute("enemy_hp",enemy_hp);
+            System.out.println(enemy_hp);
         }
 
         if(attack_action.equals("攻撃")) {
             String name = hero_dto.getName();
             int attack = hero.attack();
 
+            //HP減少
+            //enemy_damage.setDamage(enmey_damage_max) = enemy_damage.setDamage(enmey_damage_max) - attack;
+            request.setAttribute("enemy_hp",enemy_hp);
+
+
             System.out.println(name);
             System.out.println(attack);
+            System.out.println(enemy_hp);
 
 
             request.setAttribute("name",name);
