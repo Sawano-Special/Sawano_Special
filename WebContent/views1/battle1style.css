@@ -87,3 +87,20 @@ button {
 p{
     color:red;
 }
+
+.hp-bar {
+    width: 100%;
+    background-color: #ddd;
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.hp-bar-inner {
+    height: 20px;
+    background-color: #4caf50;
+    width: 100%;
+    transition: width 0.5s ease;
+}
+
