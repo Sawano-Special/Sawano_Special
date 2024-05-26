@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-Integer sum_damage = (Integer) request.getSession().getAttribute("sum_damage");
+Integer current_hp = (Integer) request.getSession().getAttribute("current_hp");
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
@@ -19,13 +19,13 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
     <div class="layer">
         <div class="textbox">
            <c:choose>
-                <c:when test="${sum_damage >= 0}">
+                <c:when test="${current_hp >= 0}">
                     <c:out value="${name}" />
                         は
                     <c:out value="${attack}" />
                         ダメージを与えた！！
                 </c:when>
-                <c:when test="${sum_damage < 0}">
+                <c:when test="${current_hp < 0}">
                     <c:out value="${name}" />
                         は敵を倒した
                 </c:when>
@@ -36,11 +36,14 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
         </div>
 
         <div class="enemy">
-            <img src="<c:url value='/views1/Sample.jpg' />" alt="相手のポケモン" class="enemy-img">
+            <img src="<c:url value='/views1/tatunami.jpg' />" alt="相手のポケモン" class="enemy-img">
             <div class="hp-bar">
-                <div class="hp-fill" style="width: ${(sum_damage >= 0) ? (100 * (enemy_hp - sum_damage) / enemy_hp) : 0}%;"></div>
+                <!-- <div class="hp-fill" style="width: ${(current_hp >= 0) ? (100 * (enemy_hp - current_hp) / enemy_hp) : 0}%;"></div> -->
+                <div class="hp-fill" style="width: ${current_hp * 100/ enemy_hp}%;"></div>
+
             </div>
-            <p>HP: <c:out value="${(sum_damage >= 0) ? (enemy_hp - sum_damage) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>
+            <!-- <p>HP: <c:out value="${(current_hp >= 0) ? (enemy_hp - current_hp) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>  -->
+             <p>HP: <c:out value="${current_hp}" /> / <c:out value="${enemy_hp}" /></p>
         </div>
 
         <div class="player">
@@ -75,5 +78,5 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 </html>
 
 <%
-request.getSession().setAttribute("sum_damage", sum_damage);
+request.getSession().setAttribute("current_hp", current_hp);
 %>
