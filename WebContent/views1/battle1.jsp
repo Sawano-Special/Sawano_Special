@@ -36,7 +36,7 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
         </div>
 
         <div class="enemy">
-            <img src="<c:url value='/views1/Sample.jpg' />" alt="相手のポケモン" class="enemy-img">
+            <img src="<c:url value='/views1/tatunami.jpg' />" alt="相手のポケモン" class="enemy-img">
             <div class="hp-bar">
                 <!-- <div class="hp-fill" style="width: ${(current_hp >= 0) ? (100 * (enemy_hp - current_hp) / enemy_hp) : 0}%;"></div> -->
                 <div class="hp-fill" style="width: ${current_hp * 100/ enemy_hp}%;"></div>
