@@ -15,6 +15,7 @@ import test.Hero;
 import utils.DBUtils;
 import DTO.enemy;
 import test.Enemy_damage;
+import battle_controller.hp_calc;
 
 /**
  * Servlet implementation class practice
@@ -43,6 +44,8 @@ public class practice extends HttpServlet {
         enemy enemy_dto = em.find(enemy.class, 1);
 
         Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp(),hero_dto.getMax_hp());
+        hp_calc hp_calc = new hp_calc();
+
        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
 
@@ -74,18 +77,28 @@ public class practice extends HttpServlet {
             request.setAttribute("enemy_hp",enemy_hp);
             System.out.println(enemy_hp);
         }
-        if((Integer)sum_damage == null) {
+
+        if(sum_damage == null) {
             sum_damage = enemy_dto.getHp();
             System.out.println("表示されています" + sum_damage);
         }
 
-        if(sum_damage > 0) {
-            if(attack_action.equals("攻撃")) {
+        if(battle1_start == null) {
+            battle1_start = "開始中";
+            System.out.println("開始中です");
+        }
+
+
+
+        if(attack_action.equals("攻撃")) {
+
+            if(sum_damage > 0) {
                 String name = hero_dto.getName();
                 int attack = hero.attack();
 
                 //HP減少
-                sum_damage = sum_damage  - attack;
+                sum_damage = hp_calc.enemy_hp_calc(attack,sum_damage);
+                //sum_damage = sum_damage  - attack;
 
                 request.getSession().setAttribute("sum_damage",sum_damage);
 
@@ -103,8 +116,7 @@ public class practice extends HttpServlet {
 
                 RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
                 rd.forward(request, response);
-            }
-            else  {
+            }else {
                 if(battle1_start.equals("battle1")) {
                     sum_damage = enemy_dto.getHp();
                     request.getSession().setAttribute("sum_damage",sum_damage);
@@ -119,6 +131,10 @@ public class practice extends HttpServlet {
 
                 request.setAttribute("name",name);
                 request.setAttribute("attack",attack);
+                request.setAttribute("enemy_hp",enemy_hp);
+                request.getSession().setAttribute("sum_damage",sum_damage);
+
+
 
 
                 RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
@@ -126,19 +142,11 @@ public class practice extends HttpServlet {
             }
 
 
-
-            System.out.println(attack_action);
-
-
-    //        System.out.println(name);
-    //        System.out.println(attack);
-
-
-        }else {
+        }else  {
             if(battle1_start.equals("battle1")) {
                 sum_damage = enemy_dto.getHp();
                 request.getSession().setAttribute("sum_damage",sum_damage);
-                System.out.println("バトル1が開始されました(初期状態２)" + sum_damage);
+                System.out.println("バトル1が開始されました(初期状態１)" + sum_damage);
             }
             String name = "葉山";
             int attack = 1000;
@@ -152,9 +160,21 @@ public class practice extends HttpServlet {
             request.getSession().setAttribute("sum_damage",sum_damage);
 
 
+
+
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
+
+            //sum_damage = 0;
         }
+
+
+
+                System.out.println(attack_action);
+
+
+        //        System.out.println(name);
+        //        System.out.println(attack);
 
     }
 

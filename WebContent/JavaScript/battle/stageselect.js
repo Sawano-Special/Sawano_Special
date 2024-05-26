@@ -15,4 +15,6 @@ $(document).ready(function() {
     $('.stage1-img, .stage2-img, .stage3-img, .stage4-img, .stage5-img')
         .on('mouseenter', onMouseenter)
         .on('mouseleave', onMouseleave);
+
 });
+
