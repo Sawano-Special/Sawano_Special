@@ -67,8 +67,8 @@ public class practice extends HttpServlet {
 
         String battle1_start = request.getParameter("battle1_start");
 
-        Integer sum_damage = (Integer) request.getSession().getAttribute("sum_damage");
-        System.out.println(sum_damage);
+        Integer current_hp = (Integer) request.getSession().getAttribute("current_hp");
+        System.out.println(current_hp);
 
 
 
@@ -78,9 +78,9 @@ public class practice extends HttpServlet {
             System.out.println(enemy_hp);
         }
 
-        if(sum_damage == null) {
-            sum_damage = enemy_dto.getHp();
-            System.out.println("表示されています" + sum_damage);
+        if(current_hp == null) {
+            current_hp = enemy_dto.getHp();
+            System.out.println("表示されています" + current_hp);
         }
 
         if(battle1_start == null) {
@@ -92,15 +92,15 @@ public class practice extends HttpServlet {
 
         if(attack_action.equals("攻撃")) {
 
-            if(sum_damage > 0) {
+            if(current_hp > 0) {
                 String name = hero_dto.getName();
                 int attack = hero.attack();
 
                 //HP減少
-                sum_damage = hp_calc.enemy_hp_calc(attack,sum_damage);
-                //sum_damage = sum_damage  - attack;
+                current_hp = hp_calc.enemy_hp_calc(attack,current_hp);
+                //current_hp = current_hp  - attack;
 
-                request.getSession().setAttribute("sum_damage",sum_damage);
+                request.getSession().setAttribute("current_hp",current_hp);
 
                 request.setAttribute("enemy_hp",enemy_hp);
 
@@ -118,21 +118,22 @@ public class practice extends HttpServlet {
                 rd.forward(request, response);
             }else {
                 if(battle1_start.equals("battle1")) {
-                    sum_damage = enemy_dto.getHp();
-                    request.getSession().setAttribute("sum_damage",sum_damage);
-                    System.out.println("バトル1が開始されました(初期状態１)" + sum_damage);
+                    current_hp = enemy_dto.getHp();
+                    request.getSession().setAttribute("current_hp",current_hp);
+                    System.out.println("バトル1が開始されました(初期状態１)" + current_hp);
                 }
                 String name = "葉山";
                 int attack = 1000;
 
                 System.out.println(name);
                 System.out.println(attack);
+                System.out.println(current_hp);
 
 
                 request.setAttribute("name",name);
                 request.setAttribute("attack",attack);
                 request.setAttribute("enemy_hp",enemy_hp);
-                request.getSession().setAttribute("sum_damage",sum_damage);
+                request.getSession().setAttribute("current_hp",current_hp);
 
 
 
@@ -144,20 +145,21 @@ public class practice extends HttpServlet {
 
         }else  {
             if(battle1_start.equals("battle1")) {
-                sum_damage = enemy_dto.getHp();
-                request.getSession().setAttribute("sum_damage",sum_damage);
-                System.out.println("バトル1が開始されました(初期状態１)" + sum_damage);
+                current_hp = enemy_dto.getHp();
+                //request.getSession().setAttribute("current_hp",current_hp);
+                System.out.println("バトル1が開始されました(初期状態2)" + current_hp);
             }
             String name = "葉山";
             int attack = 1000;
 
-            System.out.println(name);
-            System.out.println(attack);
+            System.out.println("Name:"+name);
+            System.out.println("Attack:"+attack);
+            System.out.println("Current_HP:" +current_hp);
 
 
             request.setAttribute("name",name);
             request.setAttribute("attack",attack);
-            request.getSession().setAttribute("sum_damage",sum_damage);
+            request.getSession().setAttribute("current_hp",current_hp);
 
 
 
@@ -165,7 +167,7 @@ public class practice extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
 
-            //sum_damage = 0;
+            //current_hp = 0;
         }
 
 
