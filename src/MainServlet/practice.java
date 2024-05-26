@@ -79,35 +79,66 @@ public class practice extends HttpServlet {
             System.out.println("表示されています" + sum_damage);
         }
 
-        if(attack_action.equals("攻撃")) {
-            String name = hero_dto.getName();
-            int attack = hero.attack();
+        if(sum_damage > 0) {
+            if(attack_action.equals("攻撃")) {
+                String name = hero_dto.getName();
+                int attack = hero.attack();
 
-            //HP減少
-            sum_damage = sum_damage  - attack;
+                //HP減少
+                sum_damage = sum_damage  - attack;
 
-            request.getSession().setAttribute("sum_damage",sum_damage);
+                request.getSession().setAttribute("sum_damage",sum_damage);
 
-            request.setAttribute("enemy_hp",enemy_hp);
-
-
-            System.out.println(name);
-            System.out.println(attack);
-            System.out.println(enemy_hp);
+                request.setAttribute("enemy_hp",enemy_hp);
 
 
-            request.setAttribute("name",name);
-            request.setAttribute("attack",attack);
+                System.out.println(name);
+                System.out.println(attack);
+                System.out.println(enemy_hp);
 
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-            rd.forward(request, response);
-        }
-        else  {
+                request.setAttribute("name",name);
+                request.setAttribute("attack",attack);
+
+
+                RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+                rd.forward(request, response);
+            }
+            else  {
+                if(battle1_start.equals("battle1")) {
+                    sum_damage = enemy_dto.getHp();
+                    request.getSession().setAttribute("sum_damage",sum_damage);
+                    System.out.println("バトル1が開始されました(初期状態１)" + sum_damage);
+                }
+                String name = "葉山";
+                int attack = 1000;
+
+                System.out.println(name);
+                System.out.println(attack);
+
+
+                request.setAttribute("name",name);
+                request.setAttribute("attack",attack);
+
+
+                RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+                rd.forward(request, response);
+            }
+
+
+
+            System.out.println(attack_action);
+
+
+    //        System.out.println(name);
+    //        System.out.println(attack);
+
+
+        }else {
             if(battle1_start.equals("battle1")) {
                 sum_damage = enemy_dto.getHp();
                 request.getSession().setAttribute("sum_damage",sum_damage);
-                System.out.println("バトル1が開始されました" + sum_damage);
+                System.out.println("バトル1が開始されました(初期状態２)" + sum_damage);
             }
             String name = "葉山";
             int attack = 1000;
@@ -118,22 +149,12 @@ public class practice extends HttpServlet {
 
             request.setAttribute("name",name);
             request.setAttribute("attack",attack);
+            request.getSession().setAttribute("sum_damage",sum_damage);
 
 
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
         }
-
-
-
-        System.out.println(attack_action);
-
-
-//        System.out.println(name);
-//        System.out.println(attack);
-
-
-
 
     }
 
