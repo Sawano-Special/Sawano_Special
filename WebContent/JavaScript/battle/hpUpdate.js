@@ -1,34 +1,30 @@
-// JavaScript/battle/hpUpdate.js
-
 $(document).ready(function() {
-    // HPゲージを更新する関数
-    function updateHpBars(sumDamage, enemyHp, heroHp) {
-        const enemyHpPercentage = (enemyHp - sumDamage) / enemyHp * 100;
-        const heroHpPercentage = (heroHp - sumDamage) / heroHp * 100;
-
-        $('.enemy-hp-bar-inner').css('width', enemyHpPercentage + '%');
-        $('.player-hp-bar-inner').css('width', heroHpPercentage + '%');
+  // 攻撃ボタンをクリックした時の処理
+  $('#attack').click(function() {
+    // 敵のHPを減らす
+    var enemyHpFill = $('.enemy .hp-fill');
+    var enemyHpText = $('.enemy p');
+    var enemyHp = parseInt(enemyHpText.text().split('/')[0]);
+    var maxEnemyHp = parseInt(enemyHpText.text().split('/')[1]);
+    var damageDealt = 10; // 仮の攻撃力
+    var newEnemyHp = enemyHp - damageDealt;
+    if (newEnemyHp < 0) {
+      newEnemyHp = 0;
     }
+    enemyHpFill.css('width', (100 * newEnemyHp / maxEnemyHp) + '%');
+    enemyHpText.text(newEnemyHp + ' / ' + maxEnemyHp);
 
-    // サーバーサイドから取得した初期のHP値を取得
-    const sumDamage = parseInt($('#sumDamage').val());
-    const enemyHp = parseInt($('#enemyHp').val());
-    const heroHp = parseInt($('#heroHp').val());
-
-    // 初期状態でHPゲージを更新
-    updateHpBars(sumDamage, enemyHp, heroHp);
-
-    // 攻撃ボタンがクリックされたときの処理
-    $('#attack').on('click', function() {
-        // HPダメージを加算
-        const newSumDamage = sumDamage + 10; // 仮のダメージ
-
-        // HPゲージを更新
-        updateHpBars(newSumDamage, enemyHp, heroHp);
-
-        // サーバーに更新されたHPダメージを送信するなどの処理を追加
-
-        // デバッグ用にコンソールにダメージ値を出力
-        console.log('sumDamage:', newSumDamage);
-    });
+    // 自分のHPを減らす
+    var playerHpFill = $('.player .hp-fill');
+    var playerHpText = $('.player p');
+    var playerHp = parseInt(playerHpText.text().split('/')[0]);
+    var maxPlayerHp = parseInt(playerHpText.text().split('/')[1]);
+    var damageReceived = 5; // 仮の被ダメージ
+    var newPlayerHp = playerHp - damageReceived;
+    if (newPlayerHp < 0) {
+      newPlayerHp = 0;
+    }
+    playerHpFill.css('width', (100 * newPlayerHp / maxPlayerHp) + '%');
+    playerHpText.text(newPlayerHp + ' / ' + maxPlayerHp);
+  });
 });
