@@ -100,12 +100,6 @@ public class practice extends HttpServlet {
                 current_hp = hp_calc.enemy_hp_calc(attack,current_hp);
                 //current_hp = current_hp  - attack;
 
-                if(current_hp < 0) {
-                    current_hp = 0;
-                    System.out.println("呼び出されてるよ");
-                }
-
-                request.getSession().setAttribute("current_hp",current_hp);
 
                 request.setAttribute("enemy_hp",enemy_hp);
 
@@ -119,6 +113,21 @@ public class practice extends HttpServlet {
                 request.setAttribute("attack",attack);
 
 
+                String message = "";
+
+                if(current_hp <= 0) {
+                    current_hp = 0;
+                    System.out.println("呼び出されてるよ");
+                    message = name+"はバトルに勝利しました";
+                    request.setAttribute("message",message);
+                }else {
+                    message = name +"は"+attack+"ダメージを与えた";
+                    System.out.println(message);
+                    request.setAttribute("message",message);
+                }
+
+                request.getSession().setAttribute("current_hp",current_hp);
+
 
                 RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
                 rd.forward(request, response);
@@ -129,20 +138,18 @@ public class practice extends HttpServlet {
                     request.getSession().setAttribute("current_hp",current_hp);
                     System.out.println("バトル1が開始されました(初期状態１)" + current_hp);
                 }
-                String name = "葉山";
-                int attack = 1000;
 
-                System.out.println(name);
-                System.out.println(attack);
                 System.out.println(current_hp);
+                String name = hero_dto.getName();
 
 
-                request.setAttribute("name",name);
-                request.setAttribute("attack",attack);
                 request.setAttribute("enemy_hp",enemy_hp);
                 request.getSession().setAttribute("current_hp",current_hp);
 
 
+                String message = name+"はバトルに勝利しました";
+                request.setAttribute("message",message);
+                System.out.println(message);
 
 
                 RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
@@ -156,17 +163,15 @@ public class practice extends HttpServlet {
                 //request.getSession().setAttribute("current_hp",current_hp);
                 System.out.println("バトル1が開始されました(初期状態2)" + current_hp);
             }
-            String name = "葉山";
-            int attack = 1000;
 
-            System.out.println("Name:"+name);
-            System.out.println("Attack:"+attack);
             System.out.println("Current_HP:" +current_hp);
 
 
-            request.setAttribute("name",name);
-            request.setAttribute("attack",attack);
             request.getSession().setAttribute("current_hp",current_hp);
+
+            String message ="野生の"+enemy_dto.getName()+"が現れました!!";
+            request.setAttribute("message",message);
+            System.out.println(message);
 
 
 

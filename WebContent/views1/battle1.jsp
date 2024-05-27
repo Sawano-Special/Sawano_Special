@@ -18,21 +18,7 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 <body>
     <div class="layer">
         <div class="textbox">
-           <c:choose>
-                <c:when test="${current_hp >= 0}">
-                    <c:out value="${name}" />
-                        は
-                    <c:out value="${attack}" />
-                        ダメージを与えた！！
-                </c:when>
-                <c:when test="${current_hp < 0}">
-                    <c:out value="${name}" />
-                        は敵を倒した
-                </c:when>
-                <c:otherwise>
-                    <p>バトルスタート！！</p>
-                </c:otherwise>
-            </c:choose>
+           <c:out value="${message}" />
         </div>
 
         <div class="enemy">
