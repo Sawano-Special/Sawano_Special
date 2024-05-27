@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.layer{
+  /* 背景画像設定 */
+  background: url(./background10.jpg) no-repeat 0 0;
+  background-size: 180%;
+  /* ボックス配置指定 */
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  /* ボックスサイズ指定 */
+  width: 1000px;
+  height: 600px;
+  border: 2px solid #000;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.sawa .theme {
+  font-size: 100px;
+  color: yellow;
+  font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
+}
