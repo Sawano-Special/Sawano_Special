@@ -87,3 +87,43 @@ button {
 p{
     color:red;
 }
+button:hover {
+  background-color: #45a049;
+}
+
+.hp-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hp-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s ease-in-out;
+}
+
+.attack, .recover, .escape {
+  margin-bottom: 10px;
+}
+
+.char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: charFadeIn 0.5s forwards;
+    animation-delay: calc(0.1s * var(--char-index));
+}
+
+@keyframes charFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
