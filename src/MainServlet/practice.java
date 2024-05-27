@@ -100,6 +100,11 @@ public class practice extends HttpServlet {
                 current_hp = hp_calc.enemy_hp_calc(attack,current_hp);
                 //current_hp = current_hp  - attack;
 
+                if(current_hp < 0) {
+                    current_hp = 0;
+                    System.out.println("呼び出されてるよ");
+                }
+
                 request.getSession().setAttribute("current_hp",current_hp);
 
                 request.setAttribute("enemy_hp",enemy_hp);
@@ -114,8 +119,10 @@ public class practice extends HttpServlet {
                 request.setAttribute("attack",attack);
 
 
+
                 RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
                 rd.forward(request, response);
+
             }else {
                 if(battle1_start.equals("battle1")) {
                     current_hp = enemy_dto.getHp();
