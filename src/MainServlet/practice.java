@@ -85,7 +85,7 @@ public class practice extends HttpServlet {
 
         if(battle1_start == null) {
             battle1_start = "開始中";
-            System.out.println("開始中です");
+            System.out.println("開始中です！");
         }
 
 
