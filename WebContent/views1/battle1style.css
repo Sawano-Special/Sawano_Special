@@ -65,18 +65,7 @@
     margin-bottom: 10px; /* ボタン間のマージンを設定 */
 }
 
-.textbox {
-    position: absolute;
-    width: 30%; /* テキストボックスの幅 */
-    height: 100px; /* テキストボックスの高さ */
-    top: 60%;
-    left: 50%;
-    transform: translate(0%, 0%); /* 中央に配置 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black; /* テキストボックスの境界線 */
-}
+
 
 button {
     position: absolute;
@@ -109,21 +98,33 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: charFadeIn 0.5s forwards;
-    animation-delay: calc(0.1s * var(--char-index));
+.textbox {
+    position: absolute;
+    width: 40%; /* テキストボックスの幅 */
+    height: 100px; /* テキストボックスの高さ */
+    top: 60%;
+    left: 60%;
+    transform: translate(-20%, 0%); /* 中央に配置 */
+    display: flex;
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: flex-start;
+    justify-content: flex-start; /* 左揃え */
+    border: 1px solid black; /* テキストボックスの境界線 */
+    font-size: 18px; /* テキストサイズを小さくする */
+    font-weight: bold;
+    text-align: left; /* 左揃え */
+    margin-bottom: 20px;
 }
 
-@keyframes charFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.textbox #message-display {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2.0s steps(20);
+
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
 }
