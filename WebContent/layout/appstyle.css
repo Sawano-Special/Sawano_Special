@@ -99,3 +99,17 @@
     box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.7);
 }
 
+
+.textbox {
+    position: absolute;
+    width: 30%; /* テキストボックスの幅 */
+    height: 100px; /* テキストボックスの高さ */
+    top: 60%;
+    left: 50%;
+    transform: translate(0%, 0%); /* 中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* テキストボックスの境界線 */
+}
+
