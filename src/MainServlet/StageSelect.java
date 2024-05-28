@@ -1,6 +1,7 @@
 package MainServlet;
 
 import java.io.IOException;
+import test.meigen;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -43,10 +44,15 @@ public class StageSelect extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // TODO Auto-generated method stub
-//      response.getWriter().append("Served at: ").append(request.getContextPath());
+//      for(int i=0;i<=13;i++) {
+//    	  String message = meigen.StageSelect1()[i];
+//    	  System.out.println(message);
+//          request.setAttribute("message",message);
+//
+//      }
       RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
       rd.forward(request, response);
+
 
       }
 

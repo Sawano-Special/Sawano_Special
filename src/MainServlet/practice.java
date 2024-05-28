@@ -19,8 +19,8 @@ import test.Enemy_damage;
 import battle_controller.hp_calc;
 
 /**
- * Servlet implementation class practice
- */
+* Servlet implementation class practice
+*/
 @WebServlet("/practice")
 public class practice extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,7 +30,7 @@ public class practice extends HttpServlet {
      */
     public practice() {
         super();
-        // TODO Auto-generated constructor stubee
+        // TODO Auto-generated constructor stub
     }
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +63,6 @@ public class practice extends HttpServlet {
         //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
 
-
         //リクエストパラメータを受け取る
 
         String attack_action = request.getParameter("attack");
@@ -75,7 +74,6 @@ public class practice extends HttpServlet {
 
         System.out.println(enemy_current_hp);
         System.out.println(hero_enemy_current_hp);
-
 
 
         if(attack_action == null) {
@@ -98,7 +96,6 @@ public class practice extends HttpServlet {
             battle1_start = "開始中";
             System.out.println("開始中です！");
         }
-
 
 
         if(attack_action.equals("攻撃")) {
@@ -133,7 +130,6 @@ public class practice extends HttpServlet {
 
                 //request.setAttribute("enemy_name",enemy_name);
                 //request.setAttribute("emnemy_attack",enemy_attack);
-
 
 
 
@@ -204,7 +200,6 @@ public class practice extends HttpServlet {
                 request.getSession().setAttribute("enemy_current_hp",enemy_current_hp);
 
 
-
                 request.setAttribute("message",message);
                 System.out.println(message);
 
@@ -239,13 +234,11 @@ public class practice extends HttpServlet {
 
 
 
-
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
 
             //enemy_current_hp = 0;
         }
-
 
 
                 System.out.println(attack_action);
