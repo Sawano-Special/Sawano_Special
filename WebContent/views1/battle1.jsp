@@ -2,10 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-Integer current_hp = (Integer) request.getSession().getAttribute("current_hp");
+Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
+Integer hero_enemy_current_hp = (Integer) request.getSession().getAttribute("hero_enemy_current_hp");
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -38,20 +43,21 @@ $(document).ready(function() {
     <div class="layer">
         <div class="textbox">
             <span id="message-display"><%=request.getAttribute("message")%></span>
+            <span id="message-display"><%=request.getAttribute("message2")%></span>
         </div>
 
         <div class="enemy">
             <img src="<c:url value='/views1/tatunami.jpg' />" alt="相手のポケモン"
                 class="enemy-img">
             <div class="hp-bar">
-                <!-- <div class="hp-fill" style="width: ${(current_hp >= 0) ? (100 * (enemy_hp - current_hp) / enemy_hp) : 0}%;"></div> -->
-                <div class="hp-fill" style="width: ${current_hp * 100/ enemy_hp}%;"></div>
+                <!-- <div class="hp-fill" style="width: ${(enemy_current_hp >= 0) ? (100 * (enemy_hp - enemy_current_hp) / enemy_hp) : 0}%;"></div> -->
+                <div class="hp-fill" style="width: ${enemy_current_hp * 100/ enemy_hp}%;"></div>
 
             </div>
-            <!-- <p>HP: <c:out value="${(current_hp >= 0) ? (enemy_hp - current_hp) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>  -->
+            <!-- <p>HP: <c:out value="${(enemy_current_hp >= 0) ? (enemy_hp - enemy_current_hp) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>  -->
             <p>
             HP:
-            <span id="enemy-hp"><c:out value="${current_hp}" /></span>
+            <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
              /
             <c:out value="${enemy_hp}" />
             </p>
@@ -61,11 +67,11 @@ $(document).ready(function() {
             <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン"
                 class="player-img">
             <div class="hp-bar">
-                <div class="hp-fill" style="width: ${100 * hero_hp / hero_hp}%;"></div>
+                <div class="hp-fill" style="width: ${100 * hero_enemy_current_hp / hero_hp}%;"></div>
             </div>
             <p>
                 HP:
-                <c:out value="${hero_hp}" />
+                <c:out value="${hero_enemy_current_hp}" />
                 /
                 <c:out value="${hero_hp}" />
             </p>
@@ -100,5 +106,5 @@ $(document).ready(function() {
 </html>
 
 <%
-request.getSession().setAttribute("current_hp", current_hp);
+request.getSession().setAttribute("enemy_current_hp", enemy_current_hp);
 %>
