@@ -30,7 +30,8 @@ public class test_Enemy extends DTO.enemy  {
 
         int damege = b.getAttack_value();
 
-        System.out.println( b.getName() +"は" + damege +"のダメージを与えた");
+        System.out.println( b.getName() +"は" + damege +"のダメージを与えた."
+                + "");
 
         return damege;
     }
