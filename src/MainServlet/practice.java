@@ -128,11 +128,11 @@ public class practice extends HttpServlet {
 
                 System.out.println(hero_hp);
 
-                request.setAttribute("name",hero_name);
-                request.setAttribute("attack",hero_attack);
+                //request.setAttribute("name",hero_name);
+                //request.setAttribute("attack",hero_attack);
 
-                request.setAttribute("enemy_name",enemy_name);
-                request.setAttribute("emnemy_attack",enemy_attack);
+                //request.setAttribute("enemy_name",enemy_name);
+                //request.setAttribute("emnemy_attack",enemy_attack);
 
 
 
@@ -172,16 +172,37 @@ public class practice extends HttpServlet {
                     request.getSession().setAttribute("current_hp",current_hp);
                     System.out.println("バトル1が開始されました(初期状態１)" + current_hp);
                 }
+                String message = "";
+                String message2 = "";
+                String hero_name = hero_dto.getName();
+                int hero_attack = hero.attack();
 
-                System.out.println(current_hp);
-                String name = hero_dto.getName();
+                String enemy_name = enemy_dto.getName();
+                int enemy_attack = test_enemy.attack();
 
-
-                request.setAttribute("enemy_hp",enemy_hp);
+                if(current_hp <= 0 && hero_current_hp > 0) {
+                    current_hp = 0;
+                    System.out.println("呼び出されてるよ");
+                    message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!";
+                    request.setAttribute("message",message);
+                }else if(current_hp > 0 && hero_current_hp <= 0) {
+                    hero_current_hp = 0;
+                    System.out.println("呼び出されてるよhero");
+                    message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                    request.setAttribute("message",message);
+                }
+                else {
+                    message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
+                    message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
+                    System.out.println(message);
+                    System.out.println(message2);
+                    request.setAttribute("message",message);
+                    request.setAttribute("message2",message2);
+                }
                 request.getSession().setAttribute("current_hp",current_hp);
 
 
-                String message = name+"はバトルに勝利しました";
+
                 request.setAttribute("message",message);
                 System.out.println(message);
 
