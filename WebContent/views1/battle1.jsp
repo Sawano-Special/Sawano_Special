@@ -3,7 +3,11 @@
     pageEncoding="UTF-8"%>
 <%
 Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
-Integer hero_enemy_current_hp = (Integer) request.getSession().getAttribute("hero_enemy_current_hp");
+Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
+
+request.getSession().setAttribute("enemy_current_hp", enemy_current_hp);
+request.getSession().setAttribute("hero_current_hp", hero_current_hp);
+
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
@@ -42,7 +46,7 @@ $(document).ready(function() {
 <body>
     <div class="layer">
         <div class="textbox">
-            <span id="message-display"><%=request.getAttribute("message")%></span>
+            <span id="message-display"><%=request.getAttribute("message")%></span><br>
             <span id="message-display"><%=request.getAttribute("message2")%></span>
         </div>
 
@@ -71,7 +75,7 @@ $(document).ready(function() {
             </div>
             <p>
                 HP:
-                <c:out value="${hero_enemy_current_hp}" />
+                <c:out value="${hero_current_hp}" />
                 /
                 <c:out value="${hero_hp}" />
             </p>
@@ -104,4 +108,7 @@ $(document).ready(function() {
 
 </body>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/Sawano-Special/Sawano_Special.git
