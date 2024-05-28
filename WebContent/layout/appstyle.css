@@ -104,12 +104,24 @@
     position: absolute;
     width: 30%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
-    top: 60%;
-    left: 50%;
+    top: 70%;
+    left: 65%;
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black; /* テキストボックスの境界線 */
+}
+.textbox #message-display {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2.0s steps(20);
+
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
 }
 

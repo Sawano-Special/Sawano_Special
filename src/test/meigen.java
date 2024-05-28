@@ -44,5 +44,25 @@ public class meigen {
         return meigen;
     }
 
+    public static String[] stageselect1() {
+        String[] meigen = new String[15];
+        meigen[0] = "やぁ！";
+        meigen[1] = "澤野の世界へようこそ！";
+        meigen[2] = "この世界はさわのスペシャルと言って悪の魔神、";
+        meigen[3] = "かっちゃんとたつのーりが支配する悪い世界なんだ！";
+        meigen[4] = "そんな悪の魔神を倒すべく3人の戦士を紹介しよう！";
+        meigen[5] = "1人目はたつなみ！";
+        meigen[6] = "彼はミスタードラゴンズの1人で、ドラゴンズのリーダーなんだ！";
+        meigen[7] = "2人目は細川！";
+        meigen[8] = "中日ドラゴンズの期待のホープだ！";
+        meigen[9] = "そして3人目は...";
+        meigen[10] = "さわの！君自身だ！";
+        meigen[11] = "君は2人の戦士とともに、悪を倒してもらう！";
+        meigen[12] = "モテモテの未来もそう遠くないだろう！";
+        meigen[13] = "ステージ1から順にボスを倒し、世界の平和を取り戻してくれ！";
+        meigen[14] = "さわのこうき！頼んだぞ！";
+        return meigen;
+    }
+
 
 }
