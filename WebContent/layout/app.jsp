@@ -7,13 +7,15 @@
     <title>RPG</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/battle/stageselect.js" defer></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/battle/text2.js" defer></script>
 </head>
 <body>
     <div class="layer">
         <form method="POST" action="${pageContext.request.contextPath}/practice">
 
         <div class="textbox">
-                    <c:out value="${name}" />
+        <script> var myArray = JSON.parse('<%=request.getAttribute("jsonArray")%>');</script>
+                    <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br>
         </div>
             <button type="submit" style="border: none; background: none;"name="battle1_start" id="battle1_start" value="battle1">
                 <img src="layout/battle-background1.jpg" alt="ステージ1" class="stage1-img">
