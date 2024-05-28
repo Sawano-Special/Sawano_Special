@@ -108,7 +108,3 @@ $(document).ready(function() {
 
 </body>
 </html>
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'main' of https://github.com/Sawano-Special/Sawano_Special.git
