@@ -1,6 +1,7 @@
 package MainServlet;
 
 import java.io.IOException;
+import java.util.Random;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -56,6 +57,7 @@ public class practice extends HttpServlet {
 
         String hero_name = hero_dto.getName();
         int hero_attack = hero.attack();
+        int hero_speed = hero_dto.getSpeed();
 
 
         String message = "";
@@ -63,6 +65,7 @@ public class practice extends HttpServlet {
 
         String enemy_name = enemy_dto.getName();
         int enemy_attack = test_enemy.attack();
+        int enemy_speed = enemy_dto.getSpeed();
 
         request.setAttribute("hero_name:",hero_name);
         request.setAttribute("hero_attack:",hero_attack);
@@ -113,7 +116,7 @@ public class practice extends HttpServlet {
 
         if(battle1_start == null) {
             battle1_start = "開始中";
-            System.out.println("battle:NULLされています！");
+            System.out.println("battle開始中です。");
         }
 
 
@@ -121,10 +124,146 @@ public class practice extends HttpServlet {
 
             if(enemy_current_hp > 0 && hero_current_hp > 0) {
 
-                //HP減少
-                enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+                if(hero_speed > enemy_speed) {
 
-                hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+                    System.out.println("ヒーローが先に攻撃");
+                    //ヒーロー先に攻撃
+                    enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+                    if(enemy_current_hp <=0) {
+                        enemy_current_hp = 0;
+                        //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                        message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                        System.out.println(message);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+
+
+                    }else if(hero_current_hp <= 0) {
+                        hero_current_hp = 0;
+                        //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                        message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+                        System.out.println(message);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+                    }
+                    else {
+                        hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+                        message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                        message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                        System.out.println(message);
+                        System.out.println(message2);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+
+                    }
+
+                }else if(hero_speed < enemy_speed){
+                  //エネミー先に攻撃
+                    System.out.println("エネミーが先に攻撃");
+                    hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+                    if(enemy_current_hp <=0) {
+                        enemy_current_hp = 0;
+                        //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                        message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                        System.out.println(message);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+
+
+                    }else if(hero_current_hp <= 0) {
+                        hero_current_hp = 0;
+                        //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                        message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+                        System.out.println(message);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+                    }
+                    else {
+                        enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+                        message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                        message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                        System.out.println(message);
+                        System.out.println(message2);
+                        request.setAttribute("message",message);
+                        request.setAttribute("message2",message2);
+                    }
+
+                }else {
+                    //スピードが同じのため、ランダムで5以下の場合ヒーローが先に攻撃。6以上の場合エネミーが先に攻撃。
+                    Random rand = new Random();
+                    int speed_ave = rand.nextInt(10);
+
+                    if(speed_ave <= 5) {
+                      //ヒーロー先に攻撃
+                        System.out.println("ヒーローが先に攻撃");
+                        enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+                        if(enemy_current_hp <=0) {
+                            enemy_current_hp = 0;
+                            //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                            message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                            System.out.println(message);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+
+
+                        }else if(hero_current_hp <= 0) {
+                            hero_current_hp = 0;
+                            //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                            message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+                            System.out.println(message);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+                        }
+                        else {
+                            hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+                            message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                            message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                            System.out.println(message);
+                            System.out.println(message2);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+
+                        }
+                    }else {
+                      //エネミー先に攻撃
+                        System.out.println("エネミーが先に攻撃");
+                        hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+                        if(enemy_current_hp <=0) {
+                            enemy_current_hp = 0;
+                            //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                            message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                            System.out.println(message);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+
+
+                        }else if(hero_current_hp <= 0) {
+                            hero_current_hp = 0;
+                            //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                            message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+                            System.out.println(message);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+                        }
+                        else {
+                            enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+                            message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                            message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                            System.out.println(message);
+                            System.out.println(message2);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+                        }
+
+                    }
+
+                }
+
+
+                //HP減少
+//                enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
+//
+//                hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
 
                 //enemy_current_hp = enemy_current_hp  - attack;
 
@@ -135,40 +274,34 @@ public class practice extends HttpServlet {
 
                 System.out.println(hero_hp);
 
-                //request.setAttribute("name",hero_name);
-                //request.setAttribute("attack",hero_attack);
 
-                //request.setAttribute("enemy_name",enemy_name);
-                //request.setAttribute("emnemy_attack",enemy_attack);
-
-
-                if(enemy_current_hp <= 0 && hero_current_hp > 0) {
-                    enemy_current_hp = 0;
-                    //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
-                    message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                    System.out.println(message);
-                    request.setAttribute("message",message);
-                    request.setAttribute("message2",message2);
-                }else if(enemy_current_hp > 0 && hero_current_hp <= 0) {
-                    hero_current_hp = 0;
-                    //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
-                    message = meigen.meigen_battle_finish2(enemy_name, hero_name);
-                    System.out.println(message);
-                    request.setAttribute("message",message);
-                    request.setAttribute("message2",message2);
-                }
-                else {
-                    //message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
-                    //message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
-
-                    message = meigen.meigen_hero_damage(hero_name, hero_attack);
-                    message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
-                    System.out.println(message);
-                    System.out.println(message2);
-                    request.setAttribute("message",message);
-                    request.setAttribute("message2",message2);
-
-                }
+//                if(enemy_current_hp <= 0 && hero_current_hp > 0) {
+//                    enemy_current_hp = 0;
+//                    //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+//                    message = meigen.meigen_battle_finish(hero_name, enemy_name);
+//                    System.out.println(message);
+//                    request.setAttribute("message",message);
+//                    request.setAttribute("message2",message2);
+//                }else if(enemy_current_hp > 0 && hero_current_hp <= 0) {
+//                    hero_current_hp = 0;
+//                    //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+//                    message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+//                    System.out.println(message);
+//                    request.setAttribute("message",message);
+//                    request.setAttribute("message2",message2);
+//                }
+//                else {
+//                    //message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
+//                    //message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
+//
+//                    message = meigen.meigen_hero_damage(hero_name, hero_attack);
+//                    message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+//                    System.out.println(message);
+//                    System.out.println(message2);
+//                    request.setAttribute("message",message);
+//                    request.setAttribute("message2",message2);
+//
+//                }
 
                 request.getSession().setAttribute("enemy_current_hp",enemy_current_hp);
                 request.getSession().setAttribute("hero_current_hp",hero_current_hp);
