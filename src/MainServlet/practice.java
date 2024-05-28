@@ -72,12 +72,12 @@ public class practice extends HttpServlet {
 
         int hero_hp = hero_dto.getHp();
         System.out.println("IF前："+hero_hp);
-        request.setAttribute("hero_hp：",hero_hp);
+        request.setAttribute("hero_hp",hero_hp);
 
         int enemy_hp = enemy_dto.getHp();
         //int enemy_damage = enemy_dto.getHp();
         System.out.println("IF前："+enemy_hp);
-        request.setAttribute("enemy_hp：",enemy_hp);
+        request.setAttribute("enemy_hp",enemy_hp);
 
         //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
@@ -196,9 +196,6 @@ public class practice extends HttpServlet {
 
             }
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-            rd.forward(request, response);
-
 
         }else  {
             if(battle1_start.equals("battle1")) {
@@ -224,12 +221,15 @@ public class practice extends HttpServlet {
             request.setAttribute("message2", message2);
             System.out.println(message);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
-            rd.forward(request, response);
+
 
         }
 
+            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            rd.forward(request, response);
 
+            System.out.println("ヒーローの現在の体力："+hero_current_hp);
+            System.out.println("敵の現在の体力："+enemy_current_hp);
 
     }
 
