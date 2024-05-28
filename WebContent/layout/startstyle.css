@@ -24,7 +24,7 @@ body {
   position: absolute;
   top: 200px;
   left:150px;
-  font-size: 101px;
+  font-size: 100px;
   color: yellow;
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
@@ -32,7 +32,7 @@ body {
 .sawa .theme1 {
   position: absolute;
   top: 350px;
-  left:450px;
+  left:400px;
   font-size: 30px;
   color: blue;
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */

@@ -38,7 +38,7 @@ h2 {
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
 a{
-    position: absolute;
+  position: absolute;
   top: 350px;
   left:300px;
   font-size: 50px;
