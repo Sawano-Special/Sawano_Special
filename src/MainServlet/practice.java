@@ -144,20 +144,25 @@ public class practice extends HttpServlet {
 
                 if(enemy_current_hp <= 0 && hero_current_hp > 0) {
                     enemy_current_hp = 0;
-                    message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                    //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                    message = meigen.meigen_battle_finish(hero_name, enemy_name);
                     System.out.println(message);
                     request.setAttribute("message",message);
                     request.setAttribute("message2",message2);
                 }else if(enemy_current_hp > 0 && hero_current_hp <= 0) {
                     hero_current_hp = 0;
-                    message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                    //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                    message = meigen.meigen_battle_finish2(enemy_name, hero_name);
                     System.out.println(message);
                     request.setAttribute("message",message);
                     request.setAttribute("message2",message2);
                 }
                 else {
-                    message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
-                    message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
+                    //message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
+                    //message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
+
+                    message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                    message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
                     System.out.println(message);
                     System.out.println(message2);
                     request.setAttribute("message",message);
@@ -174,13 +179,15 @@ public class practice extends HttpServlet {
 
                 if(enemy_current_hp <= 0 && hero_current_hp > 0) {
                     enemy_current_hp = 0;
-                    message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!";
+                    //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!";
+                    message = meigen.meigen_battle_finish(hero_name, enemy_name);
                     System.out.println(message);
                     request.setAttribute("message",message);
                     request.setAttribute("message2", message2);
                 }else {
                     hero_current_hp = 0;
-                    message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                    //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                    message = meigen.meigen_battle_finish2(enemy_name, hero_name);
                     System.out.println(message);
                     request.setAttribute("message",message);
                     request.setAttribute("message2", message2);
@@ -195,6 +202,9 @@ public class practice extends HttpServlet {
                 //System.out.println(message);
 
             }
+
+            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            rd.forward(request, response);
 
 
         }else  {
@@ -215,21 +225,19 @@ public class practice extends HttpServlet {
             request.getSession().setAttribute("hero_current_hp",hero_current_hp);
 
 
-            message ="野生の"+enemy_dto.getName()+"が現れました!!";
+            //message ="野生の"+enemy_dto.getName()+"が現れました!!";
+            message = meigen.meigen_battle_start(enemy_name, 1);
 
             request.setAttribute("message",message);
             request.setAttribute("message2", message2);
             System.out.println(message);
 
-
-
-        }
-
             RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
             rd.forward(request, response);
 
-            System.out.println("ヒーローの現在の体力："+hero_current_hp);
-            System.out.println("敵の現在の体力："+enemy_current_hp);
+        }
+
+
 
     }
 
