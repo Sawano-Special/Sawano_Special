@@ -274,35 +274,6 @@ public class practice extends HttpServlet {
 
                 System.out.println(hero_hp);
 
-
-//                if(enemy_current_hp <= 0 && hero_current_hp > 0) {
-//                    enemy_current_hp = 0;
-//                    //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
-//                    message = meigen.meigen_battle_finish(hero_name, enemy_name);
-//                    System.out.println(message);
-//                    request.setAttribute("message",message);
-//                    request.setAttribute("message2",message2);
-//                }else if(enemy_current_hp > 0 && hero_current_hp <= 0) {
-//                    hero_current_hp = 0;
-//                    //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
-//                    message = meigen.meigen_battle_finish2(enemy_name, hero_name);
-//                    System.out.println(message);
-//                    request.setAttribute("message",message);
-//                    request.setAttribute("message2",message2);
-//                }
-//                else {
-//                    //message = hero_name +"は"+enemy_name +"に"+hero_attack+"ダメージを与えた";
-//                    //message2 = enemy_name +"は"+hero_name +"に"+enemy_attack+"ダメージを与えた";
-//
-//                    message = meigen.meigen_hero_damage(hero_name, hero_attack);
-//                    message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
-//                    System.out.println(message);
-//                    System.out.println(message2);
-//                    request.setAttribute("message",message);
-//                    request.setAttribute("message2",message2);
-//
-//                }
-
                 request.getSession().setAttribute("enemy_current_hp",enemy_current_hp);
                 request.getSession().setAttribute("hero_current_hp",hero_current_hp);
 
