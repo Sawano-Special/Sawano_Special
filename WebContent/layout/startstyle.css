@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -21,6 +30,8 @@ body {
 
 
 .sawa .theme{
+  opacity: 0; /* 最初は非表示 */
+  animation: fadeIn 3s ease-in-out forwards; /* 3秒かけて表示 */
   position: absolute;
   top: 200px;
   left:150px;
@@ -30,6 +41,8 @@ body {
 }
 
 .sawa .theme1 {
+  opacity: 0; /* 最初は非表示 */
+  animation: fadeIn 3s ease-in-out forwards; /* 3秒かけて表示 */
   position: absolute;
   top: 350px;
   left:400px;
@@ -37,3 +50,4 @@ body {
   color: blue;
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
+
