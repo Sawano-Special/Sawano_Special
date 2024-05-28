@@ -30,7 +30,7 @@ public class practice extends HttpServlet {
      */
     public practice() {
         super();
-        // TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stubee
     }
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

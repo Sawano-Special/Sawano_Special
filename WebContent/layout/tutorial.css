@@ -31,7 +31,7 @@ body {
 
 h1 {
   opacity: 0; /* 最初は非表示 */
-  animation: fadeIn 1s ease-in-out forwards; /* 3秒かけて表示 */
+  animation: fadeIn 1s ease-in-out forwards; /* 1秒かけて表示 */
   position: absolute;
   top: 150px;
   left:200px;
@@ -42,7 +42,7 @@ h1 {
 
 h2 {
   opacity: 0; /* 最初は非表示 */
-  animation: fadeIn 2s ease-in-out forwards; /* 3秒かけて表示 */
+  animation: fadeIn 3s ease-in-out forwards; /* 3秒かけて表示 */
   position: absolute;
   top: 250px;
   left:200px;
@@ -52,11 +52,12 @@ h2 {
 }
 a{
   opacity: 0; /* 最初は非表示 */
-  animation: fadeIn 3s ease-in-out forwards; /* 3秒かけて表示 */
+  animation: fadeIn 5s ease-in-out forwards; /* 5秒かけて表示 */
   position: absolute;
   top: 350px;
-  left:300px;
+  left:450px;
   font-size: 50px;
   color: black;
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
+

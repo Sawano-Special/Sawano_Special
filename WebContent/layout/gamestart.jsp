@@ -11,8 +11,10 @@
     <script src="${pageContext.request.contextPath}/JavaScript/gamestart.js" defer></script>
     <script
     src="${pageContext.request.contextPath}/JavaScript/battle/text.js"></script>
+
 </head>
 <body>
+
     <div class="layer">
     <div class="sawa">
         <form method="POST" action="${pageContext.request.contextPath}/Tutorial">

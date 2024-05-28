@@ -19,6 +19,8 @@
     <h2>このゲームには５つのステージが用意されている<br>
     各ステージのボスキャラを倒し、すべてのステージを制覇せよ！</h2>
 
+    </div>
+
     <div class="next">
     <form method="POST" action="${pageContext.request.contextPath}/StageSelect">
     <button type="submit" class="start-game">
