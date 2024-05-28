@@ -51,6 +51,7 @@ h2 {
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
 a{
+
   opacity: 0; /* 最初は非表示 */
   animation: fadeIn 5s ease-in-out forwards; /* 5秒かけて表示 */
   position: absolute;
