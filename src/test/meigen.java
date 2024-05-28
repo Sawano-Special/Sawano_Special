@@ -2,9 +2,15 @@ package test;
 
 public class meigen {
 
-    public String meigen_damage(String name, int damage) {
+    public String meigen_hero_damage(String hero_name, int damage) {
         String meigen;
-        meigen = name+"は"+damage+"を与えた！！";
+        meigen = hero_name+"は"+damage+"ダメージを与えた！！";
+        return meigen;
+        }
+
+    public String meigen_enemy_damage(String enemy_name, int damage) {
+        String meigen;
+        meigen =  enemy_name +"に"+damage+"ダメージをくらった！！";
         return meigen;
         }
 
@@ -29,6 +35,12 @@ public class meigen {
     public String meigen_battle_finish(String hero_name, String enemy_name) {
         String meigen;
         meigen = hero_name+"は"+enemy_name+"に勝利した！！";
+        return meigen;
+    }
+
+    public String meigen_battle_finish2(String enemy_name, String hero_name) {
+        String meigen;
+        meigen = hero_name+"は"+enemy_name+"に敗北した・・";
         return meigen;
     }
 
