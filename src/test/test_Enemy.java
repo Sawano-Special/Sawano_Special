@@ -1,6 +1,7 @@
 package test;
 
 //import test.Character;
+import DTO.enemy;
 
 public class test_Enemy extends DTO.enemy  {
 
@@ -14,13 +15,13 @@ public class test_Enemy extends DTO.enemy  {
         // TODO 自動生成されたコンストラクター・スタブ
     }
 
-    test_Enemy b = new test_Enemy();
+    enemy b = new enemy();
 
     public test_Enemy() {
 
     }
 
-    public test_Enemy(test_Enemy b) {
+    public test_Enemy(enemy b) {
         super();
         this.b = b;
     }
@@ -29,7 +30,8 @@ public class test_Enemy extends DTO.enemy  {
 
         int damege = b.getAttack_value();
 
-        System.out.println( b.getName() +"は" + damege +"のダメージを与えた");
+        System.out.println( b.getName() +"は" + damege +"のダメージを与えた."
+                + "");
 
         return damege;
     }
