@@ -14,6 +14,7 @@
     <h1>澤野スペシャルへようこそ</h1>
     <h2>このゲームには５つのステージが用意されている<br>
     各ステージのボスキャラを倒し、すべてのステージを制覇せよ！</h2>
+
     <div class="next">
     <form method="POST" action="${pageContext.request.contextPath}/StageSelect">
     <button type="submit" class="start-game">

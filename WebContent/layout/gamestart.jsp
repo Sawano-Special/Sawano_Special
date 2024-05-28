@@ -9,8 +9,10 @@
     <title>RPG</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/gamestart.js" defer></script>
+
 </head>
 <body>
+
     <div class="layer">
     <div class="sawa">
         <form method="POST" action="${pageContext.request.contextPath}/Tutorial">
