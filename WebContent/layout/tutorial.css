@@ -56,7 +56,7 @@ a{
   animation: fadeIn 5s ease-in-out forwards; /* 5秒かけて表示 */
   position: absolute;
   top: 350px;
-  left:450px;
+  left:300px;
   font-size: 50px;
   color: black;
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
