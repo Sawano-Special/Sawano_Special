@@ -3,11 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
-Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
-
-request.getSession().setAttribute("enemy_current_hp", enemy_current_hp);
-request.getSession().setAttribute("hero_current_hp", hero_current_hp);
-
+Integer hero_enemy_current_hp = (Integer) request.getSession().getAttribute("hero_enemy_current_hp");
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
@@ -46,7 +42,7 @@ $(document).ready(function() {
 <body>
     <div class="layer">
         <div class="textbox">
-            <span id="message-display"><%=request.getAttribute("message")%></span><br>
+            <span id="message-display"><%=request.getAttribute("message")%></span>
             <span id="message-display"><%=request.getAttribute("message2")%></span>
         </div>
 
@@ -71,11 +67,11 @@ $(document).ready(function() {
             <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン"
                 class="player-img">
             <div class="hp-bar">
-                <div class="hp-fill" style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
+                <div class="hp-fill" style="width: ${100 * hero_enemy_current_hp / hero_hp}%;"></div>
             </div>
             <p>
                 HP:
-                <c:out value="${hero_current_hp}" />
+                <c:out value="${hero_enemy_current_hp}" />
                 /
                 <c:out value="${hero_hp}" />
             </p>
@@ -108,3 +104,7 @@ $(document).ready(function() {
 
 </body>
 </html>
+
+<%
+request.getSession().setAttribute("enemy_current_hp", enemy_current_hp);
+%>
