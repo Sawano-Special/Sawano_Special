@@ -136,6 +136,7 @@ public class practice extends HttpServlet {
                         System.out.println(message);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
+                        request.getSession().setAttribute("stage2_unlocked", true);
 
 
                     }else if(hero_current_hp <= 0) {
@@ -168,6 +169,7 @@ public class practice extends HttpServlet {
                         System.out.println(message);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
+                        request.getSession().setAttribute("stage2_unlocked", true);
 
 
                     }else if(hero_current_hp <= 0) {
@@ -204,6 +206,7 @@ public class practice extends HttpServlet {
                             System.out.println(message);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
+                            request.getSession().setAttribute("stage2_unlocked", true);
 
 
                         }else if(hero_current_hp <= 0) {
