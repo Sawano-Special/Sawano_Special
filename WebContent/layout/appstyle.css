@@ -102,15 +102,20 @@
 
 .textbox {
     position: absolute;
-    width: 30%; /* テキストボックスの幅 */
+    width: 40%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
     top: 70%;
     left: 65%;
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: flex-start;
+    justify-content: flex-start; /* 左揃え */
     border: 1px solid black; /* テキストボックスの境界線 */
+    font-size: 18px; /* テキストサイズを小さくする */
+    font-weight: bold;
+    text-align: left; /* 左揃え */
+    margin-bottom: 20px;
 }
 .textbox #message-display {
   display: inline-block;

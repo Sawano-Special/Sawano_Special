@@ -54,18 +54,19 @@ public class StageSelect extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-      for(int i=0;i<=15;i++) {
-    	  String stage = meigen.stageselect1()[i];
-    	  System.out.println(stage);
-
-      }
-      System.out.println("aaaaaaaaa");
-      String[] message = meigen.stageselect1();
+//      for(int i=0;i<=15;i++) {
+//    	  String stage = meigen.stageselect1()[i];
+//    	  System.out.println(stage);
+//
+//      }
+//      System.out.println("aaaaaaaaa");
+//      String[] message = meigen.stageselect1();
+    	String message = "やぁ！";
       request.setAttribute("message",message);
-      Gson gson = new Gson();
-      String jsonArray = gson.toJson(message);
-      response.setContentType("application/json");
-      response.getWriter().write(jsonArray);
+//      Gson gson = new Gson();
+//      String jsonArray = gson.toJson(message);
+//      response.setContentType("application/json");
+//      response.getWriter().write(jsonArray);
       RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
       rd.forward(request, response);
 
