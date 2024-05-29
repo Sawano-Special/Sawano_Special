@@ -31,23 +31,24 @@ public class StageSelect extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    int i=0;
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	for(int i=1;i<=meigen.stageselect1().length;i++) {
-      	  String stage = meigen.stageselect1()[i-1];
-      	  System.out.println(stage);
-
-        }
-        System.out.println("aaaaaaaaa");
-        String[] message = meigen.stageselect1();
-        //request.setAttribute("message",message);
-        Gson gson = new Gson();
-        String jsonArray = gson.toJson(message);
-        response.setContentType("application/json");
-        response.getWriter().write(jsonArray);
+//    	for(int i=1;i<=meigen.stageselect1().length;i++) {
+//      	  String stage = meigen.stageselect1()[i-1];
+//      	  System.out.println(stage);
+//
+//        }
+//        System.out.println("aaaaaaaaa");
+//        String[] message = meigen.stageselect1();
+//        //request.setAttribute("message",message);
+//        Gson gson = new Gson();
+//        String jsonArray = gson.toJson(message);
+//        response.setContentType("application/json");
+//        response.getWriter().write(jsonArray);
         RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
         rd.forward(request, response);
     }
@@ -60,15 +61,30 @@ public class StageSelect extends HttpServlet {
 //
 //      }
 //      System.out.println("aaaaaaaaa");
-//      String[] message = meigen.stageselect1();
-    	String message = "やぁ！";
-      request.setAttribute("message",message);
+      String[] message = meigen.stageselect1();
+    	//String message = "やぁ！";
+      //request.setAttribute("message",message);
+      String attack_action = request.getParameter("attack");
+      System.out.println("attack_action:");
+      System.out.print(attack_action);
+      if(attack_action==null){
+    	  System.out.println("ボタンif文前");
+    	  if(i<=message.length) {
+    		  System.out.println("ボタンif文中");
+    	  String message2 = message[i];
+    	  System.out.println("message2"+message2);
+    	  request.setAttribute("message2",message2);
+    	  RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
+          rd.forward(request, response);
+    	  i++;
+    	  System.out.println(i);
+    	  }
+      }
 //      Gson gson = new Gson();
 //      String jsonArray = gson.toJson(message);
 //      response.setContentType("application/json");
 //      response.getWriter().write(jsonArray);
-      RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
-      rd.forward(request, response);
+
 
 
       }
