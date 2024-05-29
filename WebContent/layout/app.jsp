@@ -13,7 +13,7 @@
     src="${pageContext.request.contextPath}/JavaScript/battle/stageselect.js"
     defer></script>
 <script
-    src="${pageContext.request.contextPath}/JavaScript/battle/text2.js"
+    src="${pageContext.request.contextPath}/JavaScript/battle/test3.js"
     defer></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
             action="${pageContext.request.contextPath}/practice">
 
             <div class="textbox">
-                <span id="message-display"><%=request.getAttribute("message")%></span>
+                <span id="message-display"><%=request.getAttribute("message2")%></span>
   <br>			<%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
             </div>
             <button type="submit" style="border: none; background: none;"

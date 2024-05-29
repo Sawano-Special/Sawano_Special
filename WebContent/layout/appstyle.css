@@ -109,13 +109,13 @@
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
     flex-direction: column; /* 縦方向に並べる */
-    align-items: flex-start;
-    justify-content: flex-start; /* 左揃え */
+    align-items: center;
+    justify-content: center; /* 中央揃え */
     border: 1px solid black; /* テキストボックスの境界線 */
     font-size: 18px; /* テキストサイズを小さくする */
     font-weight: bold;
-    text-align: left; /* 左揃え */
-    margin-bottom: 20px;
+    text-align: center; /* 中央揃え */
+    cursor: pointer; /* マウスカーソルをポインターに変更 */
 }
 .textbox #message-display {
   display: inline-block;
