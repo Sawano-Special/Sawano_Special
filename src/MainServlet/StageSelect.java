@@ -50,25 +50,25 @@ public class StageSelect extends HttpServlet {
 //        String jsonArray = gson.toJson(message);
 //        response.setContentType("application/json");
 //        response.getWriter().write(jsonArray);
-    	String[] message = meigen.stageselect1();
-    	//String message = "やぁ！";
+        String[] message = meigen.stageselect1();
+        //String message = "やぁ！";
       //request.setAttribute("message",message);
       String attack_action = request.getParameter("attack");
-      System.out.println("attack_action:");
-      System.out.print(attack_action);
+      System.out.println("attack_action:" + attack_action);
+      System.out.print("GET表示");
       if(attack_action==null){
-    	  System.out.println("ボタンif文前");
-    	  if(i<=message.length) {
-    		  System.out.println("ボタンif文中");
-    	  message2 = message[i];
-    	  System.out.println("message2"+message2);
-    	  request.setAttribute("message2",message2);
-    	  i++;
-    	  System.out.println(i);
-    	  }
+          System.out.println("ボタンif文前");
+          if(i<=message.length) {
+              System.out.println("ボタンif文中");
+              message2 = message[i];
+              System.out.println("message2"+message2);
+              request.setAttribute("message2",message2);
+              i++;
+              System.out.println(i);
+          }
 
       }else{
-    	  message2 = "よぁ";
+          message2 = "よぁ";
       }
         RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
         rd.forward(request, response);
@@ -76,27 +76,33 @@ public class StageSelect extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String[] message = meigen.stageselect1();
-    	//String message = "やぁ！";
+        //String message = "やぁ！";
       //request.setAttribute("message",message);
       String attack_action = request.getParameter("attack");
-      System.out.println("attack_action:");
-      System.out.print(attack_action);
+      System.out.println("attack_action:" + attack_action);
+      System.out.print("POST表示");
       if(attack_action==null){
-    	  System.out.println("ボタンif文前");
-    	  if(i<=message.length) {
-    		  System.out.println("ボタンif文中");
-    	  message2 = message[i];
-    	  System.out.println("message2"+message2);
-    	  request.setAttribute("message2",message2);
-    	  i++;
-    	  System.out.println(i);
-    	  }
+          System.out.println("ボタンif文前");
+          if(i<=message.length) {
+              System.out.println("ボタンif文中");
+              message2 = message[i];
+              System.out.println("message2"+message2);
+              request.setAttribute("message2", message2);
+              i++;
+              System.out.println(i);
+          }
 
       }else{
-    	  message2 = "よぁ";
+          message2 = "よぁ";
+          request.setAttribute("message2", message2);
       }
+
       RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
       rd.forward(request, response);
+
+      System.out.println("送りました！！");
+
+
 //      Gson gson = new Gson();
 //      String jsonArray = gson.toJson(message);
 //      response.setContentType("application/json");
