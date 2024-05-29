@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
   }
 
-  $("#message-display").click(function() {
+  $(".textbox").click(function() {
     if (!isDisplaying) {
       isDisplaying = true;
       displayNextChar();
