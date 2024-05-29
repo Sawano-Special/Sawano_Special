@@ -191,7 +191,7 @@ public class practice extends HttpServlet {
                 }else {
                     //スピードが同じのため、ランダムで5以下の場合ヒーローが先に攻撃。6以上の場合エネミーが先に攻撃。
                     Random rand = new Random();
-                    int speed_ave = rand.nextInt(10);
+                    int speed_ave = rand.nextInt(10)+1;
 
                     if(speed_ave <= 5) {
                       //ヒーロー先に攻撃
