@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
-Integer hero_enemy_current_hp = (Integer) request.getSession().getAttribute("hero_enemy_current_hp");
+Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
@@ -38,12 +38,36 @@ $(document).ready(function() {
 });
 </script>
 
+<script type="text/javascript">        // JSPの変数をJavaScriptに渡す
+var message = '<%=request.getAttribute("message")%>';
+var message2 = '<%=request.getAttribute("message2")%>';
+console.log("JavaScriptの変数の値: " + message);        // ここでさらにJavaScriptの処理を行う
+
+document.addEventListener('DOMContentLoaded', function() {
+    const messages = [message, message2]; // 表示するメッセージのリスト
+    let currentIndex = 0; // 現在のメッセージインデックス
+    const messageBox = document.getElementById('message-display');
+    const nextTextButton = document.getElementById('nextButton');    // 最初のメッセージを表示
+    messageBox.textContent = messages[currentIndex];
+    nextTextButton.addEventListener('click', function() {
+        currentIndex++; // インデックスを進める
+        if (currentIndex < messages.length) {            // 次のメッセージを表示
+            messageBox.textContent = messages[currentIndex];
+        }else {            // これ以上表示するメッセージがない場合、ボタンを無効にする
+            nextTextButton.disabled = true;
+        }
+});
+});
+
+</script>
+
+
 </head>
 <body>
     <div class="layer">
         <div class="textbox">
             <span id="message-display"><%=request.getAttribute("message")%></span>
-            <span id="message-display"><%=request.getAttribute("message2")%></span>
+            <button id="nextButton">Next Message</button>
         </div>
 
         <div class="enemy">
@@ -67,11 +91,11 @@ $(document).ready(function() {
             <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン"
                 class="player-img">
             <div class="hp-bar">
-                <div class="hp-fill" style="width: ${100 * hero_enemy_current_hp / hero_hp}%;"></div>
+                <div class="hp-fill" style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
             </div>
             <p>
                 HP:
-                <c:out value="${hero_enemy_current_hp}" />
+                <c:out value="${hero_current_hp}" />
                 /
                 <c:out value="${hero_hp}" />
             </p>
