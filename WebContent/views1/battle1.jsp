@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="enemy">
-            <img src="<c:url value='/views1/tatunami.jpg' />" alt="相手のポケモン"
+            <img src="<c:url value='/views1/slime.png' />" alt="相手のポケモン"
                 class="enemy-img">
             <div class="hp-bar">
                 <!-- <div class="hp-fill" style="width: ${(enemy_current_hp >= 0) ? (100 * (enemy_hp - enemy_current_hp) / enemy_hp) : 0}%;"></div> -->
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="player">
-            <img src="<c:url value='/views1/Sample1.jpg' />" alt="自分のポケモン"
+            <img src="<c:url value='/views1/hero.png' />" alt="自分のポケモン"
                 class="player-img">
             <div class="hp-bar">
                 <div class="hp-fill" style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         <form action="${pageContext.request.contextPath}/StageSelect" method="get">
-        <button type="submit" id="stage-select-button">ステージクリア！！</button>
+        <button type="submit" id="stage-select-button">ステージ1クリア！！</button>
         </form>
 
 
