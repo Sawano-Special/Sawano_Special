@@ -2,7 +2,7 @@
 
 .layer{
   /* 背景画像設定 */
-  background: url(./battle-background.png) no-repeat 0 0;
+  background: url(./stage3.jpg) no-repeat 0 0;
   background-size: 100%;
   /* ボックス配置指定 */
   position: relative;
@@ -25,7 +25,7 @@
 .player{
   /* ボックス配置指定 */
   position: absolute;
-  top: 330px;
+  top: 250px;
   left:100px;
 }
 
@@ -67,15 +67,20 @@
 
 .textbox {
     position: absolute;
-    width: 30%; /* テキストボックスの幅 */
+    width: 40%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
-    top: 60%;
+    top:75%;
     left: 50%;
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black; /* テキストボックスの境界線 */
+    border: 1px solid rgb(255, 0, 0)/* テキストボックスの境界線 */
+}
+
+#message-display{
+    color:red;
+    font-weight:60px;
 }
 
 button {

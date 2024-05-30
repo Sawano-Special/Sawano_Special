@@ -45,11 +45,11 @@
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage2_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle2_start" id="battle2_start" value="battle2">
-                <img src="layout/background2.jpg" alt="ステージ2"
+                <img src="layout/battle-background.png" alt="ステージ2"
                     class="stage1-img">
         </button>
             <% } else { %>
-        <img src="layout/background2.jpg" alt="ステージ2" class="stage2-img">
+        <img src="layout/battle-background.png" alt="ステージ2" class="stage2-img">
             <% } %>
         </div>
         </form>
@@ -61,11 +61,11 @@
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage3_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle3_start" id="battle3_start" value="battle3">
-                <img src="layout/background3.jpg" alt="ステージ3"
+                <img src="layout/stage3.jpg" alt="ステージ3"
                     class="stage1-img">
         </button>
             <% } else { %>
-        <img src="layout/background3.jpg" alt="ステージ3" class="stage3-img">
+        <img src="layout/stage3.jpg" alt="ステージ3" class="stage3-img">
             <% } %>
         </div>
         </form>
@@ -78,11 +78,11 @@
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage4_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle4_start" id="battle4_start" value="battle4">
-                <img src="layout/background4.jpg" alt="ステージ4"
+                <img src="layout/stage4.jpg" alt="ステージ4"
                     class="stage4-img">
         </button>
             <% } else { %>
-        <img src="layout/background4.jpg" alt="ステージ4" class="stage4-img">
+        <img src="layout/stage4.jpg" alt="ステージ4" class="stage4-img">
             <% } %>
         </div>
         </form>
@@ -95,11 +95,11 @@
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle5_start" id="battle5_start" value="battle5">
-                <img src="layout/background10.jpg" alt="ステージ5"
+                <img src="layout/stage5.jpg" alt="ステージ5"
                     class="stage5-img">
         </button>
             <% } else { %>
-        <img src="layout/background10.jpg" alt="ステージ5" class="stage5-img">
+        <img src="layout/stage5.jpg" alt="ステージ5" class="stage5-img">
             <% } %>
         </div>
         </form>

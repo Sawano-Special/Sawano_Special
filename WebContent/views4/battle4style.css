@@ -2,7 +2,7 @@
 
 .layer{
   /* 背景画像設定 */
-  background: url(./battle-background.png) no-repeat 0 0;
+  background: url(./stage4.jpg) no-repeat 0 0;
   background-size: 100%;
   /* ボックス配置指定 */
   position: relative;
