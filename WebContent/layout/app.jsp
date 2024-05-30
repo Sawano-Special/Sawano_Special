@@ -89,7 +89,7 @@
 
 
         <form method="POST"
-            action="${pageContext.request.contextPath}/practice4">
+            action="${pageContext.request.contextPath}/practice5">
         <div class="stage5" name="stage5" value="stage5">
 
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>
