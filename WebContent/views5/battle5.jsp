@@ -16,7 +16,7 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 <head>
 <meta charset="UTF-8">
 <title>対戦画面</title>
-<link rel="stylesheet" href="<c:url value='/views3/battle3style.css' />">
+<link rel="stylesheet" href="<c:url value='/views5/battle5style.css' />">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
     src="${pageContext.request.contextPath}/JavaScript/battle/hpUpdate.js"></script>
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
         </div>
 
-        <form method="POST" action="/Sawano_special/practice3">
+        <form method="POST" action="/Sawano_special/practice5">
             <div class="attack">
                 <button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
             </div>

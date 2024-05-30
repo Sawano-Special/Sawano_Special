@@ -18,45 +18,94 @@
 </head>
 <body>
     <div class="layer">
+
+        <div class="textbox">
+                <span id="message-display"><%=request.getAttribute("message2")%></span>
+  <br>          <%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
+            </div>
+
         <form method="POST"
             action="${pageContext.request.contextPath}/practice">
 
-            <div class="textbox">
-                <span id="message-display"><%=request.getAttribute("message2")%></span>
-  <br>			<%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
-            </div>
+            <div class="stage1" name="stage1" value="stage1">
             <button type="submit" style="border: none; background: none;"
                 name="battle1_start" id="battle1_start" value="battle1">
                 <img src="layout/battle-background1.jpg" alt="ステージ1"
                     class="stage1-img">
             </button>
+            </div>
         </form>
 
-        <div class="stage2">
+
+        <form method="POST"
+            action="${pageContext.request.contextPath}/practice2">
+
+        <div class="stage2" name="stage2" value="stage2">
+
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage2_unlocked"))) { %>
-        <a href="views2/battle2.jsp"> <img src="layout/background2.jpg" alt="ステージ2" class="stage2-img"></a>
+        <button type="submit" style="border: none; background: none;"
+                name="battle2_start" id="battle2_start" value="battle2">
+                <img src="layout/background2.jpg" alt="ステージ2"
+                    class="stage1-img">
+        </button>
             <% } else { %>
         <img src="layout/background2.jpg" alt="ステージ2" class="stage2-img">
             <% } %>
         </div>
+        </form>
 
-        <div class="stage3">
-            <a href="views3/battle3.jsp"> <img src="layout/background3.jpg"
-                alt="ステージ3" class="stage3-img">
-            </a>
-        </div>
+        <form method="POST"
+            action="${pageContext.request.contextPath}/practice3">
+        <div class="stage3" name="stage3" value="stage3">
 
-        <div class="stage4">
-            <a href="views4/battle4.jsp"> <img src="layout/background4.jpg"
-                alt="ステージ4" class="stage4-img">
-            </a>
+            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage3_unlocked"))) { %>
+        <button type="submit" style="border: none; background: none;"
+                name="battle3_start" id="battle3_start" value="battle3">
+                <img src="layout/background3.jpg" alt="ステージ3"
+                    class="stage1-img">
+        </button>
+            <% } else { %>
+        <img src="layout/background3.jpg" alt="ステージ3" class="stage3-img">
+            <% } %>
         </div>
+        </form>
 
-        <div class="stage5">
-            <a href="views5/battle5.jsp"> <img src="layout/background.jpeg"
-                alt="ステージ5" class="stage5-img">
-            </a>
+
+        <form method="POST"
+            action="${pageContext.request.contextPath}/practice4">
+        <div class="stage4" name="stage4" value="stage4">
+
+            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage4_unlocked"))) { %>
+        <button type="submit" style="border: none; background: none;"
+                name="battle4_start" id="battle4_start" value="battle4">
+                <img src="layout/background4.jpg" alt="ステージ4"
+                    class="stage4-img">
+        </button>
+            <% } else { %>
+        <img src="layout/background4.jpg" alt="ステージ4" class="stage4-img">
+            <% } %>
         </div>
+        </form>
+
+
+        <form method="POST"
+            action="${pageContext.request.contextPath}/practice4">
+        <div class="stage5" name="stage5" value="stage5">
+
+            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>
+        <button type="submit" style="border: none; background: none;"
+                name="battle5_start" id="battle5_start" value="battle5">
+                <img src="layout/background10.jpg" alt="ステージ5"
+                    class="stage5-img">
+        </button>
+            <% } else { %>
+        <img src="layout/background10.jpg" alt="ステージ5" class="stage5-img">
+            <% } %>
+        </div>
+        </form>
+
+
     </div>
+
 </body>
 </html>
