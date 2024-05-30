@@ -83,7 +83,7 @@
 
 /*ステージ4の基本設定 */
 .stage4-img{
-  width: 202px;
+  width: 200px;
   height: 150px;
   transition: box-shadow 0.3s ease-in-out;
 }
