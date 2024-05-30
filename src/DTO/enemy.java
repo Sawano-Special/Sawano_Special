@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "enemy")
 public class enemy {
 
-	@Id
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -34,8 +34,8 @@ public class enemy {
     @Column(name = "speed")
     private int speed;
 
-    @Column(name = "finish_ward")
-    private String finish_ward;
+    @Column(name = "finish_word")
+    private String finish_word;
 
     @Column(name = "attack_value")
     private int attack_value;
@@ -47,12 +47,12 @@ public class enemy {
     private int max_hp;
 
 
-    public enemy(String name, int level, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
+    public enemy(String name, int level, int speed, String finish_word, int attack_value, int hp, int max_hp) {
         super();
         this.name = name;
         this.level = level;
         this.speed = speed;
-        this.finish_ward = finish_ward;
+        this.finish_word = finish_word;
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
@@ -64,11 +64,11 @@ public class enemy {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
-    public String getFinish_ward() {
-        return finish_ward;
+    public String getFinish_word() {
+        return finish_word;
     }
-    public void setFinish_ward(String finish_ward) {
-        this.finish_ward = finish_ward;
+    public void setFinish_word(String finish_word) {
+        this.finish_word = finish_word;
     }
 
     public int getHp() {
@@ -77,14 +77,14 @@ public class enemy {
     public void setHp(int hp) {
         this.hp = hp;
     }
-    public enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value,
+    public enemy(Integer id, String name, int level, int speed, String finish_word, int attack_value,
             int hp, int max_hp) {
         super();
         this.id = id;
         this.name = name;
         this.level = level;
         this.speed = speed;
-        this.finish_ward = finish_ward;
+        this.finish_word = finish_word;
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
@@ -101,12 +101,12 @@ public class enemy {
         this.attack_value = attack_value;
     }
     public int getMax_hp() {
-		return max_hp;
-	}
-	public void setMax_hp(int max_hp) {
-		this.max_hp = max_hp;
-	}
-	public enemy() {
+        return max_hp;
+    }
+    public void setMax_hp(int max_hp) {
+        this.max_hp = max_hp;
+    }
+    public enemy() {
     }
 
     public Integer getId() {
@@ -132,6 +132,8 @@ public class enemy {
     public void setLevel(int level) {
         this.level = level;
     }
+
+
 
     public int getAttack_value() {
         return attack_value;

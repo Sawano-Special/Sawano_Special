@@ -44,10 +44,10 @@ public class practice5 extends HttpServlet {
         EntityManager em = DBUtils.createEntityManager();
 
         DTO hero_dto = em.find(DTO.class, 1);
-        enemy enemy_dto = em.find(enemy.class, 11);
+        enemy enemy_dto = em.find(enemy.class, 5);
 
-        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp(),hero_dto.getMax_hp());
-        test_Enemy test_enemy = new test_Enemy(enemy_dto.getId(),enemy_dto.getName(),enemy_dto.getLevel(),enemy_dto.getSpeed(),enemy_dto.getFinish_ward(),enemy_dto.getAttack_value(),enemy_dto.getHp(),hero_dto.getMax_hp());
+        Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_word(),hero_dto.getAttack_value(),hero_dto.getHp(),hero_dto.getMax_hp());
+        test_Enemy test_enemy = new test_Enemy(enemy_dto.getId(),enemy_dto.getName(),enemy_dto.getLevel(),enemy_dto.getSpeed(),enemy_dto.getFinish_word(),enemy_dto.getAttack_value(),enemy_dto.getHp(),hero_dto.getMax_hp());
         meigen meigen = new meigen();
 
 

@@ -18,7 +18,7 @@ public class Sql_create {
 
             //以下に新しいHEROを作成
             //例 >> DTO d = new DTO("名前", レベル（int), 攻撃力(int));
-            //public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp)
+            //public DTO(String name, int level, int defence, int speed, String finish_word, int attack_value, int hp)
             DTO tatsu = new DTO("立浪",100,1500,2000,"doumo",3000,10000,100000);
             DTO sawano = new DTO("sawanokoki",100,100,200,"sawano",110000,33,100000);
             //enemy ikemen = new enemy("ikemen",20,30,"惚れさせてやんよ",2,70);

@@ -5,15 +5,15 @@ import DTO.enemy;
 
 public class test_Enemy extends DTO.enemy  {
 
-    public test_Enemy(Integer id, String name, int level, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
-        super(id, name, level, speed, finish_ward, attack_value, hp,max_hp);
+    public test_Enemy(Integer id, String name, int level, int speed, String finish_word, int attack_value, int hp, int max_hp) {
+        super(id, name, level, speed, finish_word, attack_value, hp,max_hp);
         // TODO 自動生成されたコンストラクター・スタブ
 
         b.setId(id);
         b.setName(name);
         b.setLevel(level);
         b.setSpeed(speed);
-        b.setFinish_ward(finish_ward);
+        b.setFinish_word(finish_word);
         b.setAttack_value(attack_value);
         b.setHp(hp);
         b.setMax_hp(max_hp);
