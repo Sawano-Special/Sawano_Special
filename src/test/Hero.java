@@ -4,14 +4,14 @@ import DTO.DTO;
 public class Hero extends DTO  {
 
     DTO a = new DTO();
-public Hero(int id ,String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
+public Hero(int id ,String name, int level, int defence, int speed, String finish_word, int attack_value, int hp, int max_hp) {
         //super(id,name,level,offence); //Characterクラスのコンストラクタを呼び出し
         a.setId(id);
         a.setName(name);
         a.setLevel(level);
         a.setDefence(defence);
         a.setSpeed(speed);
-        a.setFinish_ward(finish_ward);
+        a.setFinish_word(finish_word);
         a.setAttack_value(attack_value);
         a.setHp(hp);
         a.setMax_hp(max_hp);
@@ -33,9 +33,9 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
         return damege;
     }
 
-    public String finish_ward() {
-        String ward = a.getFinish_ward();
-        return ward;
+    public String finish_word() {
+        String word = a.getFinish_word();
+        return word;
     }
 
     public int defence(int hp,int damage) {

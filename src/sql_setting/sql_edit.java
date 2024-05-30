@@ -21,11 +21,11 @@ public class sql_edit {
             // 新しいの設定
             e.setSpeed(200);
             //e.setDefence(100);
-            e.setFinish_ward("sawanoです。");
+            e.setFinish_word("sawanoです。");
             e.setHp(5000);
 //            d.setSpeed(2000);
 //            d.setDefence(1500);
-//            d.setFinish_ward("どうも、ミスタードラゴンズの立浪です。");
+//            d.setFinish_word("どうも、ミスタードラゴンズの立浪です。");
 //            d.setHp(10000);
             // 変更をコミット
             em.getTransaction().begin();

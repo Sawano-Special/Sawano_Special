@@ -24,7 +24,7 @@ import javax.persistence.Table;
 public class DTO {
 
 
-	@Id
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -41,8 +41,8 @@ public class DTO {
     @Column(name = "speed")
     private int speed;
 
-    @Column(name = "finish_ward")
-    private String finish_ward;
+    @Column(name = "finish_word")
+    private String finish_word;
 
     @Column(name = "attack_value")
     private int attack_value;
@@ -53,18 +53,18 @@ public class DTO {
     @Column(name = "max_hp")
     private int max_hp;
     public int getMax_hp() {
-		return max_hp;
-	}
-	public void setMax_hp(int max_hp) {
-		this.max_hp = max_hp;
-	}
-	public DTO(String name, int level, int defence, int speed, String finish_ward, int attack_value, int hp, int max_hp) {
+        return max_hp;
+    }
+    public void setMax_hp(int max_hp) {
+        this.max_hp = max_hp;
+    }
+    public DTO(String name, int level, int defence, int speed, String finish_word, int attack_value, int hp, int max_hp) {
         super();
         this.name = name;
         this.level = level;
         this.defence = defence;
         this.speed = speed;
-        this.finish_ward = finish_ward;
+        this.finish_word = finish_word;
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
@@ -81,11 +81,11 @@ public class DTO {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
-    public String getFinish_ward() {
-        return finish_ward;
+    public String getFinish_word() {
+        return finish_word;
     }
-    public void setFinish_ward(String finish_ward) {
-        this.finish_ward = finish_ward;
+    public void setFinish_word(String finish_word) {
+        this.finish_word = finish_word;
     }
     public int getHp() {
         return hp;
@@ -93,7 +93,7 @@ public class DTO {
     public void setHp(int hp) {
         this.hp = hp;
     }
-    public DTO(Integer id, String name, int level, int defence, int speed, String finish_ward, int attack_value,
+    public DTO(Integer id, String name, int level, int defence, int speed, String finish_word, int attack_value,
             int hp, int max_hp) {
         super();
         this.id = id;
@@ -101,7 +101,7 @@ public class DTO {
         this.level = level;
         this.defence = defence;
         this.speed = speed;
-        this.finish_ward = finish_ward;
+        this.finish_word = finish_word;
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
