@@ -2,7 +2,8 @@
 
 .layer{
   /* 背景画像設定 */
-  background: url(./battle-background.png) no-repeat 0 0;
+  background: url(./battle-background1.jpg
+  ) no-repeat 0 0;
   background-size: 100%;
   /* ボックス配置指定 */
   position: relative;
@@ -25,7 +26,7 @@
 .player{
   /* ボックス配置指定 */
   position: absolute;
-  top: 330px;
+  top: 250px;
   left:100px;
 }
 
@@ -102,7 +103,7 @@ button:hover {
     position: absolute;
     width: 40%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
-    top: 60%;
+    top: 70%;
     left: 60%;
     transform: translate(-20%, 0%); /* 中央に配置 */
     display: flex;

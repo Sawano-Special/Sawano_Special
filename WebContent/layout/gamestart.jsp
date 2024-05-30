@@ -17,8 +17,8 @@
     <div class="sawa">
         <form method="POST" action="${pageContext.request.contextPath}/Tutorial">
             <button type="submit" class="gamestart style="border: none; background: none;" name="battle1_start" id="battle1_start" value="battle1">
-            <span class="theme">澤野スペシャル</span>
-            <span class="theme1">～侍の挑戦～</span>
+            <span class="theme">穏やかなる勇者の物語</span>
+            <span class="theme1">～静寂の大地とささやきの風～</span>
 
             </button>
         </form>

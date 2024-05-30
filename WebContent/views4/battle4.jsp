@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="enemy">
-            <img src="<c:url value='/views4/dragon.jpg' />" alt="相手のポケモン"
+            <img src="<c:url value='/views4/dragon.png' />" alt="相手のポケモン"
                 class="enemy-img">
             <div class="hp-bar">
                 <!-- <div class="hp-fill" style="width: ${(enemy_current_hp >= 0) ? (100 * (enemy_hp - enemy_current_hp) / enemy_hp) : 0}%;"></div> -->
