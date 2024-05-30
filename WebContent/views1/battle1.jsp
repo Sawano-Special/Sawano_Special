@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="hp-fill" style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
             </div>
             <p>
+
                 HP:
                 <c:out value="${hero_current_hp}" />
                 /

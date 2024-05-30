@@ -23,14 +23,14 @@ import test.meigen;
 /**
 * Servlet implementation class practice
 */
-@WebServlet("/practice")
-public class practice extends HttpServlet {
+@WebServlet("/practice5")
+public class practice5 extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public practice() {
+    public practice5() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,7 +44,7 @@ public class practice extends HttpServlet {
         EntityManager em = DBUtils.createEntityManager();
 
         DTO hero_dto = em.find(DTO.class, 1);
-        enemy enemy_dto = em.find(enemy.class, 7);
+        enemy enemy_dto = em.find(enemy.class, 11);
 
         Hero hero = new Hero(hero_dto.getId(),hero_dto.getName(),hero_dto.getLevel(),hero_dto.getDefence(),hero_dto.getSpeed(),hero_dto.getFinish_ward(),hero_dto.getAttack_value(),hero_dto.getHp(),hero_dto.getMax_hp());
         test_Enemy test_enemy = new test_Enemy(enemy_dto.getId(),enemy_dto.getName(),enemy_dto.getLevel(),enemy_dto.getSpeed(),enemy_dto.getFinish_ward(),enemy_dto.getAttack_value(),enemy_dto.getHp(),hero_dto.getMax_hp());
@@ -89,7 +89,7 @@ public class practice extends HttpServlet {
 
         String attack_action = request.getParameter("attack");
 
-        String battle1_start = request.getParameter("battle1_start");
+        String battle5_start = request.getParameter("battle5_start");
 
         Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
         Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
@@ -114,8 +114,8 @@ public class practice extends HttpServlet {
             System.out.println("ヒーローNULL表示されています" + hero_current_hp);
         }
 
-        if(battle1_start == null) {
-            battle1_start = "開始中";
+        if(battle5_start == null) {
+            battle5_start = "開始中";
             System.out.println("battle開始中です。");
         }
 
@@ -136,7 +136,7 @@ public class practice extends HttpServlet {
                         System.out.println(message);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
-                        request.getSession().setAttribute("stage2_unlocked", true);
+
 
 
                     }else if(hero_current_hp <= 0) {
@@ -169,7 +169,7 @@ public class practice extends HttpServlet {
                         System.out.println(message);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
-                        request.getSession().setAttribute("stage2_unlocked", true);
+
 
 
                     }else if(hero_current_hp <= 0) {
@@ -206,7 +206,7 @@ public class practice extends HttpServlet {
                             System.out.println(message);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
-                            request.getSession().setAttribute("stage2_unlocked", true);
+
 
 
                         }else if(hero_current_hp <= 0) {
@@ -310,12 +310,12 @@ public class practice extends HttpServlet {
 
             }
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/views5/battle5.jsp");
             rd.forward(request, response);
 
 
         }else  {
-            if(battle1_start.equals("battle1")) {
+            if(battle5_start.equals("battle5")) {
                 enemy_current_hp = enemy_dto.getHp();
                 hero_current_hp = hero_dto.getHp();
                 //request.getSession().setAttribute("enemy_current_hp",enemy_current_hp);
@@ -339,7 +339,7 @@ public class practice extends HttpServlet {
             request.setAttribute("message2", message2);
             System.out.println(message);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views1/battle1.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/views5/battle5.jsp");
             rd.forward(request, response);
 
         }
