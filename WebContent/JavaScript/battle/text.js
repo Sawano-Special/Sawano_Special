@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  var message = "<%= message %>";
+/*$(document).ready(function() {
+  var message = "次の行動はどうする？";
   var index = 0;
   var isDisplaying = false;
 
@@ -29,3 +29,4 @@ $(document).ready(function() {
     }
   });
 });
+*/
