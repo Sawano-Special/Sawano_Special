@@ -69,17 +69,19 @@
     position: absolute;
     width: 40%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
-    top:75%;
-    left: 50%;
+    top: 75%;
+    left: 55%;
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(255, 0, 0)/* テキストボックスの境界線 */
+    border: 1px solid white; /* テキストボックスの境界線 */
+
 }
 
+
 #message-display{
-    color:red;
+    color:white;
     font-weight:60px;
 }
 
