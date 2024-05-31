@@ -13,14 +13,15 @@
     src="${pageContext.request.contextPath}/JavaScript/battle/stageselect.js"
     defer></script>
 <script
-    src="${pageContext.request.contextPath}/JavaScript/battle/test3.js"
+    src="${pageContext.request.contextPath}/JavaScript/battle/text2.js"
     defer></script>
 </head>
 <body>
     <div class="layer">
 
         <div class="textbox">
-                <span id="message-display"><%=request.getAttribute("message2")%></span>
+        <div id="message-display"></div>
+                <%--<span id="message-display"><%=request.getAttribute("message")%></span> --%>
   <br>          <%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
             </div>
 
