@@ -25,8 +25,8 @@
 .player{
   /* ボックス配置指定 */
   position: absolute;
-  top: 330px;
-  left:100px;
+  top: 250px;
+  left:120px;
 }
 
 /* 敵キャラの基本設定 */
@@ -67,15 +67,16 @@
 
 .textbox {
     position: absolute;
-    width: 30%; /* テキストボックスの幅 */
+    width: 40%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
     top: 60%;
-    left: 50%;
+    left: 55%;
     transform: translate(0%, 0%); /* 中央に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black; /* テキストボックスの境界線 */
+    border: 1px solid white; /* テキストボックスの境界線 */
+
 }
 
 button {
@@ -100,5 +101,10 @@ p{
   height: 100%;
   background-color: #4CAF50;
   transition: width 0.5s ease-in-out;
+}
+
+#message-display{
+    color:white;
+    font-weight:60px;
 }
 
