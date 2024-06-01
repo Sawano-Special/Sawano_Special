@@ -8,12 +8,13 @@
 <title>RPG</title>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.js"
+    integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 <script
     src="${pageContext.request.contextPath}/JavaScript/battle/stageselect.js"
     defer></script>
 <script
-    src="${pageContext.request.contextPath}/JavaScript/battle/text2.js"
+    src="${pageContext.request.contextPath}/JavaScript/battle/text3.js"
     defer></script>
 </head>
 <body>
