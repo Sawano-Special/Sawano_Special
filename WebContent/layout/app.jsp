@@ -51,7 +51,7 @@
                     class="stage1-img">
         </button>
             <% } else { %>
-        <img src="layout/battle-background.png" alt="ステージ2" class="stage2-img">
+        <!-- <img src="layout/battle-background.png" alt="ステージ2" class="stage2-img"> -->
             <% } %>
         </div>
         </form>
@@ -67,7 +67,7 @@
                     class="stage1-img">
         </button>
             <% } else { %>
-        <img src="layout/stage3.jpg" alt="ステージ3" class="stage3-img">
+        <!-- <img src="layout/stage3.jpg" alt="ステージ3" class="stage3-img"> -->
             <% } %>
         </div>
         </form>
@@ -84,7 +84,7 @@
                     class="stage4-img">
         </button>
             <% } else { %>
-        <img src="layout/stage4.jpg" alt="ステージ4" class="stage4-img">
+        <!-- <img src="layout/stage4.jpg" alt="ステージ4" class="stage4-img"> -->
             <% } %>
         </div>
         </form>
@@ -101,7 +101,7 @@
                     class="stage5-img">
         </button>
             <% } else { %>
-        <img src="layout/stage5.jpg" alt="ステージ5" class="stage5-img">
+        <!-- <img src="layout/stage5.jpg" alt="ステージ5" class="stage5-img"> -->
             <% } %>
         </div>
         </form>

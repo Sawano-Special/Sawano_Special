@@ -2,7 +2,7 @@ var messages = ["やぁ！", "澤野の世界へようこそ！", "この世�
 	,"かっちゃんとたつのーりが支配する悪い世界なん\nだ！","そんな悪の魔神を倒すべく3人の戦士を紹介しよ\nう！","1人目はたつなみ！","彼はミスタードラゴンズの\n1人で、ドラゴンズのリーダーなんだ！"
 	,"2人目は細川！","中日ドラゴンズの期待のホープだ！","そして3人目は..."
 	,"さわの！君自身だ！","君は2人の戦士とともに、悪を倒してもらう！","モテモテの未来もそう遠くないだろう！"
-	,"ステージ1から順にボスを倒し、世界の平和を取\nり戻してくれ！","さわのこうき！頼んだぞ！"];
+	,"ステージ1から順にボスを倒し、世界の平和を取\nり戻してくれ！","さわのこうき！頼んだぞ！","上にあるステージ1に挑戦だ！"];
     var currentIndex = 0;
     var isDisplaying = false;
     var needMessageSkip = false;
@@ -41,7 +41,7 @@ var messages = ["やぁ！", "澤野の世界へようこそ！", "この世�
         isDisplaying = true;
         clearMessage();
         displayMessage(messages[currentIndex]);
-        currentIndex = (currentIndex + 1) % messages.length;
+        currentIndex = currentIndex + 1;
       }
       else {
         needMessageSkip = true;
