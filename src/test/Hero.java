@@ -44,4 +44,10 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
         return HP;
     }
 
+    public int recovery(int hp) {
+        int recovery = hp + 30;
+        System.out.println("recovery:"+recovery);
+        return recovery;
+    }
+
 }
