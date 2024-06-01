@@ -121,7 +121,11 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  /* animation: typewriter 2.0s steps(20); */
+  user-select: none;
+  cursor: pointer;
+  width: 400px;
+  height: 200px;
+ text-align: left;
 
 }
 

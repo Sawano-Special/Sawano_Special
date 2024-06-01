@@ -6,6 +6,9 @@ $(document).ready(function() {
 	,"ステージ1から順にボスを倒し、世界の平和を取り戻してくれ！","さわのこうき！頼んだぞ！"];
 	var currentIndex = 0;
 	var isDisplaying = false;
+	var needMessageSkip = false;
+
+
 
 	function displayNextMessage() {
 		if (currentIndex < messages.length) {
