@@ -62,3 +62,13 @@ a{
   font-family: 'Roboto', sans-serif; /* ArialからRobotoに変更 */
 }
 
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.8); /* 黄色に変更 */
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
