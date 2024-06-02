@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 <script type="text/javascript">        // JSPの変数をJavaScriptに渡す
 var message = '<%=request.getAttribute("message")%>';
-    ';
+var message2 = '<%=request.getAttribute("message2")%>';
     console.log("JavaScriptの変数の値: " + message); // ここでさらにJavaScriptの処理を行う
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -108,9 +108,12 @@ var message = '<%=request.getAttribute("message")%>';
             </div>
         </form>
 
+        <form method="POST" action="/Sawano_special/practice">
         <div class="recover">
-            <button>回復する</button>
+            <button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
         </div>
+        </form>
+
         <div class="escape">
             <form action="${pageContext.request.contextPath}/StageSelect"
                 method="get">

@@ -91,6 +91,8 @@ public class practice5 extends HttpServlet {
 
         String battle5_start = request.getParameter("battle5_start");
 
+        String recovery = request.getParameter("recovery");
+
         Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
         Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
 
@@ -117,6 +119,11 @@ public class practice5 extends HttpServlet {
         if(battle5_start == null) {
             battle5_start = "開始中";
             System.out.println("battle開始中です。");
+        }
+
+        if(recovery == null) {
+            recovery = "aa";
+            System.out.println("回復はしません");
         }
 
 
@@ -310,11 +317,47 @@ public class practice5 extends HttpServlet {
 
             }
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views5/battle5.jsp");
-            rd.forward(request, response);
+        }
+
+        //回復処理
+        else if(recovery.equals("回復")) {
+            hero_current_hp = hero.recovery(hero_current_hp);
+            System.out.println("回復しました");
+            System.out.println("回復後HP：" +hero_current_hp);
+            //エネミーの攻撃
+            hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
+            System.out.println("ダメージ後HP:"+hero_current_hp);
+            if(enemy_current_hp <=0) {
+                enemy_current_hp = 0;
+                //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                System.out.println(message);
+                request.setAttribute("message",message);
+                request.setAttribute("message2",message2);
 
 
-        }else  {
+            }else if(hero_current_hp <= 0) {
+                hero_current_hp = 0;
+                //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
+                message = meigen.meigen_battle_finish2(enemy_name, hero_name);
+                System.out.println(message);
+                request.setAttribute("message",message);
+                request.setAttribute("message2",message2);
+            }
+            else {
+                message =  "ヒーローのHPが30回復しました。";
+                message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                System.out.println(message);
+                System.out.println(message2);
+                request.setAttribute("message",message);
+                request.setAttribute("message2",message2);
+            }
+            request.getSession().setAttribute("enemy_current_hp",enemy_current_hp);
+            request.getSession().setAttribute("hero_current_hp",hero_current_hp);
+
+        }
+
+        else  {
             if(battle5_start.equals("battle5")) {
                 enemy_current_hp = enemy_dto.getHp();
                 hero_current_hp = hero_dto.getHp();
@@ -333,17 +376,16 @@ public class practice5 extends HttpServlet {
 
 
             //message ="野生の"+enemy_dto.getName()+"が現れました!!";
-            message = meigen.meigen_battle_start(enemy_name, 1);
+            message = meigen.meigen_battle_start(enemy_name, 5);
 
             request.setAttribute("message",message);
             request.setAttribute("message2", message2);
             System.out.println(message);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/views5/battle5.jsp");
-            rd.forward(request, response);
-
         }
 
+        RequestDispatcher rd = request.getRequestDispatcher("/views5/battle5.jsp");
+        rd.forward(request, response);
 
 
     }

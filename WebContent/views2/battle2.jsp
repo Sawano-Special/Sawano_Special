@@ -108,9 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </form>
 
+        <form method="POST" action="/Sawano_special/practice2">
         <div class="recover">
-            <button>回復する</button>
+            <button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
         </div>
+        </form>
+
         <div class="escape">
             <form action="${pageContext.request.contextPath}/StageSelect"
                 method="get">
