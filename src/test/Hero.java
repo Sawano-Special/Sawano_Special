@@ -1,4 +1,6 @@
 package test;
+import java.util.Random;
+
 import DTO.DTO;
 
 public class Hero extends DTO  {
@@ -26,7 +28,10 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
    }
     public int attack() {
 
-        int damege = a.getAttack_value();
+        Random rand = new Random();
+        int damege = rand.nextInt(a.getAttack_value())+1;
+
+        //int damege = a.getAttack_value();
 
         System.out.println( a.getName() +"は" + damege +"のダメージを与えた");
 

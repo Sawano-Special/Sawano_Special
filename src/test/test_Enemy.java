@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Random;
+
 //import test.Character;
 import DTO.enemy;
 
@@ -38,7 +40,10 @@ public class test_Enemy extends DTO.enemy  {
 
     public int attack() {
 
-        int damege = b.getAttack_value();
+        Random rand = new Random();
+        int damege = rand.nextInt(b.getAttack_value())+1;
+
+        //int damege = b.getAttack_value();
 
         System.out.println( b.getName() +"は" + damege +"のダメージを与えた."
                 + "");
