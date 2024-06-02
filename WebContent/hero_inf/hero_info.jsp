@@ -14,11 +14,16 @@
     defer></script> --%>
 </head>
 <body>
+    <form action="${pageContext.request.contextPath}/practice"
+                method="post">
 <select id="my-select" name="hero_info">
       <option value="1">勇者</option>
       <option value="2">魔法使い</option>
       <option value="3">剣士</option>
     </select>
+    </form>
+
+
 
     <form action="${pageContext.request.contextPath}/StageSelect"
                 method="get">
