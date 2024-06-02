@@ -35,17 +35,21 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
         double mag = result[(int)(Math.random()*5)];
 
         System.out.println(mag);
-
-        double damege = a.getAttack_value() * mag;
+        double damage = 0.0;
+if(mag==0) {
+	damage = a.getAttack_value() * mag;
+}else {
+	damage = a.getAttack_value() * mag;
+}
 
         //Random rand = new Random();
-        //int damege = rand.nextInt(a.getAttack_value())+1;
+        //int damage = rand.nextInt(a.getAttack_value())+1;
 
-        //int damege = a.getAttack_value();
+        //int damage = a.getAttack_value();
 
-        System.out.println( a.getName() +"は" + damege +"のダメージを与えた");
+        System.out.println( a.getName() +"は" + damage +"のダメージを与えた");
 
-        return (int)damege;
+        return (int)damage;
     }
 
     public String finish_word() {
