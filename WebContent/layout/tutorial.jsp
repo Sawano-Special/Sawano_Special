@@ -8,6 +8,7 @@
     <title>RPG</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/tutorial.js" defer></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/animation.js" defer></script>
 </head>
 <body>
     <div class="layer">
