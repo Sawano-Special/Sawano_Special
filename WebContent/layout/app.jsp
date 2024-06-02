@@ -71,6 +71,10 @@
             <% } %>
         </div>
         </form>
+        <form action="${pageContext.request.contextPath}/hero_inf/hero_info.jsp"
+                method="get">
+                <button type="submit">ゆうしゃのじょうほう</button>
+            </form>
 
 
         <form method="POST"
