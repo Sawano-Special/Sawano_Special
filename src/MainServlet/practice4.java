@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import DTO.DTO;
 import test.Hero;
+import test.exp;
 import test.test_Enemy;
 import utils.DBUtils;
 import DTO.enemy;
 import test.Enemy_damage;
 import battle_controller.hp_calc;
+import sql_setting.exp_table;
 import test.meigen;
 
 /**
@@ -34,6 +36,7 @@ public class practice4 extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    int id = 1;
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
@@ -139,7 +142,9 @@ public class practice4 extends HttpServlet {
                         enemy_current_hp = 0;
                         //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                         message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                        System.out.println(message);
+                        message2 = exp_table.exp_update(id, 4);
+                        exp.exp(id);
+                        System.out.println(message+":"+message2);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
                         request.getSession().setAttribute("stage5_unlocked", true);
@@ -172,7 +177,9 @@ public class practice4 extends HttpServlet {
                         enemy_current_hp = 0;
                         //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                         message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                        System.out.println(message);
+                        message2 = exp_table.exp_update(id, 4);
+                        exp.exp(id);
+                        System.out.println(message+":"+message2);
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
                         request.getSession().setAttribute("stage5_unlocked", true);
@@ -209,7 +216,9 @@ public class practice4 extends HttpServlet {
                             enemy_current_hp = 0;
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                            System.out.println(message);
+                            message2 = exp_table.exp_update(id, 4);
+                            exp.exp(id);
+                            System.out.println(message+":"+message2);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
                             request.getSession().setAttribute("stage5_unlocked", true);
@@ -241,7 +250,9 @@ public class practice4 extends HttpServlet {
                             enemy_current_hp = 0;
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                            System.out.println(message);
+                            message2 = exp_table.exp_update(id, 4);
+                            exp.exp(id);
+                            System.out.println(message+":"+message2);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
 
