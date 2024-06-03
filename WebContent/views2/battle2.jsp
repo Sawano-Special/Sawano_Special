@@ -8,9 +8,6 @@ Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 %>
 
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -104,24 +101,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <form method="POST" action="/Sawano_special/practice2">
             <div class="attack">
-                <button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
+      <% if (Boolean.TRUE.equals(request.getAttribute("attack_locked"))) { %>
+                <button disabled type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
+          <% } else { %>
+        <button  type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
+                <% } %>
             </div>
         </form>
 
         <form method="POST" action="/Sawano_special/practice2">
         <div class="recover">
-            <button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
+        <% if (Boolean.TRUE.equals(request.getAttribute("recovery_locked"))) { %>
+            <button disabled  type="submit" name="recovery" id="recovery" value="回復">回復する</button>
+            <% } else { %>
+            <button  type="submit" name="recovery" id="recovery" value="回復">回復する</button>
+             <% } %>
+
         </div>
         </form>
 
         <div class="escape">
             <form action="${pageContext.request.contextPath}/StageSelect"
                 method="get">
+                 <% if (Boolean.TRUE.equals(request.getAttribute("run_locked"))) { %>
+                <button disabled type="submit">逃げる</button>
+                <% } else { %>
                 <button type="submit">逃げる</button>
+                 <% } %>
             </form>
         </div>
-
-
 
         <form action="${pageContext.request.contextPath}/StageSelect" method="get">
         <button type="submit" id="stage-select-button">ステージクリア！！</button>
