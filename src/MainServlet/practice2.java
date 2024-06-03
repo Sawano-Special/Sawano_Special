@@ -144,6 +144,9 @@ public class practice2 extends HttpServlet {
                         request.setAttribute("message",message);
                         request.setAttribute("message2",message2);
                         request.getSession().setAttribute("stage3_unlocked", true);
+                        request.setAttribute("attack_locked", true);
+                        request.setAttribute("recovery_locked", true);
+                        request.setAttribute("run_locked", true);
 
 
                     }else if(hero_current_hp <= 0) {
@@ -169,17 +172,7 @@ public class practice2 extends HttpServlet {
                   //エネミー先に攻撃
                     System.out.println("エネミーが先に攻撃");
                     hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
-                    if(enemy_current_hp <=0) {
-                        enemy_current_hp = 0;
-                        //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
-                        message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                        System.out.println(message);
-                        request.setAttribute("message",message);
-                        request.setAttribute("message2",message2);
-                        request.getSession().setAttribute("stage3_unlocked", true);
-
-
-                    }else if(hero_current_hp <= 0) {
+                   if(hero_current_hp <= 0) {
                         hero_current_hp = 0;
                         //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
                         message = meigen.meigen_battle_finish2(enemy_name, hero_name);
@@ -189,12 +182,28 @@ public class practice2 extends HttpServlet {
                     }
                     else {
                         enemy_current_hp = hp_calc.enemy_hp_calc(hero_attack,enemy_current_hp);
-                        message = meigen.meigen_hero_damage(hero_name, hero_attack);
-                        message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
-                        System.out.println(message);
-                        System.out.println(message2);
-                        request.setAttribute("message",message);
-                        request.setAttribute("message2",message2);
+                        if(enemy_current_hp <=0) {
+                            enemy_current_hp = 0;
+                            //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
+                            message = meigen.meigen_battle_finish(hero_name, enemy_name);
+                            System.out.println(message);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+                            request.getSession().setAttribute("stage3_unlocked", true);
+                            request.setAttribute("attack_locked", true);
+                            request.setAttribute("recovery_locked", true);
+                            request.setAttribute("run_locked", true);
+
+
+                        }
+                        else{
+                            message = meigen.meigen_hero_damage(hero_name, hero_attack);
+                            message2 = meigen.meigen_enemy_damage(enemy_name, enemy_attack);
+                            System.out.println(message);
+                            System.out.println(message2);
+                            request.setAttribute("message",message);
+                            request.setAttribute("message2",message2);
+                        }
                     }
 
                 }else {
@@ -214,6 +223,9 @@ public class practice2 extends HttpServlet {
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
                             request.getSession().setAttribute("stage3_unlocked", true);
+                            request.setAttribute("attack_locked", true);
+                            request.setAttribute("recovery_locked", true);
+                            request.setAttribute("run_locked", true);
 
 
                         }else if(hero_current_hp <= 0) {
@@ -245,6 +257,10 @@ public class practice2 extends HttpServlet {
                             System.out.println(message);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
+                            request.getSession().setAttribute("stage3_unlocked", true);
+                            request.setAttribute("attack_locked", true);
+                            request.setAttribute("recovery_locked", true);
+                            request.setAttribute("run_locked", true);
 
 
                         }else if(hero_current_hp <= 0) {
@@ -298,6 +314,10 @@ public class practice2 extends HttpServlet {
                     System.out.println(message);
                     request.setAttribute("message",message);
                     request.setAttribute("message2", message2);
+                    request.getSession().setAttribute("stage3_unlocked", true);
+                    request.setAttribute("attack_locked", true);
+                    request.setAttribute("recovery_locked", true);
+                    request.setAttribute("run_locked", true);
                 }else {
                     hero_current_hp = 0;
                     //message = hero_name+"は"+ enemy_name +"とのバトルに敗れました!";
@@ -334,6 +354,10 @@ public class practice2 extends HttpServlet {
                 System.out.println(message);
                 request.setAttribute("message",message);
                 request.setAttribute("message2",message2);
+                request.getSession().setAttribute("stage3_unlocked", true);
+                request.setAttribute("attack_locked", true);
+                request.setAttribute("recovery_locked", true);
+                request.setAttribute("run_locked", true);
 
 
             }else if(hero_current_hp <= 0) {
