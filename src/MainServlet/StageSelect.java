@@ -38,80 +38,30 @@ public class StageSelect extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//    	for(int i=1;i<=meigen.stageselect1().length;i++) {
-//      	  String stage = meigen.stageselect1()[i-1];
-//      	  System.out.println(stage);
-//
-//        }
-//        System.out.println("aaaaaaaaa");
-//        String[] message = meigen.stageselect1();
-//        //request.setAttribute("message",message);
-//        Gson gson = new Gson();
-//        String jsonArray = gson.toJson(message);
-//        response.setContentType("application/json");
-//        response.getWriter().write(jsonArray);
-//        String[] message = meigen.stageselect1();
-        //String message = "やぁ！";
-      //request.setAttribute("message",message);
-//      String attack_action = request.getParameter("attack");
-//      System.out.println("attack_action:" + attack_action);
-//      System.out.print("GET表示");
-//      if(attack_action==null){
-//          System.out.println("ボタンif文前");
-//          if(i<=message.length) {
-//              System.out.println("ボタンif文中");
-//              message2 = message[i];
-//              System.out.println("message2"+message2);
-//              request.setAttribute("message2",message2);
-//              i++;
-//              System.out.println(i);
-//          }
-//
-//      }else{
-//          message2 = "よぁ";
-//      }
+
         RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
         rd.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String[] message = meigen.stageselect1();
-        //String message = "やぁ！";
-      //request.setAttribute("message",message);
-//      String attack_action = request.getParameter("attack");
-//      System.out.println("attack_action:" + attack_action);
-//      System.out.print("POST表示");
-//      if(attack_action==null){
-//          System.out.println("ボタンif文前");
-//          if(i<=message.length) {
-//              System.out.println("ボタンif文中");
-//              message2 = message[i];
-//              System.out.println("message2"+message2);
-//              request.setAttribute("message2", message2);
-//              i++;
-//              System.out.println(i);
-//          }
-//
-//      }else{
-//          message2 = "よぁ";
-//          request.setAttribute("message2", message2);
-//      }
+        // フォームから送信されたhero_infoの値を取得
+        String heroInfo = request.getParameter("hero_info");
 
-      RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
-      rd.forward(request, response);
+        // 取得したheroInfoの値をコンソールに出力（デバッグ用）
+        System.out.println("選択されたID: " + heroInfo);
 
-      System.out.println("送りました！！");
+        // 取得したheroInfoの値をリクエスト属性に設定
+        request.setAttribute("selectedHero", heroInfo);
 
+        // stageselect1()メソッドの結果（例）をリクエスト属性に設定
+        String[] message = meigen.stageselect1();
+        request.setAttribute("message", message);
 
-//      Gson gson = new Gson();
-//      String jsonArray = gson.toJson(message);
-//      response.setContentType("application/json");
-//      response.getWriter().write(jsonArray);
+        // app.jspにフォワード
+        RequestDispatcher rd = request.getRequestDispatcher("/layout/app.jsp");
+        rd.forward(request, response);
 
-
-
-      }
-
-
-
+        // 送信完了のメッセージをコンソールに出力
+        System.out.println("送りました！！");
+    }
 }
