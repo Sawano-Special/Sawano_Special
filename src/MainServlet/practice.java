@@ -103,7 +103,7 @@ public class practice extends HttpServlet {
 
         //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
-        //リクエストパラメータを受け取る
+        //リクエストパラメータを受けとる
 
         String attack_action = request.getParameter("attack");
 
