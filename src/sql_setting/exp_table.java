@@ -7,7 +7,7 @@ import utils.DBUtils;
 
 public class exp_table {
 
-    public static String exp_update(int id,int stage) {
+    public static String exp_update(int id,int stage,String name) {
         EntityManager em = DBUtils.createEntityManager();
         id = 1; //ここに変更するidを入力
         DTO d = em.find(DTO.class, id);
@@ -61,15 +61,15 @@ public class exp_table {
         }
         System.out.println("exp:"+exp);
         if(stage==1) {
-            return "は経験値を1獲得した！";
+            return name+"は経験値を1獲得した！";
         }else if(stage==2) {
-            return "は経験値を2獲得した！";
+            return name+"は経験値を2獲得した！";
         }else if(stage==3) {
-            return "は経験値を4獲得した！";
+            return name+"は経験値を4獲得した！";
         }else if(stage==4) {
-            return "は経験値を7獲得した！";
+            return name+"は経験値を7獲得した！";
         }else {
-            return "は経験値を10獲得した！";
+            return name+"は経験値を10獲得した！";
         }
     }
 }
