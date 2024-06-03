@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
 <form action="${pageContext.request.contextPath}/StageSelect" method="post">
     <select id="my-select" name="hero_info">
         <option value="1">勇者</option>
@@ -27,6 +28,8 @@
 <form action="${pageContext.request.contextPath}/StageSelect" method="get">
     <button type="submit">戻る</button>
 </form>
+
+  
 
 </body>
 </html>

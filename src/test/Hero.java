@@ -1,4 +1,6 @@
 package test;
+import java.util.Random;
+
 import DTO.DTO;
 
 public class Hero extends DTO  {
@@ -26,11 +28,28 @@ public Hero(int id ,String name, int level, int defence, int speed, String finis
    }
     public int attack() {
 
-        int damege = a.getAttack_value();
+        Random rand = new Random();
 
-        System.out.println( a.getName() +"は" + damege +"のダメージを与えた");
+        double[] result = {0.2,0.4,0.6,0.8,1.0};
 
-        return damege;
+        double mag = result[(int)(Math.random()*5)];
+
+        System.out.println(mag);
+        double damage = 0.0;
+if(mag==0) {
+	damage = a.getAttack_value() * mag;
+}else {
+	damage = a.getAttack_value() * mag;
+}
+
+        //Random rand = new Random();
+        //int damage = rand.nextInt(a.getAttack_value())+1;
+
+        //int damage = a.getAttack_value();
+
+        System.out.println( a.getName() +"は" + damage +"のダメージを与えた");
+
+        return (int)damage;
     }
 
     public String finish_word() {
