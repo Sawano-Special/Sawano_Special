@@ -142,7 +142,7 @@ public class practice4 extends HttpServlet {
                         enemy_current_hp = 0;
                         //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                         message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                        message2 = exp_table.exp_update(id, 4);
+                        message2 = exp_table.exp_update(id, 4,hero_name);
                         exp.exp(id);
                         System.out.println(message+":"+message2);
                         request.setAttribute("message",message);
@@ -177,7 +177,7 @@ public class practice4 extends HttpServlet {
                         enemy_current_hp = 0;
                         //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                         message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                        message2 = exp_table.exp_update(id, 4);
+                        message2 = exp_table.exp_update(id, 4,hero_name);
                         exp.exp(id);
                         System.out.println(message+":"+message2);
                         request.setAttribute("message",message);
@@ -216,7 +216,7 @@ public class practice4 extends HttpServlet {
                             enemy_current_hp = 0;
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                            message2 = exp_table.exp_update(id, 4);
+                            message2 = exp_table.exp_update(id, 4,hero_name);
                             exp.exp(id);
                             System.out.println(message+":"+message2);
                             request.setAttribute("message",message);
@@ -250,7 +250,7 @@ public class practice4 extends HttpServlet {
                             enemy_current_hp = 0;
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                            message2 = exp_table.exp_update(id, 4);
+                            message2 = exp_table.exp_update(id, 4,hero_name);
                             exp.exp(id);
                             System.out.println(message+":"+message2);
                             request.setAttribute("message",message);
