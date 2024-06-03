@@ -59,6 +59,8 @@ public class practice extends HttpServlet {
             System.out.println("id:"+id);
         }
 
+        request.setAttribute("hero_info",id );
+
         EntityManager em = DBUtils.createEntityManager();
 
         DTO hero_dto = em.find(DTO.class, id);
