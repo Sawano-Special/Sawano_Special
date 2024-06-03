@@ -52,13 +52,47 @@ public class DTO {
 
     @Column(name = "max_hp")
     private int max_hp;
+
+    @Column(name = "exp")
+    private int exp;
+
+    @Column(name = "total_exp")
+    private int total_exp;
+    ;
+    public DTO(Integer id, String name, int level, int defence, int speed, String finish_word, int attack_value, int hp,
+            int max_hp, int exp, int total_exp) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.level = level;
+        this.defence = defence;
+        this.speed = speed;
+        this.finish_word = finish_word;
+        this.attack_value = attack_value;
+        this.hp = hp;
+        this.max_hp = max_hp;
+        this.exp = exp;
+        this.total_exp = total_exp;
+    }
+    public int getTotal_exp() {
+        return total_exp;
+    }
+    public void setTotal_exp(int total_exp) {
+        this.total_exp = total_exp;
+    }
+    public int getExp() {
+        return exp;
+    }
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
     public int getMax_hp() {
         return max_hp;
     }
     public void setMax_hp(int max_hp) {
         this.max_hp = max_hp;
     }
-    public DTO(String name, int level, int defence, int speed, String finish_word, int attack_value, int hp, int max_hp) {
+    public DTO(String name, int level, int defence, int speed, String finish_word, int attack_value, int hp, int max_hp, int exp) {
         super();
         this.name = name;
         this.level = level;
@@ -68,6 +102,7 @@ public class DTO {
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
+        this.exp = exp;
     }
     public int getDefence() {
         return defence;
@@ -94,7 +129,7 @@ public class DTO {
         this.hp = hp;
     }
     public DTO(Integer id, String name, int level, int defence, int speed, String finish_word, int attack_value,
-            int hp, int max_hp) {
+            int hp, int max_hp, int exp) {
         super();
         this.id = id;
         this.name = name;
@@ -105,6 +140,7 @@ public class DTO {
         this.attack_value = attack_value;
         this.hp = hp;
         this.max_hp = max_hp;
+        this.exp = exp;
     }
 
 
