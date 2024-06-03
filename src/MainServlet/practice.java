@@ -45,11 +45,13 @@ public class practice extends HttpServlet {
             throws ServletException, IOException {
 
         String selectedValueStr = request.getParameter("hero_info");
+        System.out.println(selectedValueStr);
 
-        if (selectedValueStr == null) {
+        if(selectedValueStr == null || "null".equals(selectedValueStr)) {
             id = 1;
             System.out.println("id:"+id);
-        } else {
+        }
+        else {
             id = Integer.parseInt(selectedValueStr);
             System.out.println("id:"+id);
         }
