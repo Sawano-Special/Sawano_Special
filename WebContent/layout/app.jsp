@@ -26,16 +26,16 @@
   <br>          <%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
             </div>
 
-        <form method="POST"
-            action="${pageContext.request.contextPath}/practice">
+        <form method="POST" action="${pageContext.request.contextPath}/practice">
+        <!-- ここに隠しフィールドを追加 -->
+        <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero") %>">
 
-            <div class="stage1" name="stage1" value="stage1">
-            <button type="submit" style="border: none; background: none;"
-                name="battle1_start" id="battle1_start" value="battle1">
-                <img src="layout/battle-background1.jpg" alt="ステージ1"
-                    class="stage1-img">
-            </button>
-            </div>
+        <div class="stage1" name="stage1" value="stage1">
+        <button type="submit" style="border: none; background: none;"
+            name="battle1_start" id="battle1_start" value="battle1">
+            <img src="layout/battle-background1.jpg" alt="ステージ1" class="stage1-img">
+        </button>
+        </div>
         </form>
 
 
