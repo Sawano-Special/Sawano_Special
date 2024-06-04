@@ -10,14 +10,19 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
     integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://tonejs.github.io/build/Tone.min.js"></script>
+
 <script
     src="${pageContext.request.contextPath}/JavaScript/battle/stageselect.js"
     defer></script>
 <script
     src="${pageContext.request.contextPath}/JavaScript/battle/text3.js"
     defer></script>
+    <script
+    src="${pageContext.request.contextPath}/JavaScript/tone.js"
+    defer></script>
 </head>
-<body>
+<body onload="play_music()">
     <div class="layer">
 
         <div class="textbox">
@@ -41,6 +46,7 @@
 
         <form method="POST"
             action="${pageContext.request.contextPath}/practice2">
+            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero2") %>">
 
         <div class="stage2" name="stage2" value="stage2">
 
@@ -58,6 +64,7 @@
 
         <form method="POST"
             action="${pageContext.request.contextPath}/practice3">
+            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero3") %>">
         <div class="stage3" name="stage3" value="stage3">
 
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage3_unlocked"))) { %>
@@ -79,6 +86,7 @@
 
         <form method="POST"
             action="${pageContext.request.contextPath}/practice4">
+            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero4") %>">
         <div class="stage4" name="stage4" value="stage4">
 
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage4_unlocked"))) { %>
@@ -96,6 +104,7 @@
 
         <form method="POST"
             action="${pageContext.request.contextPath}/practice5">
+            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero5") %>">
         <div class="stage5" name="stage5" value="stage5">
 
             <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>

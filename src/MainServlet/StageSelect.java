@@ -52,6 +52,10 @@ public class StageSelect extends HttpServlet {
 
         // 取得したheroInfoの値をリクエスト属性に設定
         request.setAttribute("selectedHero", heroInfo);
+        request.setAttribute("selectedHero2", heroInfo);
+        request.setAttribute("selectedHero3", heroInfo);
+        request.setAttribute("selectedHero4", heroInfo);
+        request.setAttribute("selectedHero5", heroInfo);
 
         // stageselect1()メソッドの結果（例）をリクエスト属性に設定
         String[] message = meigen.stageselect1();
