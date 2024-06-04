@@ -1,15 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
 Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
 Integer enemy_hp = (Integer) request.getAttribute("enemy_hp");
 Integer hero_hp = (Integer) request.getAttribute("hero_hp");
+
+String imagePath = ""; // imagePathを初期化
+// hero_infoの値を取得
+Integer hero_info = (Integer) request.getAttribute("hero_info");
+// hero_infoの値に基づいてimagePathを設定
+if (hero_info == null || hero_info == 1) {
+	imagePath = "hero.png";
+} else if (hero_info == 2) {
+	imagePath = "hero1.jpg";
+} else if (hero_info == 3) {
+	imagePath = "hero2.jpg";
+}
 %>
-
-
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,9 +28,8 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 <link rel="stylesheet" href="<c:url value='/views1/battle1style.css' />">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
-    src="${pageContext.request.contextPath}/JavaScript/battle/hpUpdate.js"></script>
-<!-- <script
-    src="${pageContext.request.contextPath}/JavaScript/battle/text.js"></script> -->
+	src="${pageContext.request.contextPath}/JavaScript/battle/hpUpdate.js"></script>
+<!-- <script src="${pageContext.request.contextPath}/JavaScript/battle/text.js"></script> -->
 
 <script>
 $(document).ready(function() {
@@ -38,99 +46,90 @@ $(document).ready(function() {
 });
 </script>
 
-<script type="text/javascript">        // JSPの変数をJavaScriptに渡す
+<script type="text/javascript">
 var message = '<%=request.getAttribute("message")%>';
-var message2 = '<%=request.getAttribute("message2")%>';
-    console.log("JavaScriptの変数の値: " + message); // ここでさらにJavaScriptの処理を行う
+var message2 = '<%=request.getAttribute("message2")%>
+	';
+	console.log("JavaScriptの変数の値: " + message);
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const messages = [ message, message2 ]; // 表示するメッセージのリスト
-        let currentIndex = 0; // 現在のメッセージインデックス
-        const messageBox = document.getElementById('message-display');
-        const nextTextButton = document.getElementById('nextButton'); // 最初のメッセージを表示
-        messageBox.textContent = messages[currentIndex];
-        nextTextButton.addEventListener('click', function() {
-            currentIndex++; // インデックスを進める
-            if (currentIndex < messages.length) { // 次のメッセージを表示
-                messageBox.textContent = messages[currentIndex];
-            } else { // これ以上表示するメッセージがない場合、ボタンを無効にする
-                nextTextButton.disabled = true;
-            }
-        });
-    });
+	document.addEventListener('DOMContentLoaded', function() {
+		const messages = [ message, message2 ]; // 表示するメッセージのリスト
+		let currentIndex = 0; // 現在のメッセージインデックス
+		const messageBox = document.getElementById('message-display');
+		const nextTextButton = document.getElementById('nextButton'); // 最初のメッセージを表示
+		messageBox.textContent = messages[currentIndex];
+		nextTextButton.addEventListener('click', function() {
+			currentIndex++; // インデックスを進める
+			if (currentIndex < messages.length) { // 次のメッセージを表示
+				messageBox.textContent = messages[currentIndex];
+			} else { // これ以上表示するメッセージがない場合、ボタンを無効にする
+				nextTextButton.disabled = true;
+			}
+		});
+	});
 </script>
-
 
 </head>
 <body>
-    <div class="layer">
-        <div class="textbox">
-            <span id="message-display"><%=request.getAttribute("message")%></span>
-            <button id="nextButton">Next Message</button>
-        </div>
+	<div class="layer">
+		<div class="textbox">
+			<span id="message-display"><%=request.getAttribute("message")%></span>
+			<button id="nextButton">Next Message</button>
+		</div>
 
-        <div class="enemy">
-            <img src="<c:url value='/views1/slime.png' />" alt="相手のポケモン"
-                class="enemy-img">
-            <div class="hp-bar">
-                <!-- <div class="hp-fill" style="width: ${(enemy_current_hp >= 0) ? (100 * (enemy_hp - enemy_current_hp) / enemy_hp) : 0}%;"></div> -->
-                <div class="hp-fill"
-                    style="width: ${enemy_current_hp * 100/ enemy_hp}%;"></div>
+		<div class="enemy">
+			<img src="<c:url value='/views1/slime.png' />" alt="相手のポケモン"
+				class="enemy-img">
+			<div class="hp-bar">
+				<div class="hp-fill"
+					style="width: ${enemy_current_hp * 100 / enemy_hp}%;"></div>
+			</div>
+			<p>
+				HP: <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
+				/
+				<c:out value="${enemy_hp}" />
+			</p>
+		</div>
 
-            </div>
-            <!-- <p>HP: <c:out value="${(enemy_current_hp >= 0) ? (enemy_hp - enemy_current_hp) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>  -->
-            <p>
-                HP: <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
-                /
-                <c:out value="${enemy_hp}" />
-            </p>
-        </div>
+		<div class="player">
+			<img src="${pageContext.request.contextPath}/views1/<%= imagePath %>"
+				alt="自分のポケモン" class="player-img">
+			<div class="hp-bar">
+				<div class="hp-fill"
+					style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
+			</div>
+			<p>
+				HP:
+				<c:out value="${hero_current_hp}" />
+				/
+				<c:out value="${hero_hp}" />
+			</p>
+		</div>
 
-        <div class="player">
-            <img src="<c:url value='/views1/hero.png' />" alt="自分のポケモン"
-                class="player-img">
-            <div class="hp-bar">
-                <div class="hp-fill"
-                    style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
-            </div>
-            <p>
+		<form method="POST" action="/Sawano_special/practice">
+			<div class="attack">
+				<button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
+			</div>
+		</form>
 
-                HP:
-                <c:out value="${hero_current_hp}" />
-                /
-                <c:out value="${hero_hp}" />
-            </p>
-        </div>
+		<form method="POST" action="/Sawano_special/practice">
+			<div class="recover">
+				<button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
+			</div>
+		</form>
 
-        <form method="POST" action="/Sawano_special/practice">
-            <div class="attack">
-                <button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
-            </div>
-        </form>
+		<div class="escape">
+			<form action="${pageContext.request.contextPath}/StageSelect"
+				method="get">
+				<button type="submit">逃げる</button>
+			</form>
+		</div>
 
-        <form method="POST" action="/Sawano_special/practice">
-        <div class="recover">
-            <button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
-        </div>
-        </form>
-
-        <div class="escape">
-            <form action="${pageContext.request.contextPath}/StageSelect"
-                method="get">
-                <button type="submit">逃げる</button>
-            </form>
-        </div>
-
-
-
-        <form action="${pageContext.request.contextPath}/StageSelect"
-            method="get">
-            <button type="submit" id="stage-select-button">ステージ1クリア！！</button>
-        </form>
-
-
-    </div>
-
+		<form action="${pageContext.request.contextPath}/StageSelect"
+			method="get">
+			<button type="submit" id="stage-select-button">ステージ1クリア！！</button>
+		</form>
+	</div>
 </body>
 </html>
 
