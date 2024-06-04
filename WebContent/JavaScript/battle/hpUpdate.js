@@ -11,8 +11,10 @@ $(document).ready(function() {
     if (newEnemyHp < 0) {
       newEnemyHp = 0;
     }
+setTimeout(() => {
     enemyHpFill.css('width', (100 * newEnemyHp / maxEnemyHp) + '%');
     enemyHpText.text(newEnemyHp + ' / ' + maxEnemyHp);
+}, 5000);
 
     // 自分のHPを減らす
     var playerHpFill = $('.player .hp-fill');
