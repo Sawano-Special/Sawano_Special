@@ -20,7 +20,7 @@ Integer hero_hp = (Integer) request.getAttribute("hero_hp");
 <!-- <script
     src="${pageContext.request.contextPath}/JavaScript/battle/text.js"></script> -->
 
-    <script>
+<script>
 $(document).ready(function() {
     // 相手のHPを取得
     const enemyHp = parseInt($("#enemy-hp").text(), 10);
@@ -37,25 +37,28 @@ $(document).ready(function() {
 
 <script type="text/javascript">        // JSPの変数をJavaScriptに渡す
 var message = '<%=request.getAttribute("message")%>';
-var message2 = '<%=request.getAttribute("message2")%>';
-console.log("JavaScriptの変数の値: " + message);        // ここでさらにJavaScriptの処理を行う
+var message2 = '<%=request.getAttribute("message2")%>'
+var message3 = '<%=request.getAttribute("message3")%>';
+var message4 = '<%=request.getAttribute("message4")%>
+    ';
+    console.log("JavaScriptの変数の値: " + message); // ここでさらにJavaScriptの処理を行う
 
-document.addEventListener('DOMContentLoaded', function() {
-    const messages = [message, message2]; // 表示するメッセージのリスト
-    let currentIndex = 0; // 現在のメッセージインデックス
-    const messageBox = document.getElementById('message-display');
-    const nextTextButton = document.getElementById('nextButton');    // 最初のメッセージを表示
-    messageBox.textContent = messages[currentIndex];
-    nextTextButton.addEventListener('click', function() {
-        currentIndex++; // インデックスを進める
-        if (currentIndex < messages.length) {            // 次のメッセージを表示
-            messageBox.textContent = messages[currentIndex];
-        }else {            // これ以上表示するメッセージがない場合、ボタンを無効にする
-            nextTextButton.disabled = true;
-        }
-});
-});
-
+    document.addEventListener('DOMContentLoaded', function() {
+        const messages = [ message, message2, message3, message4 ]; // 表示するメッセージのリスト
+        let currentIndex = 0; // 現在のメッセージインデックス
+        const messageBox = document.getElementById('message-display');
+        const nextTextButton = document.getElementById('nextButton'); // 最初のメッセージを表示
+        messageBox.textContent = messages[currentIndex];
+        nextTextButton.addEventListener('click', function() {
+            currentIndex++; // インデックスを進める
+            if ((currentIndex < messages.length)
+                    && (messages[currentIndex] != null)) { // 次のメッセージを表示
+                messageBox.textContent = messages[currentIndex];
+            } else { // これ以上表示するメッセージがない場合、ボタンを無効にする
+                nextTextButton.disabled = true;
+            }
+        });
+    });
 </script>
 
 
@@ -72,15 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 class="enemy-img">
             <div class="hp-bar">
                 <!-- <div class="hp-fill" style="width: ${(enemy_current_hp >= 0) ? (100 * (enemy_hp - enemy_current_hp) / enemy_hp) : 0}%;"></div> -->
-                <div class="hp-fill" style="width: ${enemy_current_hp * 100/ enemy_hp}%;"></div>
+                <div class="hp-fill"
+                    style="width: ${enemy_current_hp * 100/ enemy_hp}%;"></div>
 
             </div>
             <!-- <p>HP: <c:out value="${(enemy_current_hp >= 0) ? (enemy_hp - enemy_current_hp) : enemy_hp}" /> / <c:out value="${enemy_hp}" /></p>  -->
             <p>
-            HP:
-            <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
-             /
-            <c:out value="${enemy_hp}" />
+                HP: <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
+                /
+                <c:out value="${enemy_hp}" />
             </p>
         </div>
 
@@ -88,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="<c:url value='/views2/hero.png' />" alt="自分のポケモン"
                 class="player-img">
             <div class="hp-bar">
-                <div class="hp-fill" style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
+                <div class="hp-fill"
+                    style="width: ${100 * hero_current_hp / hero_hp}%;"></div>
             </div>
             <p>
 
@@ -101,38 +105,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <form method="POST" action="/Sawano_special/practice2">
             <div class="attack">
-      <% if (Boolean.TRUE.equals(request.getAttribute("attack_locked"))) { %>
+                <%
+                if (Boolean.TRUE.equals(request.getAttribute("attack_locked"))) {
+                %>
                 <button disabled type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
-          <% } else { %>
-        <button  type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
-                <% } %>
+                <%
+                } else {
+                %>
+                <button type="submit" name="attack" id="attack" value="攻撃">攻撃する</button>
+                <%
+                }
+                %>
             </div>
         </form>
 
         <form method="POST" action="/Sawano_special/practice2">
-        <div class="recover">
-        <% if (Boolean.TRUE.equals(request.getAttribute("recovery_locked"))) { %>
-            <button disabled  type="submit" name="recovery" id="recovery" value="回復">回復する</button>
-            <% } else { %>
-            <button  type="submit" name="recovery" id="recovery" value="回復">回復する</button>
-             <% } %>
+            <div class="recover">
+                <%
+                if (Boolean.TRUE.equals(request.getAttribute("recovery_locked"))) {
+                %>
+                <button disabled type="submit" name="recovery" id="recovery"
+                    value="回復">回復する</button>
+                <%
+                } else {
+                %>
+                <button type="submit" name="recovery" id="recovery" value="回復">回復する</button>
+                <%
+                }
+                %>
 
-        </div>
+            </div>
         </form>
 
         <div class="escape">
             <form action="${pageContext.request.contextPath}/StageSelect"
                 method="get">
-                 <% if (Boolean.TRUE.equals(request.getAttribute("run_locked"))) { %>
+                <%
+                if (Boolean.TRUE.equals(request.getAttribute("run_locked"))) {
+                %>
                 <button disabled type="submit">逃げる</button>
-                <% } else { %>
+                <%
+                } else {
+                %>
                 <button type="submit">逃げる</button>
-                 <% } %>
+                <%
+                }
+                %>
             </form>
         </div>
 
-        <form action="${pageContext.request.contextPath}/StageSelect" method="get">
-        <button type="submit" id="stage-select-button">ステージクリア！！</button>
+        <form action="${pageContext.request.contextPath}/StageSelect"
+            method="get">
+            <button type="submit" id="stage-select-button">ステージクリア！！</button>
         </form>
 
 

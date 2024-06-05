@@ -41,17 +41,20 @@ $(document).ready(function() {
 <script type="text/javascript">        // JSPの変数をJavaScriptに渡す
 var message = '<%=request.getAttribute("message")%>';
 var message2 = '<%=request.getAttribute("message2")%>';
+var message3 = '<%=request.getAttribute("message3")%>';
+var message4 = '<%=request.getAttribute("message4")%>';
 console.log("JavaScriptの変数の値: " + message);        // ここでさらにJavaScriptの処理を行う
 
 document.addEventListener('DOMContentLoaded', function() {
-    const messages = [message, message2]; // 表示するメッセージのリスト
+    const messages = [message, message2,message3,message4]; // 表示するメッセージのリスト
     let currentIndex = 0; // 現在のメッセージインデックス
     const messageBox = document.getElementById('message-display');
     const nextTextButton = document.getElementById('nextButton');    // 最初のメッセージを表示
     messageBox.textContent = messages[currentIndex];
     nextTextButton.addEventListener('click', function() {
         currentIndex++; // インデックスを進める
-        if (currentIndex < messages.length) {            // 次のメッセージを表示
+        if ((currentIndex < messages.length)
+                && (messages[currentIndex] != null)) {            // 次のメッセージを表示
             messageBox.textContent = messages[currentIndex];
         }else {            // これ以上表示するメッセージがない場合、ボタンを無効にする
             nextTextButton.disabled = true;
