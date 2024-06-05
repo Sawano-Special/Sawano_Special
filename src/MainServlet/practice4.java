@@ -130,13 +130,17 @@ public class practice4 extends HttpServlet {
         String hero_name = hero_dto.getName();
         int hero_attack = hero.attack();
         int hero_speed = hero_dto.getSpeed();
+        String fin_ward = hero_dto.getFinish_word();
 
         String message = "";
         String message2 = "";
+        String message3 = "";
+        String message4 = "";
 
         String enemy_name = enemy_dto.getName();
         int enemy_attack = test_enemy.attack();
         int enemy_speed = enemy_dto.getSpeed();
+
 
         request.setAttribute("hero_name:", hero_name);
         request.setAttribute("hero_attack:", hero_attack);
@@ -208,10 +212,13 @@ public class practice4 extends HttpServlet {
                         //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                         message = meigen.meigen_battle_finish(hero_name, enemy_name);
                         message2 = exp_table.exp_update(id, stage, hero_name);
-                        exp.exp(id);
+                        message3 = exp.exp(id);
+                        message4 = fin_ward;
                         System.out.println(message);
                         request.setAttribute("message", message);
                         request.setAttribute("message2", message2);
+                        request.setAttribute("message3",message3);
+                        request.setAttribute("message4",message4);
                         request.getSession().setAttribute("stage"+next_stage+"_unlocked", true);
                         request.setAttribute("attack_locked", true);
                         request.setAttribute("recovery_locked", true);
@@ -254,10 +261,13 @@ public class practice4 extends HttpServlet {
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
                             message2 = exp_table.exp_update(id, stage,hero_name);
-                            exp.exp(id);
+                            message3 = exp.exp(id);
+                            message4 = fin_ward;
                             System.out.println(message);
                             request.setAttribute("message",message);
                             request.setAttribute("message2",message2);
+                            request.setAttribute("message3",message3);
+                            request.setAttribute("message4",message4);
                             request.getSession().setAttribute("stage"+next_stage+"_unlocked", true);
                             request.setAttribute("attack_locked", true);
                             request.setAttribute("recovery_locked", true);
@@ -281,10 +291,13 @@ public class practice4 extends HttpServlet {
                             //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                             message = meigen.meigen_battle_finish(hero_name, enemy_name);
                             message2 = exp_table.exp_update(id, stage, hero_name);
-                            exp.exp(id);
+                            message3 = exp.exp(id);
+                            message4 = fin_ward;
                             System.out.println(message);
                             request.setAttribute("message", message);
                             request.setAttribute("message2", message2);
+                            request.setAttribute("message3",message3);
+                            request.setAttribute("message4",message4);
                             request.getSession().setAttribute("stage"+next_stage+"_unlocked", true);
                             request.setAttribute("attack_locked", true);
                             request.setAttribute("recovery_locked", true);
@@ -327,10 +340,13 @@ public class practice4 extends HttpServlet {
                                 //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!!";
                                 message = meigen.meigen_battle_finish(hero_name, enemy_name);
                                 message2 = exp_table.exp_update(id, stage,hero_name);
-                                exp.exp(id);
+                                message3 = exp.exp(id);
+                                message4 = fin_ward;
                                 System.out.println(message);
                                 request.setAttribute("message",message);
                                 request.setAttribute("message2",message2);
+                                request.setAttribute("message3",message3);
+                                request.setAttribute("message4",message4);
                                 request.getSession().setAttribute("stage3_unlocked", true);
                                 request.setAttribute("attack_locked", true);
                                 request.setAttribute("recovery_locked", true);
@@ -375,8 +391,13 @@ public class practice4 extends HttpServlet {
                     //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!";
                     message = meigen.meigen_battle_finish(hero_name, enemy_name);
                     System.out.println(message);
+                    message2 = exp_table.exp_update(id, stage,hero_name);
+                    message3 = exp.exp(id);
+                    message4 = fin_ward;
                     request.setAttribute("message", message);
                     request.setAttribute("message2", message2);
+                    request.setAttribute("message3",message3);
+                    request.setAttribute("message4",message4);
                     request.getSession().setAttribute("stage"+next_stage+"_unlocked", true);
                     request.setAttribute("attack_locked", true);
                     request.setAttribute("recovery_locked", true);
