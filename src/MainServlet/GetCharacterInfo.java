@@ -3,6 +3,7 @@ package MainServlet;
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,9 +49,21 @@ public class GetCharacterInfo extends HttpServlet {
 
         int hero_attack = hero.attack();
         int hero_speed = hero_dto.getSpeed();
+        int hero_hp = hero_dto.getHp();
+        int hero_level = hero_dto.getLevel();
+
+        System.out.println(hero_attack);
+        System.out.println(hero_speed);
+        System.out.println(hero_hp);
+        System.out.println(hero_level);
 
         request.setAttribute("hero_attack:", hero_attack);
         request.setAttribute("hero_speed:", hero_speed);
+        request.setAttribute("hero_hp:", hero_hp);
+        request.setAttribute("hero_level:", hero_level);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/hero_inf/hero_info.jsp");
+        rd.forward(request, response);
 
 
     }

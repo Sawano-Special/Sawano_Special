@@ -31,6 +31,11 @@
   <br>          <%-- <span id="message-display"><%=request.getAttribute("jsonArray")%></span><br> --%>
             </div>
 
+        <form action="${pageContext.request.contextPath}/hero_inf/hero_info.jsp"
+                method="get">
+                <button type="submit">ゆうしゃのじょうほう</button>
+        </form>
+
         <form method="POST" action="${pageContext.request.contextPath}/practice">
         <!-- ここに隠しフィールドを追加 -->
         <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero") %>">
@@ -44,17 +49,15 @@
         </form>
 
 
-        <form method="POST"
-            action="${pageContext.request.contextPath}/practice2">
-            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero2") %>">
+        <form method="POST" action="${pageContext.request.contextPath}/practice2">
+        <!-- ここに隠しフィールドを追加 -->
+        <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero2") %>">
 
         <div class="stage2" name="stage2" value="stage2">
-
-            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage2_unlocked"))) { %>
+        <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage2_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
-                name="battle2_start" id="battle2_start" value="battle2">
-                <img src="layout/battle-background.png" alt="ステージ2"
-                    class="stage1-img">
+            name="battle2_start" id="battle2_start" value="battle2">
+            <img src="layout/battle-background.png" alt="ステージ2" class="stage1-img">
         </button>
             <% } else { %>
         <!-- <img src="layout/battle-background.png" alt="ステージ2" class="stage2-img"> -->
@@ -62,38 +65,30 @@
         </div>
         </form>
 
-        <form method="POST"
-            action="${pageContext.request.contextPath}/practice3">
-            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero3") %>">
-        <div class="stage3" name="stage3" value="stage3">
+        <form method="POST" action="${pageContext.request.contextPath}/practice3">
+        <!-- ここに隠しフィールドを追加 -->
+        <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero3") %>">
 
-            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage3_unlocked"))) { %>
+        <div class="stage3" name="stage3" value="stage3">
+        <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage3_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle3_start" id="battle3_start" value="battle3">
-                <img src="layout/stage3.jpg" alt="ステージ3"
-                    class="stage1-img">
+                <img src="layout/stage3.jpg" alt="ステージ3"class="stage1-img">
         </button>
             <% } else { %>
         <!-- <img src="layout/stage3.jpg" alt="ステージ3" class="stage3-img"> -->
             <% } %>
         </div>
         </form>
-        <form action="${pageContext.request.contextPath}/hero_inf/hero_info.jsp"
-                method="get">
-                <button type="submit">ゆうしゃのじょうほう</button>
-            </form>
-
 
         <form method="POST"
-            action="${pageContext.request.contextPath}/practice4">
-            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero4") %>">
+        action="${pageContext.request.contextPath}/practice4">
+        <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero4") %>">
         <div class="stage4" name="stage4" value="stage4">
-
-            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage4_unlocked"))) { %>
+        <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage4_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle4_start" id="battle4_start" value="battle4">
-                <img src="layout/stage4.jpg" alt="ステージ4"
-                    class="stage4-img">
+                <img src="layout/stage4.jpg" alt="ステージ4"class="stage4-img">
         </button>
             <% } else { %>
         <!-- <img src="layout/stage4.jpg" alt="ステージ4" class="stage4-img"> -->
@@ -102,23 +97,19 @@
         </form>
 
 
-        <form method="POST"
-            action="${pageContext.request.contextPath}/practice5">
-            <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero5") %>">
+        <form method="POST"action="${pageContext.request.contextPath}/practice5">
+        <input type="hidden" name="hero_info" value="<%= request.getAttribute("selectedHero5") %>">
         <div class="stage5" name="stage5" value="stage5">
-
-            <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>
+        <% if (Boolean.TRUE.equals(request.getSession().getAttribute("stage5_unlocked"))) { %>
         <button type="submit" style="border: none; background: none;"
                 name="battle5_start" id="battle5_start" value="battle5">
-                <img src="layout/stage5.jpg" alt="ステージ5"
-                    class="stage5-img">
+                <img src="layout/stage5.jpg" alt="ステージ5"class="stage5-img">
         </button>
             <% } else { %>
         <!-- <img src="layout/stage5.jpg" alt="ステージ5" class="stage5-img"> -->
             <% } %>
         </div>
         </form>
-
 
     </div>
 
