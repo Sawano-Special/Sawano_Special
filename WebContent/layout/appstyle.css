@@ -19,7 +19,7 @@
 .stage1{
   /* ボックス配置指定 */
   position: absolute;
-  top: 10px;
+  top: 30px;
   left:400px;
   /*transition: box-shadow 0.3s ease-in-out;*/
 }
