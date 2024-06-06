@@ -39,6 +39,21 @@ if (hero_info == null || hero_info == 1) {
 <!-- <script src="${pageContext.request.contextPath}/JavaScript/battle/hpUpdate.js"></script> -->
 <!-- <script src="${pageContext.request.contextPath}/JavaScript/battle/text.js"></script> -->
 
+<script>
+$(document).ready(function() {
+    // 相手のHPを取得
+    const enemyHp = parseInt($("#enemy-hp").text(), 10);
+
+    // 相手のHPが0より大きい場合、ステージ選択画面に戻るボタンを無効にする
+    if (enemyHp > 0) {
+        $("#stage-select-button").prop('disabled', true);
+    } else {
+        // HPが0またはそれ以下の場合、ボタンを有効にする
+        $("#stage-select-button").prop('disabled', false);
+    }
+});
+</script>
+
 <script type="text/javascript">
 var message = '<%=request.getAttribute("message")%>';
 var message2 = '<%=request.getAttribute("message2")%>';
@@ -58,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageBox = document.getElementById('message-display');
     const nextTextButton = document.getElementById('nextButton');
     const hero_display_hp = document.getElementById('hero-hp');
-    const enemy_display_hp = document.getElementById('enemy-hp');
+    const enemy_display_hp = document.getElementById('enemy_display_hp');
     const attack = document.getElementById('attack');
     const recovery = document.getElementById('recovery');
     const run_away = document.getElementById('run_away');
@@ -246,21 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-<script>
-$(document).ready(function() {
-    // 相手のHPを取得
-    const enemyHp = parseInt($("#enemy-hp").text(), 10);
-
-    // 相手のHPが0より大きい場合、ステージ選択画面に戻るボタンを無効にする
-    if (enemyHp > 0) {
-        $("#stage-select-button").prop('disabled', true);
-    } else {
-        // HPが0またはそれ以下の場合、ボタンを有効にする
-        $("#stage-select-button").prop('disabled', false);
-    }
-});
-</script>
-
 </head>
 <body>
     <div class="layer">
@@ -275,7 +275,7 @@ $(document).ready(function() {
             <div class="hp-bar">
                 <div class="hp-fill" ></div>
             </div>
-            <p id="enemy-hp">
+            <p id="enemy_display_hp">
                 HP: <span id="enemy-hp"><c:out value="${enemy_current_hp}" /></span>
                 /
                 <c:out value="${enemy_hp}" />
