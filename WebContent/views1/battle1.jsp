@@ -126,21 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 //}
             } else {
                 nextTextButton.disabled = true; // これ以上表示するメッセージがない場合、ボタンを無効にする
-                if(enemy_current_hp <= 0){
-                    attack.disabled = true;
-                    recovery.disabled = true;
-                    run_away.disabled = true;
-                   // console.log('適用されてない');
-                }else if(hero_current_hp <= 0){
-                    attack.disabled = true;
-                    recovery.disabled = true;
-                    run_away.disabled = false;
-
-                }else{
-                    attack.disabled = false;
-                    recovery.disabled = false;
-                    run_away.disabled = false;
-                }
+                attack.disabled = false;
+                recovery.disabled = false;
+                run_away.disabled = false;
                 console.log('適用されてない');
             }
         });
