@@ -131,6 +131,8 @@ public class practice extends HttpServlet {
         int hero_attack = hero.attack();
         int hero_speed = hero_dto.getSpeed();
 
+       System.out.println(hero_attack);
+
         String message = "";
         String message2 = "";
 
@@ -138,10 +140,12 @@ public class practice extends HttpServlet {
         int enemy_attack = test_enemy.attack();
         int enemy_speed = enemy_dto.getSpeed();
 
-        request.setAttribute("hero_name:", hero_name);
-        request.setAttribute("hero_attack:", hero_attack);
-        request.setAttribute("enemy_name:", enemy_name);
-        request.setAttribute("enemy_attack:", enemy_attack);
+        request.setAttribute("hero_name", hero_name);
+        request.setAttribute("hero_attack", hero_attack);
+        request.setAttribute("hero_speed", hero_speed);
+        request.setAttribute("enemy_name", enemy_name);
+        request.setAttribute("enemy_attack", enemy_attack);
+        request.setAttribute("enemy_speed", enemy_speed);
 
         int hero_hp = hero_dto.getHp();
         System.out.println("IF前：" + hero_hp);
@@ -154,6 +158,12 @@ public class practice extends HttpServlet {
 
         //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
+        //スピードが同じときのランダム変数
+        Random rand = new Random();
+        int speed_ave = rand.nextInt(10) + 1;
+        request.setAttribute("speed_ave", speed_ave);
+
+
         //リクエストパラメータを受けとる
 
         String attack_action = request.getParameter("attack");
@@ -164,6 +174,9 @@ public class practice extends HttpServlet {
 
         Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
         Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
+
+        request.setAttribute("before_hero_hp", hero_current_hp);
+        request.setAttribute("before_enemy_hp", enemy_current_hp);
 
         System.out.println("IF前：" + enemy_current_hp);
         System.out.println("IF前：" + hero_current_hp);
@@ -269,8 +282,6 @@ public class practice extends HttpServlet {
 
                 } else {
                     //スピードが同じのため、ランダムで5以下の場合ヒーローが先に攻撃。6以上の場合エネミーが先に攻撃。
-                    Random rand = new Random();
-                    int speed_ave = rand.nextInt(10) + 1;
 
                     if (speed_ave <= 5) {
                         //ヒーロー先に攻撃
