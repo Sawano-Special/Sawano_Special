@@ -22,9 +22,9 @@ Integer hero_info = (Integer) request.getAttribute("hero_info");
 if (hero_info == null || hero_info == 1) {
     imagePath = "hero.png";
 } else if (hero_info == 2) {
-    imagePath = "hero1.jpg";
+    imagePath = "hero1.png";
 } else if (hero_info == 3) {
-    imagePath = "hero2.jpg";
+    imagePath = "hero2.png";
 }
 %>
 
