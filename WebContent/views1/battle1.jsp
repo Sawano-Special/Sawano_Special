@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("第1メッセージ!!");
 
         console.log("${enemy_current_hp}");
-        if(${before_hero_hp} == "null"){
+        if(${before_hero_hp} === "null"){
         updateHpBar('.player .hp-fill','${hero_hp}', '${hero_hp}');
         hero_display_hp.innerHTML = 'HP:<c:out value="${hero_hp}" />/<c:out value="${hero_hp}" />';
         }else{
@@ -126,9 +126,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 //}
             } else {
                 nextTextButton.disabled = true; // これ以上表示するメッセージがない場合、ボタンを無効にする
-                attack.disabled = false;
-                recovery.disabled = false;
-                run_away.disabled = false;
+                if(enemy_current_hp <= 0){
+                    attack.disabled = true;
+                    recovery.disabled = true;
+                    run_away.disabled = true;
+                   // console.log('適用されてない');
+                }else if(hero_current_hp <= 0){
+                    attack.disabled = true;
+                    recovery.disabled = true;
+                    run_away.disabled = false;
+
+                }else{
+                    attack.disabled = false;
+                    recovery.disabled = false;
+                    run_away.disabled = false;
+                }
                 console.log('適用されてない');
             }
         });
@@ -140,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("第1メッセージ!!");
 
         console.log("${hero_current_hp}");
-        if(${before_enemy_hp} == "null"){
+        if(${before_enemy_hp} === "null"){
         updateHpBar('.player .hp-fill','${enemy_hp}', '${enemy_hp}');
         enemy_display_hp.innerHTML = 'HP:<c:out value="${enemy_hp}" />/<c:out value="${enemy_hp}" />';
         }else{
@@ -182,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("第1メッセージ!!");
 
             console.log("${enemy_current_hp}");
-            if(${before_hero_hp} == "null"){
+            if(${before_hero_hp} === "null"){
             updateHpBar('.player .hp-fill','${hero_hp}', '${hero_hp}');
             hero_display_hp.innerHTML = 'HP:<c:out value="${hero_hp}" />/<c:out value="${hero_hp}" />';
             }else{
@@ -222,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("第1メッセージ!!");
 
             console.log("${hero_current_hp}");
-            if(${before_enemy_hp} == "null"){
+            if(${before_enemy_hp} === "null"){
             updateHpBar('.player .hp-fill','${enemy_hp}', '${enemy_hp}');
             enemy_display_hp.innerHTML = 'HP:<c:out value="${enemy_hp}" />/<c:out value="${enemy_hp}" />';
             }else{
