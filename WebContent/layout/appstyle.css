@@ -28,7 +28,7 @@
 .stage2{
   /* ボックス配置指定 */
   position: absolute;
-  top: 200px;
+  top: 220px;
   left:100px;
   /* transition: box-shadow 0.3s ease-in-out; */
 }
@@ -37,7 +37,7 @@
 .stage3{
   /* ボックス配置指定 */
   position: absolute;
-  top: 200px;
+  top: 220px;
   left:700px;
   /*transition: box-shadow 0.3s ease-in-out;*/
 }
@@ -55,7 +55,7 @@
 .stage5{
   /* ボックス配置指定 */
   position: absolute;
-  top: 180px;
+  top: 190px;
   left:350px;
   /*transition: box-shadow 0.3s ease-in-out;*/
 }
@@ -102,7 +102,7 @@
 
 .textbox {
     position: absolute;
-    width: 40%; /* テキストボックスの幅 */
+    width: 33%; /* テキストボックスの幅 */
     height: 100px; /* テキストボックスの高さ */
     top: 70%;
     left: 65%;
@@ -118,6 +118,7 @@
     cursor: pointer; /* マウスカーソルをポインターに変更 */
 }
 .textbox #message-display {
+    position: absolute;
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
@@ -126,6 +127,9 @@
   width: 400px;
   height: 200px;
  text-align: left;
+     top: 30%;
+    left: 5%;
+ color: red;
 
 }
 

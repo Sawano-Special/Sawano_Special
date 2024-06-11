@@ -1,9 +1,5 @@
-var messages = ["やぁ！", "澤野の世界へようこそ！", "この世界はさわのスペシャルといって悪の魔神、"
-	,"かっちゃんとたつのーりが支配する悪い世界なん\nだ！","そんな悪の魔神を倒すべく3人の戦士を紹介しよ\nう！","1人目はたつなみ！"
-	,"彼はミスタードラゴンズの\n1人で、ドラゴンズのリーダーなんだ！","2人目は細川！","中日ドラゴンズの期待のホープだ！"
-	,"そして3人目は...","さわの！君自身だ！","君は2人の戦士とともに、悪を倒してもらう！"
-	,"モテモテの未来もそう遠くないだろう！","ステージ1から順にボスを倒し、世界の平和を取\nり戻してくれ！","さわのこうき！頼んだぞ！"
-	,"上にあるステージ1に挑戦だ！"];
+var messages = ["エルドリス帝国が大変だ。", "魔王軍が攻めこんできた。", "このままじゃこの国は滅びてしまう。"
+    ,"勇者パーティの皆さん","魔王軍を撃退してください！","気を付けて行ってらっしゃい！"];
     var currentIndex = 0;
     var isDisplaying = false;
     var needMessageSkip = false;
@@ -39,9 +35,9 @@ var messages = ["やぁ！", "澤野の世界へようこそ！", "この世�
 
     function displayNextMessage() {
       
-	if(currentIndex < 15){
-		if (!isDisplaying){
-		isDisplaying = true;
+    if(currentIndex < 15){
+        if (!isDisplaying){
+        isDisplaying = true;
         clearMessage();
         displayMessage(messages[currentIndex]);
         currentIndex = currentIndex + 1;
@@ -49,16 +45,16 @@ var messages = ["やぁ！", "澤野の世界へようこそ！", "この世�
       else {
         needMessageSkip = true;
       }
-	}else{
-		if (!isDisplaying){
-		isDisplaying = true;
+    }else{
+        if (!isDisplaying){
+        isDisplaying = true;
         clearMessage();
         displayMessage(messages[currentIndex]);
       }
       else {
         needMessageSkip = true;
       }
-	}
+    }
         
     }
 

@@ -33,7 +33,7 @@
 
         <form action="${pageContext.request.contextPath}/hero_inf/hero_info.jsp"
                 method="get">
-                <button type="submit">ゆうしゃのじょうほう</button>
+                <button type="submit">キャラクター選択</button>
         </form>
 
         <form method="POST" action="${pageContext.request.contextPath}/practice">

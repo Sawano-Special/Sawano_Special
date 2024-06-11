@@ -62,7 +62,7 @@ $(document).ready(function() {
         if (hero_info == 1) {
             newData = [80, 200, 200];
         } else if (hero_info == 2) {
-            newData = [100, 150, 150];
+            newData = [150, 120, 150];
         } else if (hero_info == 3) {
             newData = [80, 180, 250];
         }

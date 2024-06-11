@@ -22,9 +22,9 @@ Integer hero_info = (Integer) request.getAttribute("hero_info");
 if (hero_info == null || hero_info == 1) {
     imagePath = "hero.png";
 } else if (hero_info == 2) {
-    imagePath = "hero1.jpg";
+    imagePath = "hero1.png";
 } else if (hero_info == 3) {
-    imagePath = "hero2.jpg";
+    imagePath = "hero2.png";
 }
 %>
 
@@ -57,6 +57,17 @@ $(document).ready(function() {
 <script type="text/javascript">
 var message = '<%=request.getAttribute("message")%>';
 var message2 = '<%=request.getAttribute("message2")%>';
+var message3 = '<%=request.getAttribute("message3")%>';
+var message4 = '<%=request.getAttribute("message4")%>';
+
+if(message3 == "null"){
+    message3 = "";
+    console.log("message3"+message3);
+}
+if(message4 == "null"){
+    message4 = "次のターン";
+    console.log("message4"+message4);
+}
 
 console.log("JavaScriptの変数の値: " + message);
 console.log("JavaScriptの変数の値: " + message2);
@@ -68,7 +79,7 @@ function updateHpBar(hpBarId, currentHp, maxHp) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const messages = [message, message2]; // 表示するメッセージのリスト
+    const messages = [message, message2,message3,message4]; // 表示するメッセージのリスト
     let currentIndex = 0; // 現在のメッセージインデックス
     const messageBox = document.getElementById('message-display');
     const nextTextButton = document.getElementById('nextButton');

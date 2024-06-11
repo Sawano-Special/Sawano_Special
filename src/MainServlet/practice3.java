@@ -132,6 +132,8 @@ public class practice3 extends HttpServlet {
         int hero_speed = hero_dto.getSpeed();
         String fin_ward = hero_dto.getFinish_word();
 
+       System.out.println(hero_attack);
+
         String message = "";
         String message2 = "";
         String message3 = "";
@@ -141,11 +143,12 @@ public class practice3 extends HttpServlet {
         int enemy_attack = test_enemy.attack();
         int enemy_speed = enemy_dto.getSpeed();
 
-
-        request.setAttribute("hero_name:", hero_name);
-        request.setAttribute("hero_attack:", hero_attack);
-        request.setAttribute("enemy_name:", enemy_name);
-        request.setAttribute("enemy_attack:", enemy_attack);
+        request.setAttribute("hero_name", hero_name);
+        request.setAttribute("hero_attack", hero_attack);
+        request.setAttribute("hero_speed", hero_speed);
+        request.setAttribute("enemy_name", enemy_name);
+        request.setAttribute("enemy_attack", enemy_attack);
+        request.setAttribute("enemy_speed", enemy_speed);
 
         int hero_hp = hero_dto.getHp();
         System.out.println("IF前：" + hero_hp);
@@ -158,6 +161,12 @@ public class practice3 extends HttpServlet {
 
         //Enemy_damage enemy_damage = new Enemy_damage(enmey_damage_max);
 
+        //スピードが同じときのランダム変数
+        Random rand = new Random();
+        int speed_ave = rand.nextInt(10) + 1;
+        request.setAttribute("speed_ave", speed_ave);
+
+
         //リクエストパラメータを受けとる
 
         String attack_action = request.getParameter("attack");
@@ -168,6 +177,9 @@ public class practice3 extends HttpServlet {
 
         Integer enemy_current_hp = (Integer) request.getSession().getAttribute("enemy_current_hp");
         Integer hero_current_hp = (Integer) request.getSession().getAttribute("hero_current_hp");
+
+        request.setAttribute("before_hero_hp", hero_current_hp);
+        request.setAttribute("before_enemy_hp", enemy_current_hp);
 
         System.out.println("IF前：" + enemy_current_hp);
         System.out.println("IF前：" + hero_current_hp);
@@ -214,6 +226,7 @@ public class practice3 extends HttpServlet {
                         message2 = exp_table.exp_update(id, stage, hero_name);
                         message3 = exp.exp(id);
                         message4 = fin_ward;
+                        exp.exp(id);
                         System.out.println(message);
                         request.setAttribute("message", message);
                         request.setAttribute("message2", message2);
@@ -231,6 +244,7 @@ public class practice3 extends HttpServlet {
                         System.out.println(message);
                         request.setAttribute("message", message);
                         request.setAttribute("message2", message2);
+
                     } else {
                         hero_current_hp = hp_calc.hero_hp_calc(enemy_attack, hero_current_hp);
                         message = meigen.meigen_hero_damage(hero_name, hero_attack);
@@ -279,8 +293,6 @@ public class practice3 extends HttpServlet {
 
                 } else {
                     //スピードが同じのため、ランダムで5以下の場合ヒーローが先に攻撃。6以上の場合エネミーが先に攻撃。
-                    Random rand = new Random();
-                    int speed_ave = rand.nextInt(10) + 1;
 
                     if (speed_ave <= 5) {
                         //ヒーロー先に攻撃
@@ -390,10 +402,10 @@ public class practice3 extends HttpServlet {
                     enemy_current_hp = 0;
                     //message = hero_name+"は"+ enemy_name +"とのバトルに勝利しました!!";
                     message = meigen.meigen_battle_finish(hero_name, enemy_name);
-                    System.out.println(message);
                     message2 = exp_table.exp_update(id, stage,hero_name);
                     message3 = exp.exp(id);
                     message4 = fin_ward;
+                    System.out.println(message);
                     request.setAttribute("message", message);
                     request.setAttribute("message2", message2);
                     request.setAttribute("message3",message3);
@@ -468,7 +480,7 @@ public class practice3 extends HttpServlet {
             request.getSession().setAttribute("hero_current_hp", hero_current_hp);
 
             //message ="野生の"+enemy_dto.getName()+"が現れました!!";
-            message = meigen.meigen_battle_start(enemy_name, 1);
+            message = meigen.meigen_battle_start(enemy_name, stage);
 
             request.setAttribute("message", message);
             request.setAttribute("message2", message2);
